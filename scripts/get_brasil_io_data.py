@@ -80,7 +80,7 @@ def main(api_key):
             'last_available_confirmed_per_100k_inhabitants',
             'last_available_deaths', 'state', 'new_confirmed', 'new_deaths'
         ])
-        return
+        
         logging.info('Coletando os dados de Acarape...')
         filters_Acarape = {"state": "CE", "is_last": False, "city": "Acarape"}
         data_Acarape = api.data(dataset_slug, table_name, filters_Acarape)
