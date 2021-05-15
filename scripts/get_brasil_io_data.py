@@ -1,13 +1,10 @@
 import csv
-import gzip
-import io
 import json
 from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
 import os
 import sys
 import logging
-import subprocess
 
 logging.basicConfig(level=logging.DEBUG)
 
