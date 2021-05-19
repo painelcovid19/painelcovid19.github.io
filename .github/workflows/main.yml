@@ -3,7 +3,7 @@ name: CreateCSV
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 0 0 * *'
+    - cron: '33 0 * * *'
 
 jobs:
   get_brasil_io_data_and_push:
