@@ -86,17 +86,11 @@ def main(api_key):
         # criando uma array com todos os filtros
         filters = [filters_Acarape,filters_Redencao, filters_STF ]
 
-        # array dos loggins 
-        coletaDados = ['Coletando os dados de Acarape...', 
-        'Coletando os dados de Redenção...', 
-        'Coletando os dados de São Francisco do Conde...']
-
         # funcao busca dados, recebendo como parametro a array dos filtros
         def buscaDados(filters):
-
-            for cont in range(0,3):
-                logging.info(coletaDados[cont])
-                data = api.data(dataset_slug, table_name, filters[cont])
+            for filter in filters:
+                logging.info(f"Coletando os dados de ${filter['city']}...")
+                data = api.data(dataset_slug, table_name, filter)
                 for row in data:
                     city = row['city']
                     city_ibge_code = row['city_ibge_code']
