@@ -89,7 +89,7 @@ def main(api_key):
         # funcao busca dados, recebendo como parametro a array dos filtros
         def buscaDados(filters):
             for filter in filters:
-                logging.info(f"Coletando os dados de ${filter['city']}...")
+                logging.info(f"Coletando os dados de {filter['city']}...")
                 data = api.data(dataset_slug, table_name, filter)
                 for row in data:
                     city = row['city']
