@@ -77,76 +77,44 @@ def main(api_key):
             'last_available_confirmed_per_100k_inhabitants',
             'last_available_deaths', 'state', 'new_confirmed', 'new_deaths'
         ])
-        
-        logging.info('Coletando os dados de Acarape...')
+
+        # criando os filtros para cada cidade
         filters_Acarape = {"state": "CE", "is_last": False, "city": "Acarape"}
-        data_Acarape = api.data(dataset_slug, table_name, filters_Acarape)
-        for row in data_Acarape:
-            city = row['city']
-            city_ibge_code = row['city_ibge_code']
-            date = row['date']
-            last_available_confirmed = row['last_available_confirmed']
-            last_available_confirmed_per_100k_inhabitants = row[
-                'last_available_confirmed_per_100k_inhabitants']
-            last_available_deaths = row['last_available_deaths']
-            state = row['state']
-            new_confirmed = row['new_confirmed']
-            new_deaths = row['new_deaths']
-            csv_write.writerow([
-                city, city_ibge_code, date, last_available_confirmed,
-                last_available_confirmed_per_100k_inhabitants,
-                last_available_deaths, state, new_confirmed, new_deaths
-            ])
+        filters_Redencao = {"state": "CE", "is_last": False, "city": "Redenção"}
+        filters_STF = {"state": "BA", "is_last": False,"city": "São Francisco do Conde"}
 
-        logging.info('Coletando os dados de São Francisco do Conde...')
-        filters_SFC = {
-            "state": "BA",
-            "is_last": False,
-            "city": "São Francisco do Conde"
-        }
-        data_STF = api.data(dataset_slug, table_name, filters_SFC)
-        for row in data_STF:
-            city = row['city']
-            city_ibge_code = row['city_ibge_code']
-            date = row['date']
-            last_available_confirmed = row['last_available_confirmed']
-            last_available_confirmed_per_100k_inhabitants = row[
-                'last_available_confirmed_per_100k_inhabitants']
-            last_available_deaths = row['last_available_deaths']
-            state = row['state']
-            new_confirmed = row['new_confirmed']
-            new_deaths = row['new_deaths']
-            csv_write.writerow([
-                city, city_ibge_code, date, last_available_confirmed,
-                last_available_confirmed_per_100k_inhabitants,
-                last_available_deaths, state, new_confirmed, new_deaths
-            ])
+        # criando uma array com todos os filtros
+        filters = [filters_Acarape,filters_Redencao, filters_STF ]
 
-        logging.info('Coletando os dados de Redenção...')
-        filters_Redencao = {
-            "state": "CE",
-            "is_last": False,
-            "city": "Redenção"
-        }
-        data_Redencao = api.data(dataset_slug, table_name, filters_Redencao)
-        for row in data_Redencao:
-            city = row['city']
-            city_ibge_code = row['city_ibge_code']
-            date = row['date']
-            last_available_confirmed = row['last_available_confirmed']
-            last_available_confirmed_per_100k_inhabitants = row[
-                'last_available_confirmed_per_100k_inhabitants']
-            last_available_deaths = row['last_available_deaths']
-            state = row['state']
-            new_confirmed = row['new_confirmed']
-            new_deaths = row['new_deaths']
-            csv_write.writerow([
-                city, city_ibge_code, date, last_available_confirmed,
-                last_available_confirmed_per_100k_inhabitants,
-                last_available_deaths, state, new_confirmed, new_deaths
-            ])
+        # array dos loggins 
+        coletaDados = ['Coletando os dados de Acarape...', 
+        'Coletando os dados de Redenção...', 
+        'Coletando os dados de São Francisco do Conde...']
+
+        # funcao busca dados, recebendo como parametro a array dos filtros
+        def buscaDados(filters):
+
+            for cont in range(0,3):
+                logging.info(coletaDados[cont])
+                data = api.data(dataset_slug, table_name, filters[cont])
+                for row in data:
+                    city = row['city']
+                    city_ibge_code = row['city_ibge_code']
+                    date = row['date']
+                    last_available_confirmed = row['last_available_confirmed']
+                    last_available_confirmed_per_100k_inhabitants = row[
+                        'last_available_confirmed_per_100k_inhabitants']
+                    last_available_deaths = row['last_available_deaths']
+                    state = row['state']
+                    new_confirmed = row['new_confirmed']
+                    new_deaths = row['new_deaths']
+                    csv_write.writerow([city, city_ibge_code, date, last_available_confirmed,
+                                        last_available_confirmed_per_100k_inhabitants, last_available_deaths,
+                                        state, new_confirmed, new_deaths])
+        buscaDados(filters)
 
     logging.info('Dados coletados!')
+
 
 
 if __name__ == "__main__":
