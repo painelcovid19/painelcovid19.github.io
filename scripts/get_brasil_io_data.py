@@ -108,7 +108,7 @@ def main(api_key):
         buscaDados(filters)
 
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-    with open('dados/df_dados_acumulados.csv', 'w', newline='',
+    with open('data/df_dados_acumulados.csv', 'w', newline='',
              encoding='utf-8') as csvDadosAcumulados:
         dadosAcumulados= csv.writer(csvDadosAcumulados)
         dadosAcumulados.writerow(['city', 'city_ibge_code', 'date', 'last_available_confirmed',
