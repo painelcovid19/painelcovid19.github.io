@@ -112,8 +112,9 @@ def main(api_key):
              encoding='utf-8') as csvDadosAcumulados:
         dadosAcumulados= csv.writer(csvDadosAcumulados)
         dadosAcumulados.writerow(['city', 'city_ibge_code', 'date', 'last_available_confirmed',
-             'last_available_confirmed_per_100k_inhabitants', 'last_available_deaths',
-             'state', 'new_confirmed', 'new_deaths'])
+                            'last_available_confirmed_per_100k_inhabitants','last_available_deaths_per_100k_inhabitants',
+                            'estimated_population_2019', 'last_available_deaths',
+                            'state', 'new_confirmed', 'new_deaths'])
         
         codigosIBG_CE = [2309458, 2301950, 2300150,
                 2311603, 2310100, 2301208, 2302107, 2305100,
@@ -136,12 +137,15 @@ def main(api_key):
                     last_available_confirmed = row['last_available_confirmed']
                     last_available_confirmed_per_100k_inhabitants = row[
                         'last_available_confirmed_per_100k_inhabitants']
+                    estimated_population_2019 = row["estimated_population_2019"]
                     last_available_deaths = row['last_available_deaths']
                     state = row['state']
                     new_confirmed = row['new_confirmed']
                     new_deaths = row['new_deaths']
+                    last_available_deaths_per_100k_inhabitants = round((last_available_deaths / estimated_population_2019 * 100000), 4)
                     dadosAcumulados.writerow([city, city_ibge_code, date, last_available_confirmed,
-                                        last_available_confirmed_per_100k_inhabitants, last_available_deaths,
+                                        last_available_confirmed_per_100k_inhabitants,last_available_deaths_per_100k_inhabitants,
+                                        estimated_population_2019,last_available_deaths,
                                         state, new_confirmed, new_deaths])
 
         # pegando os dados acumulados das cidades da Bahia
@@ -157,12 +161,15 @@ def main(api_key):
                     last_available_confirmed = row['last_available_confirmed']
                     last_available_confirmed_per_100k_inhabitants = row[
                         'last_available_confirmed_per_100k_inhabitants']
+                    estimated_population_2019 = row["estimated_population_2019"]
                     last_available_deaths = row['last_available_deaths']
                     state = row['state']
                     new_confirmed = row['new_confirmed']
                     new_deaths = row['new_deaths']
+                    last_available_deaths_per_100k_inhabitants = round((last_available_deaths / estimated_population_2019 * 100000), 4)
                     dadosAcumulados.writerow([city, city_ibge_code, date, last_available_confirmed,
-                                        last_available_confirmed_per_100k_inhabitants, last_available_deaths,
+                                        last_available_confirmed_per_100k_inhabitants,last_available_deaths_per_100k_inhabitants,
+                                        estimated_population_2019,last_available_deaths,
                                         state, new_confirmed, new_deaths])
     logging.info('Dados coletados!')
 
