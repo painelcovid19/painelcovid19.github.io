@@ -15,6 +15,9 @@ jobs:
       - name: Retrieve Brasil.IO data
         run: python ./scripts/get_brasil_io_data.py ${{ secrets.BRASIL_IO_API_KEY }}
 
+      - name: gerating html file 
+        run: python ./scripts/html.py >> ../index.html 
+
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
