@@ -12,8 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: installing dependencies
+        run: |
+          pip install plotly==4.14.3
+          pip install pandas
+          pip install dominate
+      
       - name: Retrieve Brasil.IO data
         run: python ./scripts/get_brasil_io_data.py ${{ secrets.BRASIL_IO_API_KEY }}
+        
+      - name:gerating html file
+        run: python ./scripts/html.py >> ./index.html
 
       - name: Commit and Push
         run: |
