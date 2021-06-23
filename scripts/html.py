@@ -13,11 +13,6 @@ df_redencao = df.loc[(df['city_ibge_code'] == 2311603)]
 df_sfc = df.loc[(df['city_ibge_code'] == 2929206)]
 df_acarape = df.loc[(df['city_ibge_code'] == 2300150)]
 
-colors = {
-    'background': '#111111',
-    'text': '#7FDBFF'
-}
-
 redencao = px.line(
     df_redencao,
     x="date",
@@ -28,8 +23,7 @@ redencao = px.line(
     title='Confirmados Diários de Redenção',
     yaxis={'title': 'Casos Confirmados'},
     xaxis={'title': ''},
-    template="plotly_dark",
-    font_color=colors['text']
+    template="plotly_white",
 )
 
 redencao_obitos = px.line(
@@ -42,8 +36,7 @@ redencao_obitos = px.line(
     title='Óbitos acumulados De Redenção',
     yaxis={'title': 'Óbitos Diários'},
     xaxis={'title': ''},
-    template="plotly_dark",
-    font_color=colors['text']
+    template="plotly_white",
 )
 
 acarape = px.line(
@@ -56,8 +49,7 @@ acarape = px.line(
     title='Confirmados Diários De Acarape',
     yaxis={'title': 'Casos Confirmados'},
     xaxis={'title': ''},
-    template="plotly_dark",
-    font_color=colors['text']
+    template="plotly_white",
 )
 
 acarape_obitos = px.line(
@@ -70,8 +62,7 @@ acarape_obitos = px.line(
     title='Óbitos Acumulados De Acarape',
     yaxis={'title': 'Óbitos Diários'},
     xaxis={'title': ''},
-    template="plotly_dark",
-    font_color=colors['text']
+    template="plotly_white",
 )
 
 sfc = px.line(
@@ -84,8 +75,7 @@ sfc = px.line(
     title='Confirmados Diários De São Francisco do Conde',
     yaxis={'title': 'Casos'},
     xaxis={'title': ''},
-    template="plotly_dark",
-    font_color=colors['text']
+    template="plotly_white",
 )
 
 sfc_obitos = px.line(
@@ -98,8 +88,7 @@ sfc_obitos = px.line(
     title='Óbitos Acumulados De São Francisco do Conde',
     yaxis={'title': 'Óbitos Diários'},
     xaxis={'title': ''},
-    template="plotly_dark",
-    font_color=colors['text']
+    template="plotly_white",
 )
 
 ceara = df.loc[0:10, ['city_ibge_code','city','last_available_confirmed','last_available_deaths']]
@@ -180,46 +169,47 @@ def criar_pagina():
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css", rel="stylesheet",
              integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0",
              crossorigin="anonymous")
-        meta(charset="utf-8")
+        meta(encodings="utf-8")
 
     with doc.body:
-        with div(cls='container-fluid bg-dark'):
+        with div(cls='container-fluid bg-light'):
             with div(cls='row'):
                 with div(cls='col'):
-                    h1('Painel Covid-19')
+                    with div(cls="text-primary text-center"):
+                        h1('Painel Covid-19')
                     with div(cls='row m-1 align-items-center align-content-center'):
                         with div(cls='col-2'):
-                            with div(cls='card bg-dark text-info text-center'):
+                            with div(cls='card text-primary text-center'):
                                 with div(cls='card-header'):
                                     h6('Óbitos De Acarape')
                                 with div(cls='card-body'):
                                     div(f"{df_acarape['last_available_deaths'].iloc[1]}")
                         with div(cls='col-2'):
-                            with div(cls='card bg-dark text-info text-center'):
+                            with div(cls='card text-primary text-center'):
                                 with div(cls='card-header'):
                                     h6('Confirmados De Acarape')
                                 with div(cls='card-body'):
                                     div(f"{df_acarape['last_available_confirmed'].iloc[1]}")
                         with div(cls='col-2'):
-                            with div(cls='card bg-dark text-info text-center'):
+                            with div(cls='card text-primary text-center'):
                                 with div(cls='card-header'):
                                     h6('Óbitos De Redenção')
                                 with div(cls='card-body'):
                                     div(f"{df_redencao['last_available_deaths'].iloc[1]}")
                         with div(cls='col-2'):
-                            with div(cls='card bg-dark text-info text-center'):
+                            with div(cls='card text-primary text-center'):
                                 with div(cls='card-header'):
                                     h6('Confrimados Redenção')
                                 with div(cls='card-body'):
                                     div(f"{df_redencao['last_available_confirmed'].iloc[1]}")
                         with div(cls='col-2'):
-                            with div(cls='card bg-dark text-info text-center'):
+                            with div(cls='card text-primary text-center'):
                                 with div(cls='card-header'):
                                     h6('Óbitos De São Francisco Do Conde')
                                 with div(cls='card-body'):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
                         with div(cls='col-2'):
-                            with div(cls='card bg-dark text-info text-center'):
+                            with div(cls='card text-primary text-center'):
                                 with div(cls='card-header'):
                                     h6('Confirmados De São Francisco Do Conde')
                                 with div(cls='card-body'):
