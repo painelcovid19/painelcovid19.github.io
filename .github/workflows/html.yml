@@ -6,7 +6,7 @@ on:
     - cron: '40 0 * * *'
 
 jobs:
-  get_brasil_io_data_and_push:
+  gerating_brasil_io_html_file_and_push:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,11 +20,11 @@ jobs:
 
       - name: installing geopanda dependencies
         run: |
-          pipenv install "./dependencies/GDAL-3.2.3-cp38-cp38-win_amd64.whl"
-          pipenv install "./dependencies/Fiona-1.8.19-cp38-cp38-win_amd64.whl" 
-          pivenv install "./dependencies/pyproj-3.0.1-cp38-cp38-win_amd64.whl" 
-          pipenv install "./dependencies/Rtree-0.9.7-cp38-cp38-win_amd64.whl"
-          pipenv install "./dependencies/Shapely-1.7.1-cp38-cp38-win_amd64.whl"
+          pip install "./dependencies/GDAL-3.2.3-cp38-cp38-win_amd64.whl"
+          pip install "./dependencies/Fiona-1.8.19-cp38-cp38-win_amd64.whl" 
+          pip install "./dependencies/pyproj-3.0.1-cp38-cp38-win_amd64.whl" 
+          pip install "./dependencies/Rtree-0.9.7-cp38-cp38-win_amd64.whl"
+          pip install "./dependencies/Shapely-1.7.1-cp38-cp38-win_amd64.whl"
 
       - name: gerating html file
         run: python ./scripts/html.py >> ./index.html
