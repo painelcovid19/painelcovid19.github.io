@@ -7,7 +7,7 @@ on:
 
 jobs:
   gerating_brasil_io_html_file_and_push:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
