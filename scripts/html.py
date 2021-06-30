@@ -5,13 +5,15 @@ import geopandas as gpd
 from dominate.tags import *
 from dominate.util import raw
 
-url = 'https://raw.githubusercontent.com/painel-covid-19/painel-covid-19.github.io/main/data/df_cidades_campi.csv'
+df_cidades_campi = pd.read_csv(
+    'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_cidades_campi.csv')
 
-df = pd.read_csv(url)
+df_mapas = pd.read_csv(
+    'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_acumulados.csv')
 
-df_redencao = df.loc[(df['city_ibge_code'] == 2311603)]
-df_sfc = df.loc[(df['city_ibge_code'] == 2929206)]
-df_acarape = df.loc[(df['city_ibge_code'] == 2300150)]
+df_redencao = df_cidades_campi.loc[(df_cidades_campi['city_ibge_code'] == 2311603)]
+df_sfc = df_cidades_campi.loc[(df_cidades_campi['city_ibge_code'] == 2929206)]
+df_acarape = df_cidades_campi.loc[(df_cidades_campi['city_ibge_code'] == 2300150)]
 
 redencao = px.line(
     df_redencao,
@@ -91,81 +93,82 @@ sfc_obitos = px.line(
     template="plotly_white",
 )
 
-ceara = df.loc[0:10, ['city_ibge_code','city','last_available_confirmed','last_available_deaths']]
-
+ceara = df_mapas.loc[0:10, ['city_ibge_code', 'city', 'last_available_confirmed', 'last_available_deaths',
+                            'last_available_confirmed_per_100k_inhabitants',
+                            'last_available_deaths_per_100k_inhabitants']]
 municipios_CE = gpd.read_file('./shapefiles/CE_Municipios_2020.shp')
+campi_CE = municipios_CE.merge(ceara, left_on='NM_MUN', right_on='city', suffixes=('', '_y')).set_index("city")
 
-jf = municipios_CE.merge(ceara, left_on='NM_MUN', right_on='city', suffixes=('', '_y')).set_index("city")
-
-mapa_confirmados_ce = px.choropleth_mapbox(jf,
-                                           geojson=jf.geometry,
-                                           locations=jf.index,
-                                           color="last_available_confirmed",
+mapa_confirmados_ce = px.choropleth_mapbox(campi_CE,
+                                           geojson=campi_CE.geometry,
+                                           locations=campi_CE.index,
+                                           color="last_available_confirmed_per_100k_inhabitants",
                                            center={"lat": -4.4118, "lon": -38.7491},
                                            opacity=0.7,
                                            mapbox_style="carto-positron",
-                                           title="Casos confirmados no Maciço de Baturité",
+                                           title="Casos confirmados no Maci�o de Baturit�",
                                            color_continuous_scale=px.colors.sequential.PuBuGn,
-                                           zoom=8.75,
+                                           zoom=7.75,
                                            height=400,
-                                           width=650)
-mapa_confirmados_ce.update_layout(margin={"r": 250, "t": 100, "l": 250, "b": 100})
+                                           width=650
+                                           )
+# mapa_confirmados_ce.update_layout(margin={"r":250,"t":50,"l":250,"b":50})
 
-mapa_obitos_ce = px.choropleth_mapbox(jf,
-                                      geojson=jf.geometry,
-                                      locations=jf.index,
-                                      color="last_available_deaths",
+mapa_obitos_ce = px.choropleth_mapbox(campi_CE,
+                                      geojson=campi_CE.geometry,
+                                      locations=campi_CE.index,
+                                      color="last_available_deaths_per_100k_inhabitants",
                                       center={"lat": -4.4118, "lon": -38.7491},
                                       opacity=0.7,
                                       mapbox_style="carto-positron",
                                       title="Óbitos no Maciço de Baturité",
                                       color_continuous_scale=px.colors.sequential.Reds,
-                                      zoom=8.75,
+                                      zoom=7.75,
                                       height=400,
                                       width=650)
-mapa_obitos_ce.update_layout(margin={"r": 250, "t": 100, "l": 250, "b": 100})
+# mapa_obitos_ce.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
+bahia = df_mapas.loc[11:23, ['city_ibge_code', 'city', 'last_available_confirmed', 'last_available_deaths',
+                             'last_available_confirmed_per_100k_inhabitants',
+                             'last_available_deaths_per_100k_inhabitants']]
 municipios_BA = gpd.read_file('./shapefiles/BA_Municipios_2020.shp')
+campi_BA = municipios_BA.merge(bahia, left_on='NM_MUN', right_on='city', suffixes=('', '_y')).set_index("city")
 
-bahia = df.loc[11:23,
-        ['city_ibge_code', 'last_available_confirmed_per_100k_inhabitants', 'city', 'last_available_confirmed',
-         'last_available_deaths']]
+mapa_confirmados_ba = px.choropleth_mapbox(campi_BA,
+                                           geojson=campi_BA.geometry,
+                                           locations=campi_BA.index,
+                                           color="last_available_confirmed_per_100k_inhabitants",
+                                           center={"lat": -12.7089, "lon": -38.3354},
+                                           opacity=0.7,
+                                           mapbox_style="carto-positron",
+                                           title="Casos confirmados na regi�o metropolitana de Salvador",
+                                           color_continuous_scale=px.colors.sequential.PuBuGn,
+                                           zoom=7.75,
+                                           height=400,
+                                           width=650)
+# mapa_confirmados_ba.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
-jf1 = municipios_BA.merge(bahia, left_on='NM_MUN', right_on='city', suffixes=('', '_y')).set_index("city")
-
-mapa_obitos_ce = px.choropleth_mapbox(jf1,
-                                      geojson=jf1.geometry,
-                                      locations=jf1.index,
-                                      color="last_available_deaths",
-                                      center={"lat": -4.4118, "lon": -38.7491},
-                                      opacity=0.7,
-                                      mapbox_style="carto-posigit addtron",
-                                      title="Óbitos no Maciço de Baturité",
-                                      color_continuous_scale=px.colors.sequential.Reds,
-                                      zoom=8.75,
-                                      height=400,
-                                      width=650)
-mapa_obitos_ce.update_layout(margin={"r": 250, "t": 100, "l": 250, "b": 100})
-
-mapa_obitos_ba = px.choropleth_mapbox(jf1,
-                                      geojson=jf1.geometry,
-                                      locations=jf1.index,
-                                      color="last_available_deaths",
+mapa_obitos_ba = px.choropleth_mapbox(campi_BA,
+                                      geojson=campi_BA.geometry,
+                                      locations=campi_BA.index,
+                                      color="last_available_deaths_per_100k_inhabitants",
                                       center={"lat": -12.7089, "lon": -38.3354},
                                       opacity=0.7,
                                       mapbox_style="carto-positron",
-                                      title="Óbitos na região metropolitana de Salvador",
+                                      # mapbox_style="stamen-toner",
+                                      title="�bitos na regi�o metropolitana de Salvador",
                                       color_continuous_scale=px.colors.sequential.Reds,
-                                      zoom=8.34,
+                                      zoom=7.75,
                                       height=400,
                                       width=650)
-mapa_obitos_ba.update_layout(margin={"r": 250, "t": 100, "l": 250, "b": 100})
+# mapa_obitos_ba.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
 
 def criar_pagina():
     doc = dominate.document(title='Painel Covid')
 
     with doc.head:
+        html(lang="pt-br")
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css", rel="stylesheet",
              integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0",
              crossorigin="anonymous")
@@ -237,7 +240,7 @@ def criar_pagina():
                             raw(mapa_obitos_ce.to_html(full_html=False, ))
                     with div(cls='row m-1'):
                         with div(cls='col-6 mr-1'):
-                            raw(mapa_confirmados_ce.to_html(full_html=False, ))
+                            raw(mapa_confirmados_ba.to_html(full_html=False, ))
                         with div(cls='col-6'):
                             raw(mapa_obitos_ba.to_html(full_html=False, ))
     print(doc)
