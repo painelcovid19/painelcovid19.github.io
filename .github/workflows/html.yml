@@ -20,7 +20,7 @@ jobs:
           pip install geopandas
 
       - name: gerating html file
-        run: python ./scripts/html.py >> ./index.html
+        run: python ./scripts/html.py
 
       - name: Commit and Push
         run: |
