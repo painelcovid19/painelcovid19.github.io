@@ -243,7 +243,9 @@ def criar_pagina():
                             raw(mapa_confirmados_ba.to_html(full_html=False, ))
                         with div(cls='col-6'):
                             raw(mapa_obitos_ba.to_html(full_html=False, ))
-    print(doc)
+    with open('index.html', 'w', newline='',
+            encoding='utf-8') as html_file:
+        print(str(doc), file=html_file)
 
 
 criar_pagina()
