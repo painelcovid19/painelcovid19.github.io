@@ -37,7 +37,7 @@ redencao_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Óbitos acumulados De Redenção",
+    title="Óbitos acumulados em Redenção",
     yaxis={"title": "Óbitos Diários"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -50,7 +50,7 @@ acarape = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Confirmados Diários De Acarape",
+    title="Confirmados Diários em Acarape",
     yaxis={"title": "Casos Confirmados"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -63,7 +63,7 @@ acarape_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Óbitos Acumulados De Acarape",
+    title="Óbitos Acumulados em Acarape",
     yaxis={"title": "Óbitos Diários"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -76,7 +76,7 @@ sfc = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Confirmados Diários De São Francisco do Conde",
+    title="Confirmados Diários em São Francisco do Conde",
     yaxis={"title": "Casos"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -89,23 +89,13 @@ sfc_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Óbitos Acumulados De São Francisco do Conde",
+    title="Óbitos Acumulados em São Francisco do Conde",
     yaxis={"title": "Óbitos Diários"},
     xaxis={"title": ""},
     template="plotly_white",
 )
 
-ceara = df_mapas.loc[
-    0:10,
-    [
-        "city_ibge_code",
-        "city",
-        "last_available_confirmed",
-        "last_available_deaths",
-        "last_available_confirmed_per_100k_inhabitants",
-        "last_available_deaths_per_100k_inhabitants",
-    ],
-]
+ceara = df_mapas[df_mapas["state"] == "CE"]
 municipios_CE = gpd.read_file("./shapefiles/CE_Municipios_2020.shp")
 campi_CE = municipios_CE.merge(
     ceara, left_on="NM_MUN", right_on="city", suffixes=("", "_y")
@@ -119,13 +109,12 @@ mapa_confirmados_ce = px.choropleth_mapbox(
     center={"lat": -4.4118, "lon": -38.7491},
     opacity=0.7,
     mapbox_style="carto-positron",
-    title="Casos confirmados no Maci�o de Baturit�",
+    title="Casos confirmados no Maciço de Baturité",
     color_continuous_scale=px.colors.sequential.PuBuGn,
     zoom=7.75,
     height=400,
     width=650,
 )
-# mapa_confirmados_ce.update_layout(margin={"r":250,"t":50,"l":250,"b":50})
 
 mapa_obitos_ce = px.choropleth_mapbox(
     campi_CE,
@@ -141,19 +130,8 @@ mapa_obitos_ce = px.choropleth_mapbox(
     height=400,
     width=650,
 )
-# mapa_obitos_ce.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
-bahia = df_mapas.loc[
-    11:23,
-    [
-        "city_ibge_code",
-        "city",
-        "last_available_confirmed",
-        "last_available_deaths",
-        "last_available_confirmed_per_100k_inhabitants",
-        "last_available_deaths_per_100k_inhabitants",
-    ],
-]
+bahia = df_mapas[df_mapas["state"] == "BA"]
 municipios_BA = gpd.read_file("./shapefiles/BA_Municipios_2020.shp")
 campi_BA = municipios_BA.merge(
     bahia, left_on="NM_MUN", right_on="city", suffixes=("", "_y")
@@ -167,13 +145,12 @@ mapa_confirmados_ba = px.choropleth_mapbox(
     center={"lat": -12.7089, "lon": -38.3354},
     opacity=0.7,
     mapbox_style="carto-positron",
-    title="Casos confirmados na regi�o metropolitana de Salvador",
+    title="Casos confirmados na Região Metropolitana de Salvador",
     color_continuous_scale=px.colors.sequential.PuBuGn,
     zoom=7.75,
     height=400,
     width=650,
 )
-# mapa_confirmados_ba.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
 mapa_obitos_ba = px.choropleth_mapbox(
     campi_BA,
@@ -183,14 +160,12 @@ mapa_obitos_ba = px.choropleth_mapbox(
     center={"lat": -12.7089, "lon": -38.3354},
     opacity=0.7,
     mapbox_style="carto-positron",
-    # mapbox_style="stamen-toner",
-    title="�bitos na regi�o metropolitana de Salvador",
+    title="Óbitos na Região Metropolitana de Salvador",
     color_continuous_scale=px.colors.sequential.Reds,
     zoom=7.75,
     height=400,
     width=650,
 )
-# mapa_obitos_ba.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
 
 def criar_pagina():
@@ -223,19 +198,19 @@ def criar_pagina():
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos De Acarape")
+                                    h6("Óbitos em Acarape")
                                 with div(cls="card-body"):
                                     div(f"{df_acarape['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados De Acarape")
+                                    h6("Confirmados em Acarape")
                                 with div(cls="card-body"):
                                     div(f"{df_acarape['last_available_confirmed'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos De Redenção")
+                                    h6("Óbitos em Redenção")
                                 with div(cls="card-body"):
                                     div(f"{df_redencao['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
@@ -247,13 +222,13 @@ def criar_pagina():
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos De São Francisco Do Conde")
+                                    h6("Óbitos em São Francisco Do Conde")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados De São Francisco Do Conde")
+                                    h6("Confirmados em São Francisco Do Conde")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_confirmed'].iloc[1]}")
 
