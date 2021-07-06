@@ -1,7 +1,7 @@
 import geopandas as gpd
 import pandas as pd
 from dominate import document
-from dominate.tags import div, h1, h6, html, link, meta
+from dominate.tags import div, h1, h6, html, link, meta, script
 from dominate.util import raw
 from plotly import express as px
 
@@ -198,6 +198,13 @@ def criar_pagina():
 
     with doc.head:
         html(lang="pt-br")
+        script(src="https://www.googletagmanager.com/gtag/js?id=G-SNWM62XYE3", _async=True)
+        script(
+            """window.dataLayer = window.dataLayer || [];
+               function gtag(){dataLayer.push(arguments);}
+               gtag('js', new Date());
+               gtag('config', 'G-SNWM62XYE3');"""
+        )
         link(
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css",
             rel="stylesheet",
