@@ -76,7 +76,7 @@ sfc = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Confirmados Diários em São Francisco do Conde",
+    title="Confirmados Diários em SFC",
     yaxis={"title": "Casos"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -89,7 +89,7 @@ sfc_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title="Óbitos Acumulados em São Francisco do Conde",
+    title="Óbitos Acumulados em SFC",
     yaxis={"title": "Óbitos Diários"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -216,19 +216,19 @@ def criar_pagina():
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confrimados Redenção")
+                                    h6("Confirmados Redenção")
                                 with div(cls="card-body"):
                                     div(f"{df_redencao['last_available_confirmed'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos em São Francisco Do Conde")
+                                    h6("Óbitos em SFC")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados em São Francisco Do Conde")
+                                    h6("Confirmados em SFC")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_confirmed'].iloc[1]}")
 
@@ -236,55 +236,35 @@ def criar_pagina():
                         with div(cls="col-6 mr-1"):
                             raw(redencao.to_html(full_html=False, include_plotlyjs="cdn"))
                         with div(cls="col-6"):
-                            raw(
-                                redencao_obitos.to_html(
-                                    full_html=False,
-                                )
-                            )
+                            raw(redencao_obitos.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls="row m-1"):
                         with div(cls="col-6 mr-1"):
-                            raw(acarape.to_html(full_html=False, include_plotlyjs="cdn"))
+                            raw(acarape.to_html(full_html=False, include_plotlyjs=False))
                         with div(cls="col-6"):
-                            raw(
-                                acarape_obitos.to_html(
-                                    full_html=False,
-                                )
-                            )
+                            raw(acarape_obitos.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls="row m-1"):
                         with div(cls="col-6 mr-1"):
-                            raw(sfc.to_html(full_html=False, include_plotlyjs="cdn"))
+                            raw(sfc.to_html(full_html=False, include_plotlyjs=False))
                         with div(cls="col-6 "):
-                            raw(
-                                sfc_obitos.to_html(
-                                    full_html=False,
-                                )
-                            )
+                            raw(sfc_obitos.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls="row m-1"):
                         with div(cls="col-6 mr-1"):
                             raw(
                                 mapa_confirmados_ce.to_html(
-                                    full_html=False,
+                                    full_html=False, include_plotlyjs=False
                                 )
                             )
                         with div(cls="col-6"):
-                            raw(
-                                mapa_obitos_ce.to_html(
-                                    full_html=False,
-                                )
-                            )
+                            raw(mapa_obitos_ce.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls="row m-1"):
                         with div(cls="col-6 mr-1"):
                             raw(
                                 mapa_confirmados_ba.to_html(
-                                    full_html=False,
+                                    full_html=False, include_plotlyjs=False
                                 )
                             )
                         with div(cls="col-6"):
-                            raw(
-                                mapa_obitos_ba.to_html(
-                                    full_html=False,
-                                )
-                            )
+                            raw(mapa_obitos_ba.to_html(full_html=False, include_plotlyjs=False))
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
         print(str(doc), file=html_file)
 
