@@ -24,7 +24,7 @@ trace1 = px.line(x = df_acarape["date"],
                  height=400,
                  width=650,)
 trace1.update_layout(
-    title='Meida Movel De São Francisco do Conde',
+    title='Meida Movel De Acarape',
     yaxis={'title': 'Media Movel'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -61,7 +61,7 @@ trace4 = px.bar(x = df_redencao['date'],
                 width=650,
                 )
 trace4.update_layout(
-    title='Óbitos De São Francisco de Conde',
+    title='Óbitos De Redenção',
     yaxis={'title': 'Óbitos'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -113,7 +113,7 @@ trace8 = px.bar(x = df_redencao['date'],
                 width=650,
                 )
 trace8.update_layout(
-    title='Casos Confirmados De São Francisco de Conde',
+    title='Casos Confirmados Redenção',
     yaxis={'title': 'Casos Confrimados'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -140,7 +140,7 @@ trace10 = px.bar(x = df_sfc['date'],
                 )
 trace10.update_layout(
     title='Casos Confirmados De São Francisco de Conde',
-    yaxis={'title': 'Casos Confrimados'},
+    yaxis={'title': 'Casos Confirmados'},
     xaxis={'title': ''},
     template="plotly_white",
 )
