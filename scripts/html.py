@@ -24,7 +24,7 @@ trace1 = px.line(x = df_acarape["date"],
                  height=400,
                  width=650,)
 trace1.update_layout(
-    title='Meida Movel De Acarape',
+    title='Media Movel De Acarape',
     yaxis={'title': 'Media Movel'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -50,7 +50,7 @@ trace3 = px.line(x = df_acarape["date"],
                  height=400,
                  width=650,)
 trace3.update_layout(
-    title='Meida Movel De Acarape',
+    title='Media Movel De Acarape',
     yaxis={'title': 'Media Movel Dos Obitos'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -76,7 +76,7 @@ trace5 = px.line(x = df_redencao["date"],
                  height=400,
                  width=650,)
 trace5.update_layout(
-    title='Meida Movel De Redenção',
+    title='Media Movel De Redenção',
     yaxis={'title': 'Media Movel'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -102,7 +102,7 @@ trace7 = px.line(x = df_redencao["date"],
                  height=400,
                  width=650,)
 trace7.update_layout(
-    title='Meida Movel De Redenção',
+    title='Media Movel De Redenção',
     yaxis={'title': 'Media Movel'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -128,7 +128,7 @@ trace9 = px.line(x = df_sfc["date"],
                  height=400,
                  width=650,)
 trace9.update_layout(
-    title='Meida Movel De São Francisco do Conde',
+    title='Media Movel De São Francisco do Conde',
     yaxis={'title': 'Media Movel'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -154,7 +154,7 @@ trace11 = px.line(x = df_sfc["date"],
                  height=400,
                  width=650,)
 trace11.update_layout(
-    title='Meida Movel De São Francisco do Conde',
+    title='Media Movel De São Francisco do Conde',
     yaxis={'title': 'Media Movel'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -374,7 +374,7 @@ def criar_pagina():
 
                     with div(cls='row m-1'):
                         with div(cls='col-6 mr-1'):
-                            raw(trace1.to_html(full_html=False, include_plotlyjs='cdn'))
+                            raw(trace1.to_html(full_html=False, include_plotlyjs='cdn',))
                         with div(cls='col-6'):
                             raw(trace3.to_html(full_html=False, ))
                     with div(cls='row m-1'):
