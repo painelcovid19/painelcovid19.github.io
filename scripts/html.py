@@ -234,9 +234,8 @@ sfc_obitos = px.line(
     template="plotly_white",
 )
 """
-ceara = df_mapas.loc[0:10, ['city_ibge_code', 'city', 'last_available_confirmed', 'last_available_deaths',
-                            'last_available_confirmed_per_100k_inhabitants',
-                            'last_available_deaths_per_100k_inhabitants']]
+
+ceara = df_mapas[df_mapas["state"] == "CE"]
 municipios_CE = gpd.read_file('./shapefiles/CE_Municipios_2020.shp')
 campi_CE = municipios_CE.merge(ceara, left_on='NM_MUN', right_on='city', suffixes=('', '_y')).set_index("city")
 
@@ -244,10 +243,11 @@ mapa_confirmados_ce = px.choropleth_mapbox(campi_CE,
                                            geojson=campi_CE.geometry,
                                            locations=campi_CE.index,
                                            color="last_available_confirmed_per_100k_inhabitants",
+                                           labels={"last_available_confirmed_per_100k_inhabitants": ""},
                                            center={"lat": -4.4118, "lon": -38.7491},
                                            opacity=0.7,
                                            mapbox_style="carto-positron",
-                                           title="Casos confirmados no Maci�o de Baturit�",
+                                           title="Casos confirmados no Maciço de Baturité (por 100 mil hab.)",
                                            color_continuous_scale=px.colors.sequential.PuBuGn,
                                            zoom=7.75,
                                            height=400,
@@ -258,18 +258,17 @@ mapa_obitos_ce = px.choropleth_mapbox(campi_CE,
                                       geojson=campi_CE.geometry,
                                       locations=campi_CE.index,
                                       color="last_available_deaths_per_100k_inhabitants",
+                                      labels={"last_available_deaths_per_100k_inhabitants": ""},
                                       center={"lat": -4.4118, "lon": -38.7491},
                                       opacity=0.7,
                                       mapbox_style="carto-positron",
-                                      title="Óbitos no Maciço de Baturité",
+                                      title="Óbitos no Maciço de Baturité (por 100 mil hab.)",
                                       color_continuous_scale=px.colors.sequential.Reds,
                                       zoom=7.75,
                                       height=400,
                                       width=650)
 
-bahia = df_mapas.loc[11:23, ['city_ibge_code', 'city', 'last_available_confirmed', 'last_available_deaths',
-                             'last_available_confirmed_per_100k_inhabitants',
-                             'last_available_deaths_per_100k_inhabitants']]
+bahia = df_mapas[df_mapas["state"] == "BA"]
 municipios_BA = gpd.read_file('./shapefiles/BA_Municipios_2020.shp')
 campi_BA = municipios_BA.merge(bahia, left_on='NM_MUN', right_on='city', suffixes=('', '_y')).set_index("city")
 
@@ -277,10 +276,11 @@ mapa_confirmados_ba = px.choropleth_mapbox(campi_BA,
                                            geojson=campi_BA.geometry,
                                            locations=campi_BA.index,
                                            color="last_available_confirmed_per_100k_inhabitants",
+                                           labels={"last_available_confirmed_per_100k_inhabitants": ""},
                                            center={"lat": -12.7089, "lon": -38.3354},
                                            opacity=0.7,
                                            mapbox_style="carto-positron",
-                                           title="Casos confirmados na regi�o metropolitana de Salvador",
+                                           title="Casos confirmados na Região Metropolitana de Salvador (por 100 mil hab.)",
                                            color_continuous_scale=px.colors.sequential.PuBuGn,
                                            zoom=7.75,
                                            height=400,
@@ -290,11 +290,12 @@ mapa_obitos_ba = px.choropleth_mapbox(campi_BA,
                                       geojson=campi_BA.geometry,
                                       locations=campi_BA.index,
                                       color="last_available_deaths_per_100k_inhabitants",
+                                      labels={"last_available_deaths_per_100k_inhabitants": ""},
                                       center={"lat": -12.7089, "lon": -38.3354},
                                       opacity=0.7,
                                       mapbox_style="carto-positron",
                                       # mapbox_style="stamen-toner",
-                                      title="�bitos na regi�o metropolitana de Salvador",
+                                      title="Óbitos na Região Metropolitana de Salvador",
                                       color_continuous_scale=px.colors.sequential.Reds,
                                       zoom=7.75,
                                       height=400,
