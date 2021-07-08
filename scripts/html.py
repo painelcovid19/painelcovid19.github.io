@@ -30,7 +30,7 @@ trace1 = px.line(
     width=650,
 )
 trace1.update_layout(
-    title="Media Movel De Acarape",
+    title="Media Movel em Acarape",
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -42,7 +42,7 @@ trace2 = px.bar(
     width=650,
 )
 trace2.update_layout(
-    title="Casos Confirmados De Acarape",
+    title="Casos Confirmados em Acarape",
     yaxis={"title": "Casos Confrimados"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -58,7 +58,7 @@ trace3 = px.line(
     width=650,
 )
 trace3.update_layout(
-    title="Media Movel De Acarape",
+    title="Media Movel em Acarape",
     yaxis={"title": "Media Movel Dos Obitos"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -70,7 +70,7 @@ trace4 = px.bar(
     width=650,
 )
 trace4.update_layout(
-    title="Óbitos De Redenção",
+    title="Óbitos em Redenção",
     yaxis={"title": "Óbitos"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -86,7 +86,7 @@ trace5 = px.line(
     width=650,
 )
 trace5.update_layout(
-    title="Media Movel De Redenção",
+    title="Media Movel em Redenção",
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -98,7 +98,7 @@ trace6 = px.bar(
     width=650,
 )
 trace6.update_layout(
-    title="Casos Confirmados De Redenção",
+    title="Casos Confirmados em Redenção",
     yaxis={"title": "Casos Confrimados"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -114,7 +114,7 @@ trace7 = px.line(
     width=650,
 )
 trace7.update_layout(
-    title="Media Movel De Redenção",
+    title="Media Movel em Redenção",
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -142,7 +142,7 @@ trace9 = px.line(
     width=650,
 )
 trace9.update_layout(
-    title="Media Movel De São Francisco do Conde",
+    title="Media Movel em São Francisco do Conde",
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -154,7 +154,7 @@ trace10 = px.bar(
     width=650,
 )
 trace10.update_layout(
-    title="Casos Confirmados De São Francisco de Conde",
+    title="Casos Confirmados em São Francisco de Conde",
     yaxis={"title": "Casos Confirmados"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -170,7 +170,7 @@ trace11 = px.line(
     width=650,
 )
 trace11.update_layout(
-    title="Media Movel De São Francisco do Conde",
+    title="Media Movel em São Francisco do Conde",
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -182,7 +182,7 @@ trace12 = px.bar(
     width=650,
 )
 trace12.update_layout(
-    title="Casos Confirmados De São Francisco de Conde",
+    title="Casos Confirmados em São Francisco de Conde",
     yaxis={"title": "Casos Confrimados"},
     xaxis={"title": ""},
     template="plotly_white",
@@ -209,7 +209,7 @@ redencao_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title='Óbitos acumulados De Redenção',
+    title='Óbitos acumulados em Redenção',
     yaxis={'title': 'Óbitos Diários'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -222,7 +222,7 @@ acarape = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title='Confirmados Diários De Acarape',
+    title='Confirmados Diários em Acarape',
     yaxis={'title': 'Casos Confirmados'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -235,7 +235,7 @@ acarape_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title='Óbitos Acumulados De Acarape',
+    title='Óbitos Acumulados em Acarape',
     yaxis={'title': 'Óbitos Diários'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -249,7 +249,7 @@ sfc_obitos = px.line(
     height=400,
     width=650,
 ).update_layout(
-    title='Óbitos Acumulados De São Francisco do Conde',
+    title='Óbitos Acumulados em São Francisco do Conde',
     yaxis={'title': 'Óbitos Diários'},
     xaxis={'title': ''},
     template="plotly_white",
@@ -364,19 +364,19 @@ def criar_pagina():
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos De Acarape")
+                                    h6("Óbitos em Acarape")
                                 with div(cls="card-body"):
                                     div(f"{df_acarape['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados De Acarape")
+                                    h6("Confirmados em Acarape")
                                 with div(cls="card-body"):
                                     div(f"{df_acarape['last_available_confirmed'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos De Redenção")
+                                    h6("Óbitos em Redenção")
                                 with div(cls="card-body"):
                                     div(f"{df_redencao['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
@@ -388,13 +388,13 @@ def criar_pagina():
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos De São Francisco Do Conde")
+                                    h6("Óbitos em São Francisco Do Conde")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
                         with div(cls="col-2"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados De São Francisco Do Conde")
+                                    h6("Confirmados em São Francisco Do Conde")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_confirmed'].iloc[1]}")
 
