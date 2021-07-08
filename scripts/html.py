@@ -41,7 +41,6 @@ trace2.update_layout(
     template="plotly_white",
 )
 trace1.add_trace(trace2.data[0])
-# data = [trace1, trace2]
 
 # Obitos de Acarape e a Media Movel
 
@@ -67,7 +66,6 @@ trace4.update_layout(
     template="plotly_white",
 )
 trace3.add_trace(trace4.data[0])
-# data = [trace3, trace4]
 
 # Casos Confirmados de Redenção e a Media Movel
 
@@ -93,7 +91,6 @@ trace6.update_layout(
     template="plotly_white",
 )
 trace5.add_trace(trace6.data[0])
-# data = [trace5, trace6]
 
 # Obitos de Redenção e Media Movel
 
@@ -119,7 +116,6 @@ trace8.update_layout(
     template="plotly_white",
 )
 trace7.add_trace(trace8.data[0])
-# data = [trace7, trace8]
 
 # Casos Confirmados de São Francisco de Conde e a Media Movel
 
@@ -145,7 +141,6 @@ trace10.update_layout(
     template="plotly_white",
 )
 trace9.add_trace(trace10.data[0])
-# data = [trace9, trace10]
 
 # Obitos de São Francsico de Conde e Media Movel
 
@@ -171,7 +166,6 @@ trace12.update_layout(
     template="plotly_white",
 )
 trace11.add_trace(trace12.data[0])
-# data = [trace11, trace12]
 
 """
 redencao = px.line(
@@ -259,7 +253,6 @@ mapa_confirmados_ce = px.choropleth_mapbox(campi_CE,
                                            height=400,
                                            width=650
                                            )
-# mapa_confirmados_ce.update_layout(margin={"r":250,"t":50,"l":250,"b":50})
 
 mapa_obitos_ce = px.choropleth_mapbox(campi_CE,
                                       geojson=campi_CE.geometry,
@@ -273,7 +266,6 @@ mapa_obitos_ce = px.choropleth_mapbox(campi_CE,
                                       zoom=7.75,
                                       height=400,
                                       width=650)
-# mapa_obitos_ce.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
 bahia = df_mapas.loc[11:23, ['city_ibge_code', 'city', 'last_available_confirmed', 'last_available_deaths',
                              'last_available_confirmed_per_100k_inhabitants',
@@ -293,7 +285,6 @@ mapa_confirmados_ba = px.choropleth_mapbox(campi_BA,
                                            zoom=7.75,
                                            height=400,
                                            width=650)
-# mapa_confirmados_ba.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
 
 mapa_obitos_ba = px.choropleth_mapbox(campi_BA,
                                       geojson=campi_BA.geometry,
@@ -308,10 +299,6 @@ mapa_obitos_ba = px.choropleth_mapbox(campi_BA,
                                       zoom=7.75,
                                       height=400,
                                       width=650)
-
-
-# mapa_obitos_ba.update_layout(margin={"r": 250, "t": 50, "l": 250, "b": 50})
-
 
 def criar_pagina():
     doc = document(title='Painel Covid')
