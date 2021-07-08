@@ -379,29 +379,30 @@ def criar_pagina():
                         with div(cls='col-6 mr-1'):
                             raw(trace1.to_html(full_html=False, include_plotlyjs='cdn',))
                         with div(cls='col-6'):
-                            raw(trace3.to_html(full_html=False, ))
+                            raw(trace3.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls='row m-1'):
                         with div(cls='col-6 mr-1'):
-                            raw(trace5.to_html(full_html=False, include_plotlyjs='cdn'))
+                            raw(trace5.to_html(full_html=False, include_plotlyjs=False))
                         with div(cls='col-6'):
-                            raw(trace7.to_html(full_html=False, ))
+                            raw(trace7.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls='row m-1'):
                         with div(cls='col-6 mr-1'):
-                            raw(trace9.to_html(full_html=False, include_plotlyjs='cdn'))
+                            raw(trace9.to_html(full_html=False, include_plotlyjs=False))
                         with div(cls='col-6 '):
-                            raw(trace11.to_html(full_html=False, ))
+                            raw(trace11.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls='row m-1'):
                         with div(cls='col-6 mr-1'):
-                            raw(mapa_confirmados_ce.to_html(full_html=False, ))
+                            raw(mapa_confirmados_ce.to_html(full_html=False, include_plotlyjs=False))
                         with div(cls='col-6'):
-                            raw(mapa_obitos_ce.to_html(full_html=False, ))
+                            raw(mapa_obitos_ce.to_html(full_html=False, include_plotlyjs=False))
                     with div(cls='row m-1'):
                         with div(cls='col-6 mr-1'):
-                            raw(mapa_confirmados_ba.to_html(full_html=False, ))
+                            raw(mapa_confirmados_ba.to_html(full_html=False, include_plotlyjs=False))
                         with div(cls='col-6'):
-                            raw(mapa_obitos_ba.to_html(full_html=False, ))
+                            raw(mapa_obitos_ba.to_html(full_html=False, include_plotlyjs=False))
 
-    print(doc)
+    with open("index.html", "w", newline="", encoding="utf-8") as html_file:
+        print(str(doc), file=html_file)
 
 
 criar_pagina()
