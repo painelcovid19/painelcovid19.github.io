@@ -13,10 +13,8 @@ df_mapas = pd.read_csv(
     "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_acumulados.csv"
 )
 
-df_cidades_campi["MovingMean14"] = df_cidades_campi["new_confirmed"].rolling(14).mean()
-df_cidades_campi["MovingMeanObitos14"] = (
-    df_cidades_campi["last_available_deaths"].rolling(14).mean()
-)
+df_cidades_campi["MovingMeanConfirmed"] = df_cidades_campi["new_confirmed"].rolling(14).mean()
+df_cidades_campi["MovingMeanDeaths"] = df_cidades_campi["new_deaths"].rolling(14).mean()
 
 df_redencao = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2311603)]
 df_sfc = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2929206)]
@@ -25,7 +23,7 @@ df_acarape = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2300150
 # Casos Confirmados de Acarape e a Media Movel
 trace1 = px.line(
     x=df_acarape["date"],
-    y=df_acarape["MovingMean14"],
+    y=df_acarape["MovingMeanConfirmed"],
     height=400,
     width=650,
 )
@@ -53,7 +51,7 @@ trace1.add_trace(trace2.data[0])
 
 trace3 = px.line(
     x=df_acarape["date"],
-    y=df_acarape["MovingMeanObitos14"],
+    y=df_acarape["MovingMeanDeaths"],
     height=400,
     width=650,
 )
@@ -65,7 +63,7 @@ trace3.update_layout(
 )
 trace4 = px.bar(
     x=df_redencao["date"],
-    y=df_redencao["last_available_deaths"],
+    y=df_redencao["new_deaths"],
     height=400,
     width=650,
 )
@@ -81,7 +79,7 @@ trace3.add_trace(trace4.data[0])
 
 trace5 = px.line(
     x=df_redencao["date"],
-    y=df_redencao["MovingMean14"],
+    y=df_redencao["MovingMeanConfirmed"],
     height=400,
     width=650,
 )
@@ -109,7 +107,7 @@ trace5.add_trace(trace6.data[0])
 
 trace7 = px.line(
     x=df_redencao["date"],
-    y=df_redencao["MovingMeanObitos14"],
+    y=df_redencao["MovingMeanDeaths"],
     height=400,
     width=650,
 )
@@ -121,7 +119,7 @@ trace7.update_layout(
 )
 trace8 = px.bar(
     x=df_redencao["date"],
-    y=df_redencao["last_available_deaths"],
+    y=df_redencao["new_deaths"],
     height=400,
     width=650,
 )
@@ -137,7 +135,7 @@ trace7.add_trace(trace8.data[0])
 
 trace9 = px.line(
     x=df_sfc["date"],
-    y=df_sfc["MovingMean14"],
+    y=df_sfc["MovingMeanConfirmed"],
     height=400,
     width=650,
 )
@@ -165,7 +163,7 @@ trace9.add_trace(trace10.data[0])
 
 trace11 = px.line(
     x=df_sfc["date"],
-    y=df_sfc["MovingMeanObitos14"],
+    y=df_sfc["MovingMeanDeaths"],
     height=400,
     width=650,
 )
@@ -177,7 +175,7 @@ trace11.update_layout(
 )
 trace12 = px.bar(
     x=df_sfc["date"],
-    y=df_sfc["last_available_deaths"],
+    y=df_sfc["new_deaths"],
     height=400,
     width=650,
 )
