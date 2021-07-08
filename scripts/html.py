@@ -318,15 +318,18 @@ def criar_pagina():
 
     with doc.head:
         html(lang="pt-br")
+        script(src="https://www.googletagmanager.com/gtag/js?id=G-SNWM62XYE3", _async=True)
+        script(
+            """window.dataLayer = window.dataLayer || [];
+               function gtag(){dataLayer.push(arguments);}
+               gtag('js', new Date());
+               gtag('config', 'G-SNWM62XYE3');"""
+        )
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css", rel="stylesheet",
              integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0",
              crossorigin="anonymous")
         meta(encodings="utf-8")
-        script(src="https://www.googletagmanager.com/gtag/js?id=G-SNWM62XYE3")
-        script("window.dataLayer = window.dataLayer || [];"
-                   "function gtag(){dataLayer.push(arguments);}"
-                   "gtag('js', new Date());"
-                   "gtag('config', 'G-SNWM62XYE3');")
+
 
     with doc.body:
         with div(cls='container-fluid bg-light'):
