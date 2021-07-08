@@ -1,9 +1,9 @@
-from plotly import express as px
-import pandas as pd
-import dominate
 import geopandas as gpd
-from dominate.tags import *
+import pandas as pd
+from dominate import document
+from dominate.tags import div, h1, h6, html, link, meta, script
 from dominate.util import raw
+from plotly import express as px
 
 df_cidades_campi = pd.read_csv(
     'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_cidades_campi.csv')
@@ -314,7 +314,7 @@ mapa_obitos_ba = px.choropleth_mapbox(campi_BA,
 
 
 def criar_pagina():
-    doc = dominate.document(title='Painel Covid')
+    doc = document(title='Painel Covid')
 
     with doc.head:
         html(lang="pt-br")
