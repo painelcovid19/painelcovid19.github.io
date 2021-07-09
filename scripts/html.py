@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timezone, timedelta
 
 import geopandas as gpd
 import pandas as pd
@@ -309,7 +309,7 @@ mapa_confirmados_ba = px.choropleth_mapbox(
     center={"lat": -12.7089, "lon": -38.3354},
     opacity=0.7,
     mapbox_style="carto-positron",
-    title="Casos confirmados na Região Metropolitana de Salvador (por 100 mil hab.)",
+    title="Casos confirmados na Região Metropolitana <br>de Salvador (por 100 mil hab.)",
     color_continuous_scale=px.colors.sequential.PuBuGn,
     zoom=7.75,
     height=400,
@@ -326,7 +326,7 @@ mapa_obitos_ba = px.choropleth_mapbox(
     opacity=0.7,
     mapbox_style="carto-positron",
     # mapbox_style="stamen-toner",
-    title="Óbitos na Região Metropolitana de Salvador",
+    title="Óbitos na Região Metropolitana <br>de Salvador (por 100 mil hab.)",
     color_continuous_scale=px.colors.sequential.Reds,
     zoom=7.75,
     height=400,
@@ -335,7 +335,7 @@ mapa_obitos_ba = px.choropleth_mapbox(
 
 
 def criar_pagina():
-    now = datetime.datetime.now()
+    now = datetime.now(timezone(timedelta(hours=-3)))
 
     doc = document(title="Painel Covid")
 
@@ -441,7 +441,7 @@ def criar_pagina():
 
                     with div(cls="row m-1"):
                         with div(cls="text-primary text-center"):
-                            p(f"Última atualização: {now.strftime('%d-%m-%Y %H:%M:%S')}")
+                            p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
 
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
         print(str(doc), file=html_file)
