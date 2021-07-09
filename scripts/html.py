@@ -1,7 +1,9 @@
+import datetime
+
 import geopandas as gpd
 import pandas as pd
 from dominate import document
-from dominate.tags import div, h1, h6, html, link, meta, script
+from dominate.tags import div, h1, h6, html, link, meta, p, script
 from dominate.util import raw
 from plotly import express as px
 
@@ -333,6 +335,8 @@ mapa_obitos_ba = px.choropleth_mapbox(
 
 
 def criar_pagina():
+    now = datetime.datetime.now()
+
     doc = document(title="Painel Covid")
 
     with doc.head:
@@ -434,6 +438,10 @@ def criar_pagina():
                             )
                         with div(cls="col-6"):
                             raw(mapa_obitos_ba.to_html(full_html=False, include_plotlyjs=False))
+
+                    with div(cls="row m-1"):
+                        with div(cls="text-primary text-center"):
+                            p(f"Última atualização: {now.strftime('%d-%m-%Y %H:%M:%S')}")
 
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
         print(str(doc), file=html_file)
