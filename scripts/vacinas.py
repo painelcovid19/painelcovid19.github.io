@@ -1,4 +1,5 @@
 import requests
+import csv
 import json
 
 url = "https://imunizacao-es.saude.gov.br/_search"
@@ -16,10 +17,28 @@ response = requests.request("POST", url, headers=headers, data=payload)
 vacina = response.json()
 df_vacinas = vacina["hits"]["hits"]
 
-for row in df_vacinas:
-    if row["_source"]["paciente_endereco_nmMunicipio"] == "FORTALEZA":
-        print(
-            row["_id"],
-            row["_source"]["vacina_descricao_dose"],
-            row["_source"]["paciente_endereco_nmMunicipio"],
-        )
+with open("data/df_dados_vacinas.csv", "w", newline="", encoding="utf-8") as csvDadosVacina:
+    csvVacina = csv.writer(csvDadosVacina)
+    csvVacina.writerow(
+        [
+            "paciente_endereco_nmMunicipio",
+            "vacina_descricao_dose",
+            "vacina_fabricante_nome",
+            "vacina_nome",
+        ]
+    )
+
+    for row in df_vacinas:
+        if row["_source"]["estabelecimento_uf"] == "CE":
+            paciente_endereco_nmMunicipio = row["_source"]["paciente_endereco_nmMunicipio"]
+            vacina_descricao_dose = row["_source"]["vacina_descricao_dose"]
+            vacina_fabricante_nome = row["_source"]["vacina_fabricante_nome"]
+            vacina_nome = row["_source"]["vacina_nome"]
+            csvVacina.writerow(
+                [
+                    paciente_endereco_nmMunicipio,
+                    vacina_descricao_dose,
+                    vacina_fabricante_nome,
+                    vacina_nome,
+                ]
+            )
