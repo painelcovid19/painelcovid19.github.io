@@ -3,7 +3,7 @@ from datetime import datetime, timezone, timedelta
 import geopandas as gpd
 import pandas as pd
 from dominate import document
-from dominate.tags import div, h1, h6, html, link, meta, p, script
+from dominate.tags import div, h1, h6, html, link, meta, p, script, ol, li, a, nav, ul
 from dominate.util import raw
 from plotly import express as px
 
@@ -23,21 +23,21 @@ df_sfc = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2929206)]
 df_acarape = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2300150)]
 
 # Casos Confirmados de Acarape e a Media Movel
-trace1 = px.line(
-    x=df_acarape["date"],
-    y=df_acarape["MovingMeanConfirmed"],
+trace1 = px.line(df_acarape,
+    x="date",
+    y="MovingMeanConfirmed",
+    color_discrete_sequence=["orange"],
     height=400,
     width=650,
 )
 trace1.update_layout(
     title="Media Movel em Acarape",
-    yaxis={"title": "Media Movel"},
-    xaxis={"title": ""},
     template="plotly_white",
 )
-trace2 = px.bar(
-    x=df_acarape["date"],
-    y=df_acarape["new_confirmed"],
+trace2 = px.bar(df_acarape,
+    x="date",
+    y="new_confirmed",
+    color_discrete_sequence=["darkblue"],
     height=400,
     width=650,
 )
@@ -51,49 +51,47 @@ trace1.add_trace(trace2.data[0])
 
 # Obitos de Acarape e a Media Movel
 
-trace3 = px.line(
-    x=df_acarape["date"],
-    y=df_acarape["MovingMeanDeaths"],
+trace3 = px.line(df_acarape,
+    x="date",
+    y="MovingMeanDeaths",
+    color_discrete_sequence=["orange"],
     height=400,
     width=650,
 )
 trace3.update_layout(
     title="Media Movel em Acarape",
-    yaxis={"title": "Media Movel Dos Obitos"},
-    xaxis={"title": ""},
     template="plotly_white",
 )
-trace4 = px.bar(
-    x=df_redencao["date"],
-    y=df_redencao["new_deaths"],
+trace4 = px.bar(df_acarape,
+    x="date",
+    y="new_deaths",
+    color_discrete_sequence=["darkblue"],
     height=400,
     width=650,
 )
 trace4.update_layout(
-    title="Óbitos em Redenção",
-    yaxis={"title": "Óbitos"},
-    xaxis={"title": ""},
+    title="Óbitos em Acarape",
     template="plotly_white",
 )
 trace3.add_trace(trace4.data[0])
 
 # Casos Confirmados de Redenção e a Media Movel
 
-trace5 = px.line(
-    x=df_redencao["date"],
-    y=df_redencao["MovingMeanConfirmed"],
+trace5 = px.line(df_redencao,
+    x="date",
+    y="MovingMeanConfirmed",
+    color_discrete_sequence=["orange"],
     height=400,
     width=650,
 )
 trace5.update_layout(
     title="Media Movel em Redenção",
-    yaxis={"title": "Media Movel"},
-    xaxis={"title": ""},
     template="plotly_white",
 )
-trace6 = px.bar(
-    x=df_redencao["date"],
-    y=df_redencao["new_confirmed"],
+trace6 = px.bar(df_redencao,
+    x="date",
+    y="new_confirmed",
+    color_discrete_sequence=["darkblue"],
     height=400,
     width=650,
 )
@@ -107,21 +105,21 @@ trace5.add_trace(trace6.data[0])
 
 # Obitos de Redenção e Media Movel
 
-trace7 = px.line(
-    x=df_redencao["date"],
-    y=df_redencao["MovingMeanDeaths"],
+trace7 = px.line(df_redencao,
+    x="date",
+    y="MovingMeanDeaths",
+    color_discrete_sequence=["orange"],
     height=400,
     width=650,
 )
 trace7.update_layout(
     title="Media Movel em Redenção",
-    yaxis={"title": "Media Movel"},
-    xaxis={"title": ""},
     template="plotly_white",
 )
-trace8 = px.bar(
-    x=df_redencao["date"],
-    y=df_redencao["new_deaths"],
+trace8 = px.bar(df_redencao,
+    x="date",
+    y="new_deaths",
+    color_discrete_sequence=["darkblue"],
     height=400,
     width=650,
 )
@@ -135,9 +133,10 @@ trace7.add_trace(trace8.data[0])
 
 # Casos Confirmados de São Francisco de Conde e a Media Movel
 
-trace9 = px.line(
-    x=df_sfc["date"],
-    y=df_sfc["MovingMeanConfirmed"],
+trace9 = px.line(df_sfc,
+    x="date",
+    y="MovingMeanConfirmed",
+    color_discrete_sequence=["orange"],
     height=400,
     width=650,
 )
@@ -147,9 +146,10 @@ trace9.update_layout(
     xaxis={"title": ""},
     template="plotly_white",
 )
-trace10 = px.bar(
-    x=df_sfc["date"],
-    y=df_sfc["new_confirmed"],
+trace10 = px.bar(df_sfc,
+    x="date",
+    y="new_confirmed",
+    color_discrete_sequence=["darkblue"],
     height=400,
     width=650,
 )
@@ -163,9 +163,10 @@ trace9.add_trace(trace10.data[0])
 
 # Obitos de São Francsico de Conde e Media Movel
 
-trace11 = px.line(
-    x=df_sfc["date"],
-    y=df_sfc["MovingMeanDeaths"],
+trace11 = px.line(df_sfc,
+    x="date",
+    y="MovingMeanDeaths",
+    color_discrete_sequence=["orange"],
     height=400,
     width=650,
 )
@@ -175,9 +176,10 @@ trace11.update_layout(
     xaxis={"title": ""},
     template="plotly_white",
 )
-trace12 = px.bar(
-    x=df_sfc["date"],
-    y=df_sfc["new_deaths"],
+trace12 = px.bar(df_sfc,
+    x="date",
+    y="new_deaths",
+    color_discrete_sequence=["darkblue"],
     height=400,
     width=650,
 )
