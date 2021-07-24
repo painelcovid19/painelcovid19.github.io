@@ -61,6 +61,8 @@ trace3 = px.line(df_acarape,
 trace3.update_layout(
     title="Media Movel em Acarape",
     template="plotly_white",
+    yaxis={"title": "Media Movel"},
+    xaxis={"title": ""},
 )
 trace4 = px.bar(df_acarape,
     x="date",
@@ -72,6 +74,8 @@ trace4 = px.bar(df_acarape,
 trace4.update_layout(
     title="Óbitos em Acarape",
     template="plotly_white",
+    yaxis={"title": "Media Movel"},
+    xaxis={"title": ""},
 )
 trace3.add_trace(trace4.data[0])
 
@@ -87,6 +91,8 @@ trace5 = px.line(df_redencao,
 trace5.update_layout(
     title="Media Movel em Redenção",
     template="plotly_white",
+    yaxis={"title": "Media Movel"},
+    xaxis={"title": ""},
 )
 trace6 = px.bar(df_redencao,
     x="date",
@@ -115,6 +121,8 @@ trace7 = px.line(df_redencao,
 trace7.update_layout(
     title="Media Movel em Redenção",
     template="plotly_white",
+    yaxis={"title": "Media Movel"},
+    xaxis={"title": ""},
 )
 trace8 = px.bar(df_redencao,
     x="date",
