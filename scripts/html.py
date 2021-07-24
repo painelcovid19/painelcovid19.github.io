@@ -3,7 +3,7 @@ from datetime import datetime, timezone, timedelta
 import geopandas as gpd
 import pandas as pd
 from dominate import document
-from dominate.tags import div, h1, h6, html, link, meta, p, script, ol, li, a, nav, ul
+from dominate.tags import div, h1, h6, html, link, meta, p, script, li, a, nav, ul
 from dominate.util import raw
 from plotly import express as px
 
@@ -368,6 +368,13 @@ def criar_pagina():
 
     with doc.body:
         with div(cls="container-fluid bg-light"):
+            with nav(cls="navbar navbar-default"):
+                    with div(cls="navbar-header"):
+                        a("PAINEL COVID-19", href="index.html", cls="navbar-brand")
+                    with ul(cls="nav navbar-nav"):
+                        li(a("Equipe", href="equipe.html", style='text-decoration: none; display: inline;'))
+                        li(a("Sobre O Projeto", href="sobreNos.html", style='text-decoration: none; display: '
+                                                                            'inline;'))
             with div(cls="row"):
                 with div(cls="col"):
                     with div(cls="text-primary text-center"):
