@@ -68,6 +68,19 @@ if __name__ == "__main__":
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
     # pegando os dados das cidades do Ceará
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
+    def macroregiao(city):
+        macroregiao = ""
+        if city == "Fortaleza" or city == "Aquiraz" or city == "Euzébio" or city == "Itaitinga":
+            macroregiao = "1° REGIÃO DE FORTALEZA"
+        elif city == "Apuiarés" or city == "Caucaia"  or  city == "General Sampaio" or city == "Itapagé" or city == "Paracuru" or city == "Paraipaba" or city == "Pentecoste" or city == "São Gonçalo do Amarante" or city == "São Luiz do Curu" or city == "Tejussuoca":
+            macroregiao = "2° REGIÃO DE CAUCAIA"
+        elif city == "Acarape" or city == "Barreira" or city == "Guaiuba" or city == "Maracanau" or city == "Maranguape" or city == "Pacatuba" or city == "Palmácia" or city == "Redenção":
+            macroregiao = "3° REGIÃO DE MARACANAÚ"
+        else:
+            if city == "Aracoiaba" or city == "Aratuba" or city == "Baturite" or city == "Capistrano" or city == "Guaramiranga" or city == "Itapiuna" or city == "Mulungu" or city == "Pacoti":
+                macroregiao = "4° REGIÃO BATURITÉ"
+        return macroregiao
+
     with open(
         "data/df_dados_macro_regioes.csv", "w", newline="", encoding="utf-8"
     ) as csvDadosAcumulados:
@@ -76,6 +89,7 @@ if __name__ == "__main__":
             [
                 "city",
                 "city_ibge_code",
+                "macro_region",
                 "date",
                 "last_available_confirmed",
                 "last_available_confirmed_per_100k_inhabitants",
@@ -122,17 +136,17 @@ if __name__ == "__main__":
             2313351,
         ]
 
-        codigosIBG_BA = [
-            2906501,
-            2916104,
-            2919207,
-            2919926,
-            2927408,
-            2928604,
-            2929206,
-            2929503,
-            2929750,
-        ]
+        # codigosIBG_BA = [
+        #     2906501,
+        #     2916104,
+        #     2919207,
+        #     2919926,
+        #     2927408,
+        #     2928604,
+        #     2929206,
+        #     2929503,
+        #     2929750,
+        # ]
 
         # pegando os dados acumulados das cidades do Ceará
         filters_CE_acumulados = {"state": "CE", "is_last": True}
@@ -142,6 +156,7 @@ if __name__ == "__main__":
                 if row["city_ibge_code"] == cod:
                     city = row["city"]
                     city_ibge_code = row["city_ibge_code"]
+                    macro_region = macroregiao(city)
                     date = row["date"]
                     last_available_confirmed = row["last_available_confirmed"]
                     last_available_confirmed_per_100k_inhabitants = row[
@@ -159,43 +174,7 @@ if __name__ == "__main__":
                         [
                             city,
                             city_ibge_code,
-                            date,
-                            last_available_confirmed,
-                            last_available_confirmed_per_100k_inhabitants,
-                            last_available_deaths_per_100k_inhabitants,
-                            estimated_population_2019,
-                            last_available_deaths,
-                            state,
-                            new_confirmed,
-                            new_deaths,
-                        ]
-                    )
-
-        # pegando os dados acumulados das cidades da Bahia
-        filters_Baiha = {"state": "BA", "is_last": True}
-        data_BA = api.data(dataset_slug, table_name, filters_Baiha)
-        for row in data_BA:
-            for cod in codigosIBG_BA:
-                if row["city_ibge_code"] == cod:
-                    city = row["city"]
-                    city_ibge_code = row["city_ibge_code"]
-                    date = row["date"]
-                    last_available_confirmed = row["last_available_confirmed"]
-                    last_available_confirmed_per_100k_inhabitants = row[
-                        "last_available_confirmed_per_100k_inhabitants"
-                    ]
-                    estimated_population_2019 = row["estimated_population_2019"]
-                    last_available_deaths = row["last_available_deaths"]
-                    state = row["state"]
-                    new_confirmed = row["new_confirmed"]
-                    new_deaths = row["new_deaths"]
-                    last_available_deaths_per_100k_inhabitants = round(
-                        (last_available_deaths / estimated_population_2019 * 100000), 4
-                    )
-                    dadosAcumulados.writerow(
-                        [
-                            city,
-                            city_ibge_code,
+                            macro_region,
                             date,
                             last_available_confirmed,
                             last_available_confirmed_per_100k_inhabitants,

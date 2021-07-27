@@ -1,213 +1,271 @@
 paciente_endereco_nmMunicipio,vacina_descricao_dose,vacina_fabricante_nome,vacina_nome
-SALVADOR,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-NOVA RUSSAS,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CRATO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MASSAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PALHANO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MIRAIMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARACANAU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SANTA QUITERIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+GRANJA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
 JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PINDORETAMA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SENADOR SA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-JAGUARIBE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARACANAU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CARIRIACU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SENADOR SA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BARRO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-QUIXELO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-LIMOEIRO DO NORTE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BARRO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CARIRIACU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAPAGE,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-MORRINHOS,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MASSAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-APUIARES,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PINDORETAMA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-MASSAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MORRINHOS,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SANTANA DO CARIRI,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARACANAU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MILAGRES,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BELA CRUZ,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BELA CRUZ,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PINDORETAMA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PINDORETAMA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PINDORETAMA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CARIRE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BARRO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-LAGARTO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARACANAU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SANTANA DO CARIRI,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SENADOR POMPEU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-MARACANAU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CATUNDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-TAUA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CARIRE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-TURURU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BANABUIU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ACARAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MOMBACA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ACARAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+TABULEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PARAMBU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CARIRIACU,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
 PENAFORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-TAUA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-IBIAPINA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARCO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-IGUATU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ELIAS FAUSTO,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-ICO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ARACATI,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PARACURU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BANABUIU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARACANAU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-JAGUARETAMA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CARIRE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BELO HORIZONTE,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-SAO BENEDITO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-LIMOEIRO DO NORTE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARACANAU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-VARJOTA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-JAGUARETAMA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SABOEIRO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-AIUABA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CATUNDA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-QUIXERE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ARACATI,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CATUNDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-VARZEA ALEGRE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CRATEUS,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-LIMOEIRO DO NORTE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BELA CRUZ,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SANTA QUITERIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+SOBRAL,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
+GRANJA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+TABULEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PARAMBU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PARAMBU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+IBICUITINGA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HORIZONTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PEDRA BRANCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+NOVA RUSSAS,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
 FORTALEZA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PACATUBA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CANINDE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PARAMOTI,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CRATO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BARBALHA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-RIO DE JANEIRO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-POTIRETAMA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CAUCAIA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CAUCAIA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CRATO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAREMA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-QUIXELO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CANINDE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PIQUET CARNEIRO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-IBIAPINA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MORAUJO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+GRANJA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PEDRA BRANCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+NOVA OLINDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PENAFORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+GRANJA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+NOVA RUSSAS,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MARANGUAPE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ACARAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
 HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ACOPIARA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-AQUIRAZ,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CANINDE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ARACATI,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CANINDE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MOMBACA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PACUJA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-JAGUARETAMA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MORADA NOVA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-SANTA QUITERIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CANINDE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-BARBALHA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-MASSAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CANINDE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-MARACANAU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MASSAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-FARIAS BRITO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MORADA NOVA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-VARJOTA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-RERIUTABA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-BARBALHA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MILAGRES,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-AIUABA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RIO DE JANEIRO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PALMACIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MARANGUAPE,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+QUITERIANOPOLIS,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PARACURU,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CAUCAIA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MARACANAU,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+QUITERIANOPOLIS,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ALCANTARAS,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+VARJOTA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CAUCAIA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CAUCAIA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+TERESINA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+TEJUCUOCA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+BANABUIU,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PACATUBA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MORAUJO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ITAREMA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PALMACIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PALMACIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PARAMBU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+BARRA DE SANTA ROSA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+NOVO ORIENTE,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+SALVADOR,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ACARAPE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+ARARENDA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+QUITERIANOPOLIS,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MARACANAU,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+UBERLANDIA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+QUITERIANOPOLIS,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+EUSEBIO,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RUSSAS,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+BEBERIBE,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HORIZONTE,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PICOS,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+NITEROI,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
 FORTALEZA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARTINOPOLE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-ITAICABA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-AIUABA,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-BREJO SANTO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-CAUCAIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MUCAMBO,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-PORANGA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-MARCO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-SAO BENEDITO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-IPU,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
-AQUIRAZ,1ª Dose,FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
-SAO BENEDITO,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MARACANAU,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+SOBRAL,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MOMBACA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+RERIUTABA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CURURUPU,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+HIDROLANDIA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,2ª Dose,FIOCRUZ - FUNDACAO OSWALDO CRUZ,Vacina Covid-19 - Covishield
+MORAUJO,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+FORTALEZA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CAUCAIA,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MERUOCA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+JUAZEIRO DO NORTE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+LIMOEIRO DO NORTE,1ª Dose,BUTANTAN - FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+PARAMOTI,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+IBIAPINA,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CAMPOS SALES,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+CAUCAIA,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+MARACANAU,2ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
+SALITRE,1ª Dose,FUNDACAO BUTANTAN,Covid-19-Coronavac-Sinovac/Butantan
