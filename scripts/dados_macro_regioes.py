@@ -70,14 +70,14 @@ if __name__ == "__main__":
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
     def macroregiao(city):
         macroregiao = ""
-        if city == "Fortaleza" or city == "Aquiraz" or city == "Euzébio" or city == "Itaitinga":
+        if city == "Fortaleza" or city == "Aquiraz" or city == "Eusébio" or city == "Itaitinga":
             macroregiao = "1° REGIÃO DE FORTALEZA"
-        elif city == "Apuiarés" or city == "Caucaia"  or  city == "General Sampaio" or city == "Itapagé" or city == "Paracuru" or city == "Paraipaba" or city == "Pentecoste" or city == "São Gonçalo do Amarante" or city == "São Luiz do Curu" or city == "Tejussuoca":
+        elif city == "Apuiarés" or city == "Caucaia"  or  city == "General Sampaio" or city == "Itapajé" or city == "Paracuru" or city == "Paraipaba" or city == "Pentecoste" or city == "São Gonçalo do Amarante" or city == "São Luís do Curu" or city == "Tejuçuoca":
             macroregiao = "2° REGIÃO DE CAUCAIA"
-        elif city == "Acarape" or city == "Barreira" or city == "Guaiuba" or city == "Maracanau" or city == "Maranguape" or city == "Pacatuba" or city == "Palmácia" or city == "Redenção":
+        elif city == "Acarape" or city == "Barreira" or city == "Guaiúba" or city == "Maracanaú" or city == "Maranguape" or city == "Pacatuba" or city == "Palmácia" or city == "Redenção":
             macroregiao = "3° REGIÃO DE MARACANAÚ"
         else:
-            if city == "Aracoiaba" or city == "Aratuba" or city == "Baturite" or city == "Capistrano" or city == "Guaramiranga" or city == "Itapiuna" or city == "Mulungu" or city == "Pacoti":
+            if city == "Aracoiaba" or city == "Aratuba" or city == "Baturité" or city == "Capistrano" or city == "Guaramiranga" or city == "Itapiúna" or city == "Mulungu" or city == "Pacoti":
                 macroregiao = "4° REGIÃO BATURITÉ"
         return macroregiao
 
@@ -103,7 +103,6 @@ if __name__ == "__main__":
         )
 
         codigosIBG_CE = [
-            2309458,
             2301950,
             2300150,
             2301406,
