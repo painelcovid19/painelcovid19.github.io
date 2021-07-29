@@ -54,18 +54,18 @@ def firstRequest(body, link):
      
 body_1 =  { 
     "size": 10000,
-    "query": {
-            # "bool": {
-            #     "must": [
-            #         {"match": {"paciente_endereco_nmMunicipio": "REDENCAO"}},
-            #         {"match": {"estabelecimento_uf": "CE"}},
-            #     ],
-            # },
-            "query_string": {
-                "default_field": "paciente_endereco_nmMunicipio",
-                "query": "ACARAPE OR REDENCAO",
-            }
-        }
+    # "query": {
+    #         # "bool": {
+    #         #     "must": [
+    #         #         {"match": {"paciente_endereco_nmMunicipio": "REDENCAO"}},
+    #         #         {"match": {"estabelecimento_uf": "CE"}},
+    #         #     ],
+    #         # },
+    #         # "query_string": {
+    #         #     "default_field": "paciente_endereco_nmMunicipio",
+    #         #     "query": "ACARAPE OR REDENCAO",
+    #         # }
+    #     }
     }
 url_1 = "https://imunizacao-es.saude.gov.br/_search?scroll=1m"
 
