@@ -7,7 +7,7 @@ import json
 
 # funcão para geraro csv
 def gerateCSV(df_vacinas):
-        with open("data/df_dados_vacinas.csv", "w", newline="", encoding="utf-8") as csvDadosVacina:
+        with open("data/df_dados_vacinas.csv", "a", newline="", encoding="utf-8") as csvDadosVacina:
             csvVacina = csv.writer(csvDadosVacina)
             csvVacina.writerow(
                 [
