@@ -7,7 +7,7 @@ import json
 
 # funcão para geraro csv
 def gerateCSV(df_vacinas):
-        with open("data/df_dados_vacinas.csv", "a", newline="", encoding="utf-8") as csvDadosVacina:
+        with open("data/df_vacinas_STF.csv", "w", newline="", encoding="utf-8") as csvDadosVacina:
             csvVacina = csv.writer(csvDadosVacina)
             csvVacina.writerow(
                 [
@@ -20,7 +20,7 @@ def gerateCSV(df_vacinas):
             ) 
 
             for row in df_vacinas:
-                if row["_source"]["estabelecimento_uf"] == "CE":
+                if row["_source"]["estabelecimento_uf"] == "BA":
                     paciente_endereco_nmMunicipio = row["_source"]["paciente_endereco_nmMunicipio"]
                     vacina_descricao_dose = row["_source"]["vacina_descricao_dose"]
                     vacina_fabricante_nome = row["_source"]["vacina_fabricante_nome"]
@@ -47,57 +47,70 @@ def firstRequest(body, link):
         "Cookie": "ELASTIC-PROD=1618079452.839.9136.791476",
      }
 
-     response = requests.request("GET", url, headers=headers, data=payload)
-
+     response = requests.request("POST", url, headers=headers, data=payload)
      vacina = response.json()
      return vacina
-     
+
+size = 10000
+
 body_1 =  { 
-    "size": 10000,
-    # "query": {
-    #         # "bool": {
-    #         #     "must": [
-    #         #         {"match": {"paciente_endereco_nmMunicipio": "REDENCAO"}},
-    #         #         {"match": {"estabelecimento_uf": "CE"}},
-    #         #     ],
-    #         # },
+    "size": size,
+    "query": {
+            "bool": {
+                "must": [
+                    {"match": {"paciente_endereco_nmMunicipio": "SAO FRANCISCO DO CONDE"}},
+                    {"match": {"estabelecimento_uf": "BA"}},
+                ],
+    #         },
     #         # "query_string": {
     #         #     "default_field": "paciente_endereco_nmMunicipio",
     #         #     "query": "ACARAPE OR REDENCAO",
     #         # }
-    #     }
+        }
     }
+}
+    
 url_1 = "https://imunizacao-es.saude.gov.br/_search?scroll=1m"
-
 
 vacina = firstRequest(body_1, url_1)
 scroll_id =  vacina["_scroll_id"] 
 df_vacinas = vacina["hits"]["hits"]
+print(scroll_id )
 # gerateCSV(df_vacinas)
 
 body_2 =  { 
 
     "scroll_id": f"{scroll_id}" ,
     "scroll": "1m",
-    # "query": {
-    #         # "bool": {
-    #         #     "must": [
-    #         #         {"match": {"paciente_endereco_nmMunicipio": "REDENCAO"}},
-    #         #         {"match": {"estabelecimento_uf": "CE"}},
-    #         #     ],
-    #         # },
+    "query": {
+            "bool": {
+                "must": [
+                    {"match": {"paciente_endereco_nmMunicipio": "REDENCAO"}},
+                    {"match": {"estabelecimento_uf": "CE"}},
+                ],
+            },
+
     #         "query_string": {
     #             "default_field": "paciente_endereco_nmMunicipio",
     #             "query": "ACARAPE OR REDENCAO",
     #         }
-    #     }
+        }
     }
+
 url_2 = "https://imunizacao-es.saude.gov.br/_search/scroll"
 # vacina = firstRequest(body_1, url_1)
 
 # with open('data/df_vacinas_01.json', 'w') as f:
 #     json.dump(vacina, f)
 #  csvVacina = csv.writer(csvDadosVacina)
+if len(df_vacinas) < size:
+    gerateCSV(df_vacinas)
+    exit()
+else:
+    gerateCSV(df_vacinas)
+    exit()
+
+
 
 vacina_2 = firstRequest(body_2, url_2)
 df_vacinas_2 = vacina_2["hits"]["hits"]
