@@ -1,0 +1,30 @@
+name: CreateVaccineCSV
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 0 * * *'
+
+jobs:
+  get_brasil_io_data_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: installing dependecies
+        run: |
+          pip install elasticsearch7
+          pip install elasticsearch-dsl
+          pip install tqdm
+      
+      - name: geratting csv files for vaccine datas
+        run: python ./scripts/get_vaccination_data.py 
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Updated Vaccine CSV"
+          git push
