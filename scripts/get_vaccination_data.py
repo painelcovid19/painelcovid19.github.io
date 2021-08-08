@@ -9,8 +9,6 @@ locations = {
     "SFC": ["SAO FRANCISCO DO CONDE", "BA"],
 }
 
-city, state = locations["Acarape"]
-
 client = Elasticsearch(
     "https://imunizacao-es.saude.gov.br/",
     headers={
@@ -42,18 +40,23 @@ for key in locations.keys():
     for hit in tqdm(s.scan(), total=total_hits):
         data.append(
             {
-                "paciente_endereco_nmMunicipio": hit.paciente_endereco_nmMunicipio,
-                "paciente_endereco_uf": hit.paciente_endereco_uf,
                 "vacina_descricao_dose": hit.vacina_descricao_dose,
-                "vacina_dataAplicacao": hit.vacina_dataAplicacao,
-                "paciente_idade": hit.paciente_idade,
-                "paciente_dataNascimento": hit.paciente_dataNascimento,
+                "vacina_fabricante_nome": hit.vacina_fabricante_nome,
+                "vacina_nome": hit.vacina_nome
+                # "vacina_dataAplicacao": hit.vacina_dataAplicacao,
+                # "paciente_idade": hit.paciente_idade,
+                # "paciente_dataNascimento": hit.paciente_dataNascimento,
             }
         )
 
     print("Saving CSV...")
     keys = data[0].keys()
-    with open(f"data/vaccines-{city}-{state}.csv", "w", newline="", encoding="utf-8") as output_file:
+    with open(
+        f"data/vaccines-{city}-{state}.csv".lower().replace(" ", "-"),
+        "w",
+        newline="",
+        encoding="utf-8",
+    ) as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(data)
