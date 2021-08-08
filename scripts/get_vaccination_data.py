@@ -53,7 +53,7 @@ for key in locations.keys():
 
     print("Saving CSV...")
     keys = data[0].keys()
-    with open(f"vaccines-{city}-{state}.csv", "w", newline="", encoding="utf-8") as output_file:
+    with open(f"data/vaccines-{city}-{state}.csv", "w", newline="", encoding="utf-8") as output_file:
         dict_writer = csv.DictWriter(output_file, keys)
         dict_writer.writeheader()
         dict_writer.writerows(data)
