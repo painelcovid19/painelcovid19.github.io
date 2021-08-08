@@ -99,13 +99,13 @@ trace6 = px.bar(df_redencao,
     y="new_confirmed",
     color_discrete_sequence=["darkblue"],
     height=400,
-    width=650,
+    width=650, 
 )
 trace6.update_layout(
     title="Casos Confirmados em Redenção",
     yaxis={"title": "Casos Confrimados"},
     xaxis={"title": ""},
-    template="plotly_white",
+    template="plotly_white",  
 )
 trace5.add_trace(trace6.data[0])
 
