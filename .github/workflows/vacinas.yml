@@ -17,8 +17,9 @@ jobs:
           pip install elasticsearch7
           pip install elasticsearch-dsl
           pip install tqdm
+          pip install pandas
       
-      - name: geratting csv files for vaccine datas
+      - name: generating csv files for vaccine data
         run: python ./scripts/get_vaccination_data.py 
 
       - name: Commit and Push
