@@ -40,10 +40,10 @@ for key in locations.keys():
     for hit in tqdm(s.scan(), total=total_hits):
         data.append(
             {
+                "vacina_dataAplicacao": hit.vacina_dataAplicacao,
                 "vacina_descricao_dose": hit.vacina_descricao_dose,
                 "vacina_fabricante_nome": hit.vacina_fabricante_nome,
-                "vacina_nome": hit.vacina_nome
-                # "vacina_dataAplicacao": hit.vacina_dataAplicacao,
+                "vacina_nome": hit.vacina_nome,
                 # "paciente_idade": hit.paciente_idade,
                 # "paciente_dataNascimento": hit.paciente_dataNascimento,
             }
