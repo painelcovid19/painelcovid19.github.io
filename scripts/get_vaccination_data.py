@@ -1,7 +1,7 @@
+import pandas as pd
 from elasticsearch import Elasticsearch, client
 from elasticsearch_dsl import Search
 from tqdm import tqdm
-import csv
 
 locations = {
     "Redenção": ["REDENCAO", "CE"],
@@ -49,14 +49,15 @@ for key in locations.keys():
             }
         )
 
+    df = pd.DataFrame(data)
+    df["vacina_dataAplicacao"] = pd.to_datetime(
+        df["vacina_dataAplicacao"], infer_datetime_format=True
+    )
+
+    df["vacina_dataAplicacao"] = df["vacina_dataAplicacao"].dt.date
+
+    df.set_index("vacina_dataAplicacao", drop=True, inplace=True)
+    df.sort_index(inplace=True)
+
     print("Saving CSV...")
-    keys = data[0].keys()
-    with open(
-        f"data/vaccines-{city}-{state}.csv".lower().replace(" ", "-"),
-        "w",
-        newline="",
-        encoding="utf-8",
-    ) as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(data)
+    df.to_csv(f"data/vaccines-{city}-{state}.csv".lower().replace(" ", "-"))
