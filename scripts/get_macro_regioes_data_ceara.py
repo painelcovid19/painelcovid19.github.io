@@ -1,13 +1,17 @@
 import csv
 import json
+import logging
 from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
+import sys
 import os
-from dotenv import load_dotenv, find_dotenv
+# from dotenv import load_dotenv, find_dotenv
 
-# lendo o arquivo .env para obter a key
-load_dotenv(find_dotenv())
-api_key = os.getenv("my_API_key")
+# # lendo o arquivo .env para obter a key
+# load_dotenv(find_dotenv())
+# api_key = os.getenv("my_API_key")
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class BrasilIO:
@@ -59,10 +63,16 @@ class BrasilIO:
         return response
 
 
-if __name__ == "__main__":
+def main(api_key):
+    logging.info("Inicioando o script")
+
     api = BrasilIO(api_key)
     dataset_slug = "covid19"
     table_name = "caso_full"
+
+    directory = "./data"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     # Para navegar pela API:
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
@@ -144,6 +154,8 @@ if __name__ == "__main__":
         data_CE_acumlados = api.data(dataset_slug, table_name, filters_CE_acumulados)
         for row in data_CE_acumlados:
             for cod in codigosIBG_CE:
+                city1 = row["city"]
+                logging.info("Coletando dados de {city1}")
                 if row["city_ibge_code"] == cod:
                     city = row["city"]
                     city_ibge_code = row["city_ibge_code"]
@@ -177,3 +189,7 @@ if __name__ == "__main__":
                             new_deaths,
                         ]
                     )
+
+logging.info("dados coletados")
+if __name__ == "__main__":
+    main(sys.argv[1])
