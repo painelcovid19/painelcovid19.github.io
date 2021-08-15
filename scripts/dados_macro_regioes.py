@@ -72,7 +72,7 @@ if __name__ == "__main__":
         macroregiao = ""
         if city == "Fortaleza" or city == "Aquiraz" or city == "Eusébio" or city == "Itaitinga":
             macroregiao = "1° REGIÃO DE FORTALEZA"
-        elif city == "Apuiarés" or city == "Caucaia"  or  city == "General Sampaio" or city == "Itapajé" or city == "Paracuru" or city == "Paraipaba" or city == "Pentecoste" or city == "São Gonçalo do Amarante" or city == "São Luís do Curu" or city == "Tejuçuoca":
+        elif city == "Caucaia":
             macroregiao = "2° REGIÃO DE CAUCAIA"
         elif city == "Acarape" or city == "Barreira" or city == "Guaiúba" or city == "Maracanaú" or city == "Maranguape" or city == "Pacatuba" or city == "Palmácia" or city == "Redenção":
             macroregiao = "3° REGIÃO DE MARACANAÚ"
