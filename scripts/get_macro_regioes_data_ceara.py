@@ -188,7 +188,8 @@ def main(api_key):
                             new_deaths,
                         ]
                     )
+    logging.info("dados coletados")
 
-logging.info("dados coletados")
+
 if __name__ == "__main__":
     main(sys.argv[1])
