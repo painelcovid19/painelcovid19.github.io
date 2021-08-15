@@ -92,7 +92,7 @@ def main(api_key):
         return macroregiao
 
     with open(
-        "data/df_dados_macro_regioes.csv", "w", newline="", encoding="utf-8"
+        "data/df_dados_macro_regioes_ceara.csv", "w", newline="", encoding="utf-8"
     ) as csvDadosAcumulados:
         dadosAcumulados = csv.writer(csvDadosAcumulados)
         dadosAcumulados.writerow(
