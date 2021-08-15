@@ -154,10 +154,9 @@ def main(api_key):
         data_CE_acumlados = api.data(dataset_slug, table_name, filters_CE_acumulados)
         for row in data_CE_acumlados:
             for cod in codigosIBG_CE:
-                city1 = row["city"]
-                logging.info("Coletando dados de {city1}")
                 if row["city_ibge_code"] == cod:
                     city = row["city"]
+                    logging.info(f"Coletando dados de {city}")
                     city_ibge_code = row["city_ibge_code"]
                     macro_region = macroregiao(city)
                     date = row["date"]
