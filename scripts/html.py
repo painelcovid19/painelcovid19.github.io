@@ -1,12 +1,12 @@
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 
 import geopandas as gpd
 import pandas as pd
+import plotly.graph_objects as go
 from dominate import document
-from dominate.tags import div, h1, h6, html, link, meta, p, script, nav, ul, a, li
+from dominate.tags import a, div, h1, h6, html, li, link, meta, nav, p, script, ul
 from dominate.util import raw
 from plotly import express as px
-import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from six import with_metaclass
 
