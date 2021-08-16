@@ -27,154 +27,279 @@ df_acarape = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2300150
 
 # GRÁFICOS DE VACINADOS
 
-dados_redencao = pd.read_csv('https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-redencao-ce.csv')
-dados_redencao['vacina_descricao_dose'] = dados_redencao['vacina_descricao_dose'].str.replace('\xa0', '')
-dados_acarape = pd.read_csv('https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-acarape-ce.csv')
-dados_acarape['vacina_descricao_dose'] = dados_acarape['vacina_descricao_dose'].str.replace('\xa0', '')
-dados_sfc = pd.read_csv('https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-sao-francisco-do-conde-ba.csv')
-dados_acarape['vacina_descricao_dose'] = dados_acarape['vacina_descricao_dose'].str.replace('\xa0', '')
+dados_redencao = pd.read_csv(
+    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-redencao-ce.csv"
+)
+dados_redencao["vacina_descricao_dose"] = dados_redencao["vacina_descricao_dose"].str.replace(
+    "\xa0", ""
+)
+dados_acarape = pd.read_csv(
+    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-acarape-ce.csv"
+)
+dados_acarape["vacina_descricao_dose"] = dados_acarape["vacina_descricao_dose"].str.replace(
+    "\xa0", ""
+)
+dados_sfc = pd.read_csv(
+    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-sao-francisco-do-conde-ba.csv"
+)
+dados_acarape["vacina_descricao_dose"] = dados_acarape["vacina_descricao_dose"].str.replace(
+    "\xa0", ""
+)
 
 vacina_acarape = dados_acarape
 vacina_redencao = dados_redencao
 vacina_SFC = dados_sfc
 
-dose_1_acarape =vacina_acarape[vacina_acarape['vacina_descricao_dose']=='1ª Dose']
-dose_2_acarape =vacina_acarape[vacina_acarape['vacina_descricao_dose']=='2ª Dose']
-dose_acarape_unica =vacina_acarape[vacina_acarape['vacina_descricao_dose']=='Dose']
+dose_1_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "1ª Dose"]
+dose_2_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "2ª Dose"]
+dose_acarape_unica = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "Dose"]
 
-dose_1_redencao =vacina_redencao[vacina_redencao['vacina_descricao_dose']=='1ª Dose']
-dose_2_redencao =vacina_redencao[vacina_redencao['vacina_descricao_dose']=='2ª Dose']
-dose_redencao_unica =vacina_redencao[vacina_redencao['vacina_descricao_dose'] == 'Dose']
+dose_1_redencao = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "1ª Dose"]
+dose_2_redencao = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "2ª Dose"]
+dose_redencao_unica = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "Dose"]
 
-dose_1_sfc =vacina_SFC[vacina_SFC['vacina_descricao_dose']=='1ª Dose']
-dose_2_sfc =vacina_SFC[vacina_SFC['vacina_descricao_dose']=='2ª Dose']
-dose_sfc =vacina_SFC[vacina_SFC['vacina_descricao_dose'] == 'Dose']
+dose_1_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "1ª Dose"]
+dose_2_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "2ª Dose"]
+dose_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "Dose"]
 
 # primeira dose acarape
 falta_acarape_1 = 15338 - len(dose_1_acarape.index)
-labels_acarape_1 = ['Não vacinados', '1ª Dose']
+labels_acarape_1 = ["Não vacinados", "1ª Dose"]
 values_acarape_1 = [falta_acarape_1, len(dose_1_acarape.index)]
 # segunda dose acarape
 falta_acarape_2 = 15338 - len(dose_2_acarape.index)
-labels_acarape_2 = ['Não vacinados', '2ª Dose', 'Única dose']
+labels_acarape_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_acarape_2 = [falta_acarape_1, len(dose_2_acarape.index), len(dose_acarape_unica.index)]
 
 # primeira dose redençao
 falta_redencao_1 = 29146 - len(dose_1_redencao.index)
-labels_redencao_1 = ['Não vacinados', '1ª Dose']
+labels_redencao_1 = ["Não vacinados", "1ª Dose"]
 values_redencao_1 = [falta_redencao_1, len(dose_1_redencao.index)]
 # segunda dose redencao
 falta_redencao_2 = 29146 - len(dose_2_redencao.index)
-labels_redencao_2 = ['Não vacinados', '2ª Dose', 'Única dose']
+labels_redencao_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_redencao_2 = [falta_redencao_1, len(dose_2_redencao.index), len(dose_redencao_unica.index)]
 
 # primeira dose SFC
 falta_SFC_1 = 40245 - len(dose_1_sfc.index)
-labels_SFC_1 = ['Não vacinados', '1ª Dose']
+labels_SFC_1 = ["Não vacinados", "1ª Dose"]
 values_SFC_1 = [falta_SFC_1, len(dose_1_sfc.index)]
 # segunda dose SFC
 falta_SFC_2 = 40245 - len(dose_2_sfc.index)
-labels_SFC_2 = ['Não vacinados', '2ª Dose', 'Única dose']
+labels_SFC_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_SFC_2 = [falta_SFC_2, len(dose_2_sfc.index), len(dose_sfc.index)]
-c = ['#dee1e3', '#0793f0']
+c = ["#dee1e3", "#0793f0"]
 
-acarape_vac = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+acarape_vac = make_subplots(rows=1, cols=2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 acarape_vac.add_trace(
-    go.Pie(labels=labels_acarape_1, values=values_acarape_1, marker_colors=['#f2f7f7', '#7FFFD4'], name=" "),
-    1, 1)
+    go.Pie(
+        labels=labels_acarape_1,
+        values=values_acarape_1,
+        marker_colors=["#f2f7f7", "#7FFFD4"],
+        name=" ",
+    ),
+    1,
+    1,
+)
 acarape_vac.add_trace(
-    go.Pie(labels=labels_acarape_2, values=values_acarape_2, marker_colors=['#f2f7f7', '#00FA9A', '#40E0D0'], name=" "),
-    1, 2)
+    go.Pie(
+        labels=labels_acarape_2,
+        values=values_acarape_2,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    1,
+    2,
+)
 
 # Use `hole` to create a donut-like pie chart
-acarape_vac.update_traces(hole=.7, hoverinfo="label+percent+name")
+acarape_vac.update_traces(hole=0.7, hoverinfo="label+percent+name")
 
-acarape_vac.update_layout(showlegend=False, height=350, width=500,
-                          title_text="Vacinados em Acarape",
-                          # Add annotations in the center of the donut pies.
-                          annotations=[dict(text='1ª dose', x=0.125, y=0.5, font_size=20, showarrow=False),
-                                       dict(text='2ª dose e única', x=0.935, y=0.5, font_size=20, showarrow=False)])
+acarape_vac.update_layout(
+    showlegend=False,
+    height=350,
+    width=500,
+    title_text="Vacinados em Acarape",
+    # Add annotations in the center of the donut pies.
+    annotations=[
+        dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
+        dict(text="2ª dose e única", x=0.935, y=0.5, font_size=20, showarrow=False),
+    ],
+)
 
 # Create subplots: use 'domain' type for Pie subplot
-redencao_vac = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
+redencao_vac = make_subplots(rows=1, cols=2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 redencao_vac.add_trace(
-    go.Pie(labels=labels_redencao_1, values=values_redencao_1, marker_colors=['#f2f7f7', '#7FFFD4'], name=" "),
-    1, 1)
+    go.Pie(
+        labels=labels_redencao_1,
+        values=values_redencao_1,
+        marker_colors=["#f2f7f7", "#7FFFD4"],
+        name=" ",
+    ),
+    1,
+    1,
+)
 redencao_vac.add_trace(
-    go.Pie(labels=labels_redencao_2, values=values_redencao_2, marker_colors=['#f2f7f7', '#00FA9A', '#40E0D0'],
-           name=" "),
-    1, 2)
+    go.Pie(
+        labels=labels_redencao_2,
+        values=values_redencao_2,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    1,
+    2,
+)
 
 # Use `hole` to create a donut-like pie chart
-redencao_vac.update_traces(hole=.7, hoverinfo="label+percent+name")
+redencao_vac.update_traces(hole=0.7, hoverinfo="label+percent+name")
 
-redencao_vac.update_layout(showlegend=False, height=350, width=500,
-                           title_text="Vacinados em Redenção",
-                           # Add annotations in the center of the donut pies.
-                           annotations=[dict(text='1ª dose', x=0.125, y=0.5, font_size=20, showarrow=False),
-                                        dict(text='2ª dose e única', x=0.935, y=0.5, font_size=20, showarrow=False)])
+redencao_vac.update_layout(
+    showlegend=False,
+    height=350,
+    width=500,
+    title_text="Vacinados em Redenção",
+    # Add annotations in the center of the donut pies.
+    annotations=[
+        dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
+        dict(text="2ª dose e única", x=0.935, y=0.5, font_size=20, showarrow=False),
+    ],
+)
 
 # Create subplots: use 'domain' type for Pie subplot
-sfc_vac = make_subplots(rows=1, cols=2, specs=[[{'type': 'domain'}, {'type': 'domain'}]])
-sfc_vac.add_trace(go.Pie(labels=labels_SFC_1, values=values_SFC_1, marker_colors=['#f2f7f7', '#7FFFD4'], name=" "),
-                  1, 1)
+sfc_vac = make_subplots(rows=1, cols=2, specs=[[{"type": "domain"}, {"type": "domain"}]])
 sfc_vac.add_trace(
-    go.Pie(labels=labels_SFC_2, values=values_SFC_2, marker_colors=['#f2f7f7', '#00FA9A', '#40E0D0'], name=" "),
-    1, 2)
+    go.Pie(
+        labels=labels_SFC_1, values=values_SFC_1, marker_colors=["#f2f7f7", "#7FFFD4"], name=" "
+    ),
+    1,
+    1,
+)
+sfc_vac.add_trace(
+    go.Pie(
+        labels=labels_SFC_2,
+        values=values_SFC_2,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    1,
+    2,
+)
 
 # Use `hole` to create a donut-like pie chart
-sfc_vac.update_traces(hole=.7, hoverinfo="label+percent+name")
+sfc_vac.update_traces(hole=0.7, hoverinfo="label+percent+name")
 
-sfc_vac.update_layout(showlegend=False, height=350, width=500,
-                      title_text="Vacinados em São Francisco do Conde",
-                      # Add annotations in the center of the donut pies.
-                      annotations=[dict(text='1ª dose', x=0.125, y=0.5, font_size=20, showarrow=False),
-                                   dict(text='2ª dose e única', x=0.935, y=0.5, font_size=20, showarrow=False)])
+sfc_vac.update_layout(
+    showlegend=False,
+    height=350,
+    width=500,
+    title_text="Vacinados em São Francisco do Conde",
+    # Add annotations in the center of the donut pies.
+    annotations=[
+        dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
+        dict(text="2ª dose e única", x=0.935, y=0.5, font_size=20, showarrow=False),
+    ],
+)
 
 # TESTE
-vacinas = make_subplots(rows=2, cols=3,
-                        specs=[[{'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}],
-                               [{'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}]])
+vacinas = make_subplots(
+    rows=2,
+    cols=3,
+    specs=[
+        [{"type": "domain"}, {"type": "domain"}, {"type": "domain"}],
+        [{"type": "domain"}, {"type": "domain"}, {"type": "domain"}],
+    ],
+)
 
 # ACARAPE
-vacinas.add_trace(go.Pie(labels=labels_acarape_1, values=values_acarape_1,
-                         marker_colors=['#f2f7f7', '#7FFFD4'], name=" ", ), 1, 1)
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_acarape_1,
+        values=values_acarape_1,
+        marker_colors=["#f2f7f7", "#7FFFD4"],
+        name=" ",
+    ),
+    1,
+    1,
+)
 
-vacinas.add_trace(go.Pie(labels=labels_acarape_2, values=values_acarape_2,
-                         marker_colors=['#f2f7f7', '#00FA9A', '#40E0D0'], name=" "), 2, 1)
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_acarape_2,
+        values=values_acarape_2,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    2,
+    1,
+)
 
 # REDENÇÃO
-vacinas.add_trace(go.Pie(labels=labels_redencao_1, values=values_redencao_1,
-                         marker_colors=['#f2f7f7', '#7FFFD4'], name=" ", ), 1, 2)
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_redencao_1,
+        values=values_redencao_1,
+        marker_colors=["#f2f7f7", "#7FFFD4"],
+        name=" ",
+    ),
+    1,
+    2,
+)
 
-vacinas.add_trace(go.Pie(labels=labels_redencao_2, values=values_redencao_2,
-                         marker_colors=['#f2f7f7', '#00FA9A', '#40E0D0'], name=" "), 2, 2)
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_redencao_2,
+        values=values_redencao_2,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    2,
+    2,
+)
 
 # SFC
-vacinas.add_trace(go.Pie(labels=labels_SFC_1, values=values_SFC_1,
-                         marker_colors=['#f2f7f7', '#7FFFD4'], name=" "), 1, 3)
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_SFC_1, values=values_SFC_1, marker_colors=["#f2f7f7", "#7FFFD4"], name=" "
+    ),
+    1,
+    3,
+)
 
-vacinas.add_trace(go.Pie(labels=labels_SFC_2, values=values_SFC_2,
-                         marker_colors=['#f2f7f7', '#00FA9A', '#40E0D0'], name=" "), 2, 3)
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_SFC_2,
+        values=values_SFC_2,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    2,
+    3,
+)
 
 # Use `hole` to create a donut-like pie chart
-vacinas.update_traces(hole=.7, hoverinfo="label+percent+name")
-vacinas.update_layout(height=800,
-                      width=1000, legend=dict(orientation="h", yanchor="bottom", y=-.09, xanchor="right", x=.75),
-                      title_text=" ",
-                      # Add annotations in the center of the donut pies.
-                      annotations=[dict(text='1ª dose', x=0.11, y=.8, font_size=15, showarrow=False),
-                                   dict(text='1ª dose', x=0.5, y=.8, font_size=15, showarrow=False),
-                                   dict(text='1ª dose', x=0.89, y=.8, font_size=15, showarrow=False),
-                                   dict(text='2ª dose e única', x=0.078, y=0.19, font_size=15, showarrow=False),
-                                   dict(text='2ª dose e única', x=0.5, y=0.19, font_size=15, showarrow=False),
-                                   dict(text='2ª dose e única', x=0.93, y=0.19, font_size=15, showarrow=False),
-                                   dict(text='Acarape', x=0.071, y=1.1, font_size=30, showarrow=False),
-                                   dict(text='Redenção', x=0.5, y=1.1, font_size=30, showarrow=False),
-                                   dict(text='SFC', x=0.88, y=1.1, font_size=30, showarrow=False)])
+vacinas.update_traces(hole=0.7, hoverinfo="label+percent+name")
+vacinas.update_layout(
+    height=800,
+    width=1000,
+    legend=dict(orientation="h", yanchor="bottom", y=-0.09, xanchor="right", x=0.75),
+    title_text=" ",
+    # Add annotations in the center of the donut pies.
+    annotations=[
+        dict(text="1ª dose", x=0.11, y=0.8, font_size=15, showarrow=False),
+        dict(text="1ª dose", x=0.5, y=0.8, font_size=15, showarrow=False),
+        dict(text="1ª dose", x=0.89, y=0.8, font_size=15, showarrow=False),
+        dict(text="2ª dose e única", x=0.078, y=0.19, font_size=15, showarrow=False),
+        dict(text="2ª dose e única", x=0.5, y=0.19, font_size=15, showarrow=False),
+        dict(text="2ª dose e única", x=0.93, y=0.19, font_size=15, showarrow=False),
+        dict(text="Acarape", x=0.071, y=1.1, font_size=30, showarrow=False),
+        dict(text="Redenção", x=0.5, y=1.1, font_size=30, showarrow=False),
+        dict(text="SFC", x=0.88, y=1.1, font_size=30, showarrow=False),
+    ],
+)
 
 # Casos Confirmados de Acarape e a Media Movel
-trace1 = px.line(df_acarape,
+trace1 = px.line(
+    df_acarape,
     x="date",
     y="MovingMeanConfirmed",
     color_discrete_sequence=["orange"],
@@ -185,7 +310,8 @@ trace1.update_layout(
     title="Media Movel em Acarape",
     template="plotly_white",
 )
-trace2 = px.bar(df_acarape,
+trace2 = px.bar(
+    df_acarape,
     x="date",
     y="new_confirmed",
     color_discrete_sequence=["darkblue"],
@@ -202,7 +328,8 @@ trace1.add_trace(trace2.data[0])
 
 # Obitos de Acarape e a Media Movel
 
-trace3 = px.line(df_acarape,
+trace3 = px.line(
+    df_acarape,
     x="date",
     y="MovingMeanDeaths",
     color_discrete_sequence=["orange"],
@@ -215,7 +342,8 @@ trace3.update_layout(
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
 )
-trace4 = px.bar(df_acarape,
+trace4 = px.bar(
+    df_acarape,
     x="date",
     y="new_deaths",
     color_discrete_sequence=["darkblue"],
@@ -232,7 +360,8 @@ trace3.add_trace(trace4.data[0])
 
 # Casos Confirmados de Redenção e a Media Movel
 
-trace5 = px.line(df_redencao,
+trace5 = px.line(
+    df_redencao,
     x="date",
     y="MovingMeanConfirmed",
     color_discrete_sequence=["orange"],
@@ -245,7 +374,8 @@ trace5.update_layout(
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
 )
-trace6 = px.bar(df_redencao,
+trace6 = px.bar(
+    df_redencao,
     x="date",
     y="new_confirmed",
     color_discrete_sequence=["darkblue"],
@@ -262,7 +392,8 @@ trace5.add_trace(trace6.data[0])
 
 # Obitos de Redenção e Media Movel
 
-trace7 = px.line(df_redencao,
+trace7 = px.line(
+    df_redencao,
     x="date",
     y="MovingMeanDeaths",
     color_discrete_sequence=["orange"],
@@ -275,7 +406,8 @@ trace7.update_layout(
     yaxis={"title": "Media Movel"},
     xaxis={"title": ""},
 )
-trace8 = px.bar(df_redencao,
+trace8 = px.bar(
+    df_redencao,
     x="date",
     y="new_deaths",
     color_discrete_sequence=["darkblue"],
@@ -292,7 +424,8 @@ trace7.add_trace(trace8.data[0])
 
 # Casos Confirmados de São Francisco de Conde e a Media Movel
 
-trace9 = px.line(df_sfc,
+trace9 = px.line(
+    df_sfc,
     x="date",
     y="MovingMeanConfirmed",
     color_discrete_sequence=["orange"],
@@ -305,7 +438,8 @@ trace9.update_layout(
     xaxis={"title": ""},
     template="plotly_white",
 )
-trace10 = px.bar(df_sfc,
+trace10 = px.bar(
+    df_sfc,
     x="date",
     y="new_confirmed",
     color_discrete_sequence=["darkblue"],
@@ -322,7 +456,8 @@ trace9.add_trace(trace10.data[0])
 
 # Obitos de São Francsico de Conde e Media Movel
 
-trace11 = px.line(df_sfc,
+trace11 = px.line(
+    df_sfc,
     x="date",
     y="MovingMeanDeaths",
     color_discrete_sequence=["orange"],
@@ -335,7 +470,8 @@ trace11.update_layout(
     xaxis={"title": ""},
     template="plotly_white",
 )
-trace12 = px.bar(df_sfc,
+trace12 = px.bar(
+    df_sfc,
     x="date",
     y="new_deaths",
     color_discrete_sequence=["darkblue"],
@@ -520,13 +656,17 @@ def criar_pagina():
     with doc.body:
         with div(cls="container-fluid bg-light"):
             with nav(cls="navbar navbar-expand-lg navbar-light"):
-                    with div(cls="container-fluid"):
-                        a("PAINEL COVID-19", href="index.html", cls="navbar-brand")
-                        with ul(cls="navbar-nav justify-content-end"):
-                            with li(cls="nav-item p-2"):
-                                a("EQUIPE", href="equipe.html", style="text-decoration: none;")
-                            with li(cls="nav-item p-2"):
-                                a("SOBRE O PROJETO", href="sobreNos.html", style="text-decoration: none;")
+                with div(cls="container-fluid"):
+                    a("PAINEL COVID-19", href="index.html", cls="navbar-brand")
+                    with ul(cls="navbar-nav justify-content-end"):
+                        with li(cls="nav-item p-2"):
+                            a("EQUIPE", href="equipe.html", style="text-decoration: none;")
+                        with li(cls="nav-item p-2"):
+                            a(
+                                "SOBRE O PROJETO",
+                                href="sobreNos.html",
+                                style="text-decoration: none;",
+                            )
 
             with div(cls="row"):
                 with div(cls="col"):
@@ -569,13 +709,18 @@ def criar_pagina():
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
 
                     with div(cls="container"):
-                        with div(cls='row'):
-                            with div(cls='col-sm'):
-                                raw(vacinas.to_html(full_html=False,include_plotlyjs="cdn",))
-                            #with div(cls='col-sm'):
-                                #raw(redencao_vac.to_html(full_html=False,include_plotlyjs="cdn",))
-                            #with div(cls='col-sm'):
-                                #raw(sfc_vac.to_html(full_html=False,include_plotlyjs="cdn",))
+                        with div(cls="row"):
+                            with div(cls="col-sm"):
+                                raw(
+                                    vacinas.to_html(
+                                        full_html=False,
+                                        include_plotlyjs="cdn",
+                                    )
+                                )
+                            # with div(cls='col-sm'):
+                            # raw(redencao_vac.to_html(full_html=False,include_plotlyjs="cdn",))
+                            # with div(cls='col-sm'):
+                            # raw(sfc_vac.to_html(full_html=False,include_plotlyjs="cdn",))
 
                     with div(cls="row m-1"):
                         with div(cls="col-6 mr-1"):
