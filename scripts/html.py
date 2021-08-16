@@ -4,7 +4,23 @@ import geopandas as gpd
 import pandas as pd
 import plotly.graph_objects as go
 from dominate import document
-from dominate.tags import div, h1, h6, html, link, meta, p, script, nav, ul, a, li, h2, h3, img
+from dominate.tags import (
+    a,
+    div,
+    h1,
+    h2,
+    h3,
+    h6,
+    html,
+    img,
+    li,
+    link,
+    meta,
+    nav,
+    p,
+    script,
+    ul,
+)
 from dominate.util import raw
 from plotly import express as px
 from plotly.subplots import make_subplots
@@ -658,15 +674,22 @@ def criar_pagina():
     with doc.body:
         with div(cls="container-fluid bg-light"):
             with nav(cls="navbar navbar-expand-lg navbar-light"):
-                    with div(cls="container-fluid"):
-                        a("PAINEL COVID-19", href="index.html", cls="navbar-brand text-primary")
-                        with ul(cls="navbar-nav justify-content-start"):
-                            with li(cls="nav-item p-2"):
-                                a("EQUIPE", href="equipe.html", style="text-decoration: none;")
-                            with li(cls="nav-item p-2"):
-                                a("SOBRE O PROJETO", href="sobreNos.html", style="text-decoration: none;")
-                            with li(cls="nav-item p-2"):
-                                a(img(src="imagens/proex.jpg", width="25%"), href="https://unilab.edu.br/editais-proex/")
+                with div(cls="container-fluid"):
+                    a("PAINEL COVID-19", href="index.html", cls="navbar-brand text-primary")
+                    with ul(cls="navbar-nav justify-content-start"):
+                        with li(cls="nav-item p-2"):
+                            a("EQUIPE", href="equipe.html", style="text-decoration: none;")
+                        with li(cls="nav-item p-2"):
+                            a(
+                                "SOBRE O PROJETO",
+                                href="sobreNos.html",
+                                style="text-decoration: none;",
+                            )
+                        with li(cls="nav-item p-2"):
+                            a(
+                                img(src="imagens/proex.jpg", width="25%"),
+                                href="https://unilab.edu.br/editais-proex/",
+                            )
 
             with div(cls="row"):
                 with div(cls="col"):
@@ -714,9 +737,14 @@ def criar_pagina():
                                 with div(cls="col text-primary"):
                                     h3("GRAFICOS DOS VACINADOS")
                             with div(cls="container"):
-                                with div(cls='row'):
-                                    with div(cls='col-sm'):
-                                        raw(vacinas.to_html(full_html=False, include_plotlyjs="cdn", ))
+                                with div(cls="row"):
+                                    with div(cls="col-sm"):
+                                        raw(
+                                            vacinas.to_html(
+                                                full_html=False,
+                                                include_plotlyjs="cdn",
+                                            )
+                                        )
                                     # with div(cls='col-sm'):
                                     # raw(redencao_vac.to_html(full_html=False,include_plotlyjs="cdn",))
                                     # with div(cls='col-sm'):
@@ -761,7 +789,11 @@ def criar_pagina():
                                         )
                                     )
                                 with div(cls="col-6"):
-                                    raw(mapa_obitos_ce.to_html(full_html=False, include_plotlyjs=False))
+                                    raw(
+                                        mapa_obitos_ce.to_html(
+                                            full_html=False, include_plotlyjs=False
+                                        )
+                                    )
                             with div(cls="row m-1"):
                                 with div(cls="col-6 mr-1"):
                                     raw(
@@ -770,7 +802,11 @@ def criar_pagina():
                                         )
                                     )
                                 with div(cls="col-6"):
-                                    raw(mapa_obitos_ba.to_html(full_html=False, include_plotlyjs=False))
+                                    raw(
+                                        mapa_obitos_ba.to_html(
+                                            full_html=False, include_plotlyjs=False
+                                        )
+                                    )
 
                     with div(cls="row m-1"):
                         with div(cls="text-primary text-center"):
