@@ -4,7 +4,7 @@ import geopandas as gpd
 import pandas as pd
 import plotly.graph_objects as go
 from dominate import document
-from dominate.tags import a, div, h1, h6, html, li, link, meta, nav, p, script, ul
+from dominate.tags import div, h1, h6, html, link, meta, p, script, nav, ul, a, li, h2, h3, img
 from dominate.util import raw
 from plotly import express as px
 from plotly.subplots import make_subplots
@@ -307,7 +307,9 @@ trace1 = px.line(
     width=650,
 )
 trace1.update_layout(
-    title="Media Movel em Acarape",
+    title="Casos Confirmados e a Media Movel em Acarape",
+    yaxis={"title": "Casos Confrimados e Media Movel"},
+    xaxis={"title": ""},
     template="plotly_white",
 )
 trace2 = px.bar(
@@ -320,7 +322,7 @@ trace2 = px.bar(
 )
 trace2.update_layout(
     title="Casos Confirmados em Acarape",
-    yaxis={"title": "Casos Confrimados"},
+    yaxis={"title": "Casos Confrimados e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -337,9 +339,9 @@ trace3 = px.line(
     width=650,
 )
 trace3.update_layout(
-    title="Media Movel em Acarape",
+    title="Óbitos e Media Movel em Acarape",
     template="plotly_white",
-    yaxis={"title": "Media Movel"},
+    yaxis={"title": "Óbitos e Media Movel"},
     xaxis={"title": ""},
 )
 trace4 = px.bar(
@@ -351,9 +353,9 @@ trace4 = px.bar(
     width=650,
 )
 trace4.update_layout(
-    title="Óbitos em Acarape",
+    title="Óbitos e Media Movel em Acarape",
     template="plotly_white",
-    yaxis={"title": "Media Movel"},
+    yaxis={"title": "Óbitos e Media Movel"},
     xaxis={"title": ""},
 )
 trace3.add_trace(trace4.data[0])
@@ -371,7 +373,7 @@ trace5 = px.line(
 trace5.update_layout(
     title="Media Movel em Redenção",
     template="plotly_white",
-    yaxis={"title": "Media Movel"},
+    yaxis={"title": "Casos Confrimados e Media Movel"},
     xaxis={"title": ""},
 )
 trace6 = px.bar(
@@ -383,8 +385,8 @@ trace6 = px.bar(
     width=650,
 )
 trace6.update_layout(
-    title="Casos Confirmados em Redenção",
-    yaxis={"title": "Casos Confrimados"},
+    title="Casos Confrimados Media Movel em Redenção",
+    yaxis={"title": "Casos Confrimados e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -401,9 +403,9 @@ trace7 = px.line(
     width=650,
 )
 trace7.update_layout(
-    title="Media Movel em Redenção",
+    title="Óbitos e Media Movel em Redenção",
     template="plotly_white",
-    yaxis={"title": "Media Movel"},
+    yaxis={"title": "Óbitos e Media Movel"},
     xaxis={"title": ""},
 )
 trace8 = px.bar(
@@ -415,8 +417,8 @@ trace8 = px.bar(
     width=650,
 )
 trace8.update_layout(
-    title="Casos Confirmados Redenção",
-    yaxis={"title": "Casos Confrimados"},
+    title="Óbitos e Media Movel em Redenção",
+    yaxis={"title": "Óbitos e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -433,8 +435,8 @@ trace9 = px.line(
     width=650,
 )
 trace9.update_layout(
-    title="Media Movel em São Francisco do Conde",
-    yaxis={"title": "Media Movel"},
+    title="Casos Confrimados Media Movel em São Francisco do Conde",
+    yaxis={"title": "Casos Confirmados e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -447,8 +449,8 @@ trace10 = px.bar(
     width=650,
 )
 trace10.update_layout(
-    title="Casos Confirmados em São Francisco de Conde",
-    yaxis={"title": "Casos Confirmados"},
+    title="Casos Confrimados e Media Movel em São Francisco de Conde",
+    yaxis={"title": "Casos Confirmados e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -465,8 +467,8 @@ trace11 = px.line(
     width=650,
 )
 trace11.update_layout(
-    title="Media Movel em São Francisco do Conde",
-    yaxis={"title": "Media Movel"},
+    title="Óbitos e Media Movel em São Francisco do Conde",
+    yaxis={"title": "Óbitos e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -479,8 +481,8 @@ trace12 = px.bar(
     width=650,
 )
 trace12.update_layout(
-    title="Casos Confirmados em São Francisco de Conde",
-    yaxis={"title": "Casos Confrimados"},
+    title="Óbitos e Media Movel em São Francisco de Conde",
+    yaxis={"title": "Óbitos e Media Movel"},
     xaxis={"title": ""},
     template="plotly_white",
 )
@@ -656,17 +658,15 @@ def criar_pagina():
     with doc.body:
         with div(cls="container-fluid bg-light"):
             with nav(cls="navbar navbar-expand-lg navbar-light"):
-                with div(cls="container-fluid"):
-                    a("PAINEL COVID-19", href="index.html", cls="navbar-brand")
-                    with ul(cls="navbar-nav justify-content-end"):
-                        with li(cls="nav-item p-2"):
-                            a("EQUIPE", href="equipe.html", style="text-decoration: none;")
-                        with li(cls="nav-item p-2"):
-                            a(
-                                "SOBRE O PROJETO",
-                                href="sobreNos.html",
-                                style="text-decoration: none;",
-                            )
+                    with div(cls="container-fluid"):
+                        a("PAINEL COVID-19", href="index.html", cls="navbar-brand text-primary")
+                        with ul(cls="navbar-nav justify-content-start"):
+                            with li(cls="nav-item p-2"):
+                                a("EQUIPE", href="equipe.html", style="text-decoration: none;")
+                            with li(cls="nav-item p-2"):
+                                a("SOBRE O PROJETO", href="sobreNos.html", style="text-decoration: none;")
+                            with li(cls="nav-item p-2"):
+                                a(img(src="imagens/proex.jpg", width="25%"), href="https://unilab.edu.br/editais-proex/")
 
             with div(cls="row"):
                 with div(cls="col"):
@@ -708,58 +708,69 @@ def criar_pagina():
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
 
-                    with div(cls="container"):
-                        with div(cls="row"):
-                            with div(cls="col-sm"):
-                                raw(
-                                    vacinas.to_html(
-                                        full_html=False,
-                                        include_plotlyjs="cdn",
-                                    )
-                                )
-                            # with div(cls='col-sm'):
-                            # raw(redencao_vac.to_html(full_html=False,include_plotlyjs="cdn",))
-                            # with div(cls='col-sm'):
-                            # raw(sfc_vac.to_html(full_html=False,include_plotlyjs="cdn",))
+                    with div(cls="row my-5"):
+                        with div(cls="col"):
+                            with div(cls="row m-1"):
+                                with div(cls="col text-primary"):
+                                    h3("GRAFICOS DOS VACINADOS")
+                            with div(cls="container"):
+                                with div(cls='row'):
+                                    with div(cls='col-sm'):
+                                        raw(vacinas.to_html(full_html=False, include_plotlyjs="cdn", ))
+                                    # with div(cls='col-sm'):
+                                    # raw(redencao_vac.to_html(full_html=False,include_plotlyjs="cdn",))
+                                    # with div(cls='col-sm'):
+                                    # raw(sfc_vac.to_html(full_html=False,include_plotlyjs="cdn",))
 
-                    with div(cls="row m-1"):
-                        with div(cls="col-6 mr-1"):
-                            raw(
-                                trace1.to_html(
-                                    full_html=False,
-                                    include_plotlyjs="cdn",
-                                )
-                            )
-                        with div(cls="col-6"):
-                            raw(trace3.to_html(full_html=False, include_plotlyjs=False))
-                    with div(cls="row m-1"):
-                        with div(cls="col-6 mr-1"):
-                            raw(trace5.to_html(full_html=False, include_plotlyjs=False))
-                        with div(cls="col-6"):
-                            raw(trace7.to_html(full_html=False, include_plotlyjs=False))
-                    with div(cls="row m-1"):
-                        with div(cls="col-6 mr-1"):
-                            raw(trace9.to_html(full_html=False, include_plotlyjs=False))
-                        with div(cls="col-6 "):
-                            raw(trace11.to_html(full_html=False, include_plotlyjs=False))
-                    with div(cls="row m-1"):
-                        with div(cls="col-6 mr-1"):
-                            raw(
-                                mapa_confirmados_ce.to_html(
-                                    full_html=False, include_plotlyjs=False
-                                )
-                            )
-                        with div(cls="col-6"):
-                            raw(mapa_obitos_ce.to_html(full_html=False, include_plotlyjs=False))
-                    with div(cls="row m-1"):
-                        with div(cls="col-6 mr-1"):
-                            raw(
-                                mapa_confirmados_ba.to_html(
-                                    full_html=False, include_plotlyjs=False
-                                )
-                            )
-                        with div(cls="col-6"):
-                            raw(mapa_obitos_ba.to_html(full_html=False, include_plotlyjs=False))
+                    with div(cls="row my-5"):
+                        with div(cls="col"):
+                            with div(cls="row m-1"):
+                                with div(cls="col text-primary"):
+                                    h3("GRAFICOS DOS CASOS TOTAIS E OBITOS")
+                            with div(cls="row m-1"):
+                                with div(cls="col-6 mr-1"):
+                                    raw(
+                                        trace1.to_html(
+                                            full_html=False,
+                                            include_plotlyjs="cdn",
+                                        )
+                                    )
+                                with div(cls="col-6"):
+                                    raw(trace3.to_html(full_html=False, include_plotlyjs=False))
+                            with div(cls="row m-1"):
+                                with div(cls="col-6 mr-1"):
+                                    raw(trace5.to_html(full_html=False, include_plotlyjs=False))
+                                with div(cls="col-6"):
+                                    raw(trace7.to_html(full_html=False, include_plotlyjs=False))
+                            with div(cls="row m-1"):
+                                with div(cls="col-6 mr-1"):
+                                    raw(trace9.to_html(full_html=False, include_plotlyjs=False))
+                                with div(cls="col-6 "):
+                                    raw(trace11.to_html(full_html=False, include_plotlyjs=False))
+
+                    with div(cls="row my-5"):
+                        with div(cls="col"):
+                            with div(cls="row m-1"):
+                                with div(cls="col text-primary"):
+                                    h3("MAPAS DAS REGIÕES SEDE DOS CAMPI DA UNILAB")
+                            with div(cls="row m-1"):
+                                with div(cls="col-6 mr-1"):
+                                    raw(
+                                        mapa_confirmados_ce.to_html(
+                                            full_html=False, include_plotlyjs=False
+                                        )
+                                    )
+                                with div(cls="col-6"):
+                                    raw(mapa_obitos_ce.to_html(full_html=False, include_plotlyjs=False))
+                            with div(cls="row m-1"):
+                                with div(cls="col-6 mr-1"):
+                                    raw(
+                                        mapa_confirmados_ba.to_html(
+                                            full_html=False, include_plotlyjs=False
+                                        )
+                                    )
+                                with div(cls="col-6"):
+                                    raw(mapa_obitos_ba.to_html(full_html=False, include_plotlyjs=False))
 
                     with div(cls="row m-1"):
                         with div(cls="text-primary text-center"):
