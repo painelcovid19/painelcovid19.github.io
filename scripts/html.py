@@ -24,21 +24,25 @@ from dominate.tags import (
     p,
     script,
     span,
-    ul,
     style,
+    ul,
 )
 from dominate.util import raw
 from plotly import express as px
 from plotly.subplots import make_subplots
 from six import with_metaclass
 
-df_cidades_campi = pd.read_csv(
-    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_cidades_campi.csv"
-)
+if __debug__:
+    df_cidades_campi = pd.read_csv("./data/df_cidades_campi.csv")
+    df_mapas = pd.read_csv("./data/df_dados_acumulados.csv")
+else:
+    df_cidades_campi = pd.read_csv(
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_cidades_campi.csv"
+    )
 
-df_mapas = pd.read_csv(
-    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_acumulados.csv"
-)
+    df_mapas = pd.read_csv(
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_acumulados.csv"
+    )
 
 df_cidades_campi["MovingMeanConfirmed"] = df_cidades_campi["new_confirmed"].rolling(14).mean()
 df_cidades_campi["MovingMeanDeaths"] = df_cidades_campi["new_deaths"].rolling(14).mean()
@@ -701,7 +705,12 @@ def criar_pagina():
                             """
                         )
                     with div(cls="modal-footer"):
-                        button("Close", type="button", cls="btn btn-secondary", data_bs_dismiss="modal")
+                        button(
+                            "Close",
+                            type="button",
+                            cls="btn btn-secondary",
+                            data_bs_dismiss="modal",
+                        )
 
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
         print(str(doc), file=html_file)
