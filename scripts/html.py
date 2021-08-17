@@ -9,8 +9,6 @@ from dominate.tags import (
     a,
     button,
     div,
-    h1,
-    h2,
     h3,
     h5,
     h6,
@@ -24,13 +22,11 @@ from dominate.tags import (
     p,
     script,
     span,
-    style,
     ul,
 )
 from dominate.util import raw
 from plotly import express as px
 from plotly.subplots import make_subplots
-from six import with_metaclass
 
 if __debug__:
     df_cidades_campi = pd.read_csv("./data/df_cidades_campi.csv")
@@ -52,29 +48,29 @@ df_sfc = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2929206)]
 df_acarape = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2300150)]
 
 # GRÁFICOS DE VACINADOS
+if __debug__:
+    vacina_redencao = pd.read_csv("./data/vaccines-redencao-ce.csv")
+    vacina_acarape = pd.read_csv("./data/vaccines-acarape-ce.csv")
+    vacina_SFC = pd.read_csv("./data/vaccines-sao-francisco-do-conde-ba.csv")
 
-dados_redencao = pd.read_csv(
-    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-redencao-ce.csv"
-)
-dados_redencao["vacina_descricao_dose"] = dados_redencao["vacina_descricao_dose"].str.replace(
-    "\xa0", ""
-)
-dados_acarape = pd.read_csv(
-    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-acarape-ce.csv"
-)
-dados_acarape["vacina_descricao_dose"] = dados_acarape["vacina_descricao_dose"].str.replace(
-    "\xa0", ""
-)
-dados_sfc = pd.read_csv(
-    "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-sao-francisco-do-conde-ba.csv"
-)
-dados_acarape["vacina_descricao_dose"] = dados_acarape["vacina_descricao_dose"].str.replace(
-    "\xa0", ""
-)
+else:
+    vacina_redencao = pd.read_csv(
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-redencao-ce.csv"
+    )
+    vacina_acarape = pd.read_csv(
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-acarape-ce.csv"
+    )
+    vacina_SFC = pd.read_csv(
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/vaccines-sao-francisco-do-conde-ba.csv"
+    )
 
-vacina_acarape = dados_acarape
-vacina_redencao = dados_redencao
-vacina_SFC = dados_sfc
+vacina_redencao["vacina_descricao_dose"] = vacina_redencao["vacina_descricao_dose"].str.replace(
+    "\xa0", ""
+)
+vacina_acarape["vacina_descricao_dose"] = vacina_acarape["vacina_descricao_dose"].str.replace(
+    "\xa0", ""
+)
+vacina_SFC["vacina_descricao_dose"] = vacina_SFC["vacina_descricao_dose"].str.replace("\xa0", "")
 
 dose_1_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "1ª Dose"]
 dose_2_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "2ª Dose"]
