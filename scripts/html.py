@@ -9,8 +9,8 @@ from dominate.tags import (
     a,
     button,
     div,
-    h3,
-    h5,
+    h1,
+    h4,
     h6,
     header,
     html,
@@ -313,9 +313,9 @@ vacinas.update_layout(
         dict(text="2ª dose e única", x=0.078, y=0.19, font_size=15, showarrow=False),
         dict(text="2ª dose e única", x=0.5, y=0.19, font_size=15, showarrow=False),
         dict(text="2ª dose e única", x=0.93, y=0.19, font_size=15, showarrow=False),
-        dict(text="Acarape", x=0.071, y=1.1, font_size=30, showarrow=False),
-        dict(text="Redenção", x=0.5, y=1.1, font_size=30, showarrow=False),
-        dict(text="SFC", x=0.88, y=1.1, font_size=30, showarrow=False),
+        dict(text="Acarape", x=0.071, y=1.1, font_size=24, showarrow=False),
+        dict(text="Redenção", x=0.5, y=1.1, font_size=24, showarrow=False),
+        dict(text="SFC", x=0.88, y=1.1, font_size=24, showarrow=False),
     ],
 )
 
@@ -486,9 +486,13 @@ def criar_pagina():
 
     with doc.body:
         with header():
-            with nav(cls="navbar navbar-expand-lg fixed-top navbar-light bg-light"):
+            with nav(cls="navbar navbar-expand-lg fixed-top navbar-light"):
                 with div(cls="container-fluid"):
-                    a("PAINEL COVID-19", cls="navbar-brand", href=r"#")
+                    a(
+                        h1("PAINEL COVID-19"),
+                        cls="navbar-brand",
+                        href=r"https://painelcovid19.github.io",
+                    )
                     with button(
                         cls="navbar-toggler",
                         type="button",
@@ -503,21 +507,9 @@ def criar_pagina():
                     with div(cls="collapse navbar-collapse", id="navbarTogglerDemo01"):
                         with ul(cls="navbar-nav me-auto"):
                             with li(cls="nav-item active"):
-                                a(
-                                    "Sobre o projeto",
-                                    cls="nav-link",
-                                    href=r"#",
-                                    data_bs_toggle="modal",
-                                    data_bs_target="#modalSobre",
-                                )
+                                a("Sobre o projeto", cls="nav-link", href=r"./sobre.html")
                             with li(cls="nav-item active"):
-                                a(
-                                    "Equipe",
-                                    cls="nav-link",
-                                    href=r"#",
-                                    data_bs_toggle="modal",
-                                    data_bs_target="#modalEquipe",
-                                )
+                                a("Equipe", cls="nav-link", href=r"./equipe.html")
 
                         with div(cls="ps-3"):
                             with a(target="_blank", href="http://www.unilab.edu.br"):
@@ -547,25 +539,6 @@ def criar_pagina():
                                 )
 
         with div(cls="container-fluid bg-light"):
-            """with nav(cls="navbar navbar-expand-lg navbar-light"):
-            with div(cls="container-fluid"):
-                with h1():
-                    a("PAINEL COVID-19", href="index.html", cls="navbar-brand text-primary")
-                with ul(cls="navbar-nav justify-content-start"):
-                    with li(cls="nav-item p-2"):
-                        a("EQUIPE", href="equipe.html", style="text-decoration: none;")
-                    with li(cls="nav-item p-2"):
-                        a(
-                            "SOBRE O PROJETO",
-                            href="sobreNos.html",
-                            style="text-decoration: none;",
-                        )
-                    with li(cls="nav-item p-2"):
-                        a(
-                            img(src="imagens/proex.jpg", width="25%"),
-                            href="https://unilab.edu.br/editais-proex/",
-                        )"""
-
             with div(cls="row", style="padding: 60px 15px 0;"):
                 with div(cls="col"):
                     with div(cls="row row-cols-1 row-cols-md-3 g-4"):
@@ -610,7 +583,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="row"):
                                 with div(cls="col text-primary"):
-                                    h3("APLICAÇÃO DE VACINAS")
+                                    h4("APLICAÇÃO DE VACINAS")
                             with div(cls="container"):
                                 with div(cls="row"):
                                     with div(cls="col"):
@@ -624,7 +597,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="row m-3"):
                                 with div(cls="col text-primary"):
-                                    h3("EVOLUÇÃO DE CASOS E ÓBITOS")
+                                    h4("EVOLUÇÃO DE CASOS E ÓBITOS")
                             with div(cls="row m-3 justify-content-around"):
                                 with div(cls="col"):
                                     raw(trace1.to_html(full_html=False, include_plotlyjs=False))
@@ -645,7 +618,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="row m-3"):
                                 with div(cls="col text-primary"):
-                                    h3("MAPAS DAS REGIÕES-SEDE DOS CAMPI DA UNILAB")
+                                    h4("MAPAS DAS REGIÕES-SEDE DOS CAMPI DA UNILAB")
                             with div(cls="row m-3 justify-content-around"):
                                 with div(cls="col"):
                                     raw(
@@ -676,37 +649,6 @@ def criar_pagina():
                     with div(cls="row"):
                         with div(cls="text-primary text-center"):
                             p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
-
-        # <!-- Modal "Sobre o projeto" -->
-        with div(cls="modal fade", id="modalSobre", tabindex="-1", aria_hidden="true"):
-            with div(cls="modal-dialog"):
-                with div(cls="modal-content"):
-                    with div(cls="modal-header"):
-                        h5("Sobre o projeto", cls="modal-title")
-                        button(
-                            type="button",
-                            cls="btn-close",
-                            data_bs_dismiss="modal",
-                            aria_label="Close",
-                        )
-                    with div(cls="modal-body"):
-                        p(
-                            """
-                            Este site foi produzido no âmbito do projeto de extensão referente
-                            ao edital CAC/PROEX/UNILAB N° 01/2020 de Fomento às Atividades de
-                            Arte e Cultura em Resposta e Enfrentamento ao Coronavírus/Covid-19.
-                            O projeto em questão trata da análise da evolução do novo
-                            Coronavírus (Covid-19) nos municípios de Redenção (CE), Acarape (CE)
-                            e São Francisco Do Conde (BA), cidades que sediam campi da Unilab.
-                            """
-                        )
-                    with div(cls="modal-footer"):
-                        button(
-                            "Close",
-                            type="button",
-                            cls="btn btn-secondary",
-                            data_bs_dismiss="modal",
-                        )
 
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
         print(str(doc), file=html_file)
