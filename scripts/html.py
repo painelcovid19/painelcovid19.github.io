@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+from sys import stdout
 
 import geopandas as gpd
 import pandas as pd
@@ -6,11 +7,14 @@ import plotly.graph_objects as go
 from dominate import document
 from dominate.tags import (
     a,
+    button,
     div,
     h1,
     h2,
     h3,
+    h5,
     h6,
+    header,
     html,
     img,
     li,
@@ -19,7 +23,9 @@ from dominate.tags import (
     nav,
     p,
     script,
+    span,
     ul,
+    style,
 )
 from dominate.util import raw
 from plotly import express as px
@@ -479,26 +485,88 @@ def criar_pagina():
         meta(encodings="utf-8")
 
     with doc.body:
-        with div(cls="container-fluid bg-light"):
-            with nav(cls="navbar navbar-expand-lg navbar-light"):
+        with header():
+            with nav(cls="navbar navbar-expand-lg fixed-top navbar-light bg-light"):
                 with div(cls="container-fluid"):
-                    a("PAINEL COVID-19", href="index.html", cls="navbar-brand text-primary")
-                    with ul(cls="navbar-nav justify-content-start"):
-                        with li(cls="nav-item p-2"):
-                            a("EQUIPE", href="equipe.html", style="text-decoration: none;")
-                        with li(cls="nav-item p-2"):
-                            a(
-                                "SOBRE O PROJETO",
-                                href="sobreNos.html",
-                                style="text-decoration: none;",
-                            )
-                        with li(cls="nav-item p-2"):
-                            a(
-                                img(src="imagens/proex.jpg", width="25%"),
-                                href="https://unilab.edu.br/editais-proex/",
-                            )
+                    a("PAINEL COVID-19", cls="navbar-brand", href=r"#")
+                    with button(
+                        cls="navbar-toggler",
+                        type="button",
+                        data_bs_toggle="collapse",
+                        data_bs_target="#navbarTogglerDemo01",
+                        aria_controls="navbarTogglerDemo01",
+                        aria_expanded="false",
+                        aria_label="Toggle navigation",
+                    ):
+                        span(cls="navbar-toggle-icon")
 
-            with div(cls="row"):
+                    with div(cls="collapse navbar-collapse", id="navbarTogglerDemo01"):
+                        with ul(cls="navbar-nav me-auto"):
+                            with li(cls="nav-item active"):
+                                a(
+                                    "Sobre o projeto",
+                                    cls="nav-link",
+                                    href=r"#",
+                                    data_bs_toggle="modal",
+                                    data_bs_target="#modalSobre",
+                                )
+                            with li(cls="nav-item active"):
+                                a(
+                                    "Equipe",
+                                    cls="nav-link",
+                                    href=r"#",
+                                    data_bs_toggle="modal",
+                                    data_bs_target="#modalEquipe",
+                                )
+
+                        with div(cls="ps-3"):
+                            with a(target="_blank", href="http://www.unilab.edu.br"):
+                                img(
+                                    src="./images/logo-unilab.png",
+                                    height="30",
+                                    cls="d-inline-block align-top",
+                                )
+
+                        with div(cls="ps-3"):
+                            with a(
+                                target="_blank",
+                                href="http://www.unilab.edu.br/pro-reitoria-de-extensao-arte-e-cultura",
+                            ):
+                                img(
+                                    src="./images/logo-proex.jpg",
+                                    height="30",
+                                    cls="d-inline-block align-top",
+                                )
+
+                        with div(cls="ps-3"):
+                            with a(target="_blank", href="http://www.unilab.edu.br/ieds/"):
+                                img(
+                                    src="./images/logo-ieds.jpg",
+                                    height="30",
+                                    cls="d-inline-block align-top",
+                                )
+
+        with div(cls="container-fluid bg-light"):
+            """with nav(cls="navbar navbar-expand-lg navbar-light"):
+            with div(cls="container-fluid"):
+                with h1():
+                    a("PAINEL COVID-19", href="index.html", cls="navbar-brand text-primary")
+                with ul(cls="navbar-nav justify-content-start"):
+                    with li(cls="nav-item p-2"):
+                        a("EQUIPE", href="equipe.html", style="text-decoration: none;")
+                    with li(cls="nav-item p-2"):
+                        a(
+                            "SOBRE O PROJETO",
+                            href="sobreNos.html",
+                            style="text-decoration: none;",
+                        )
+                    with li(cls="nav-item p-2"):
+                        a(
+                            img(src="imagens/proex.jpg", width="25%"),
+                            href="https://unilab.edu.br/editais-proex/",
+                        )"""
+
+            with div(cls="row", style="padding: 60px 15px 0;"):
                 with div(cls="col"):
                     with div(cls="row row-cols-1 row-cols-md-3 g-4"):
                         with div(cls="col"):
@@ -538,86 +606,102 @@ def criar_pagina():
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
 
-                    with div(cls="row my-5"):
+                    with div(cls="row m-3"):
                         with div(cls="col"):
-                            with div(cls="row m-1"):
+                            with div(cls="row"):
                                 with div(cls="col text-primary"):
                                     h3("APLICAÇÃO DE VACINAS")
                             with div(cls="container"):
                                 with div(cls="row"):
-                                    with div(cls="col-sm"):
+                                    with div(cls="col"):
                                         raw(
                                             vacinas.to_html(
-                                                full_html=False,
-                                                include_plotlyjs="cdn",
+                                                full_html=False, include_plotlyjs="cdn"
                                             )
                                         )
-                                    # with div(cls='col-sm'):
-                                    # raw(redencao_vac.to_html(full_html=False,include_plotlyjs="cdn",))
-                                    # with div(cls='col-sm'):
-                                    # raw(sfc_vac.to_html(full_html=False,include_plotlyjs="cdn",))
 
-                    with div(cls="row my-5"):
+                    with div(cls="row"):
                         with div(cls="col"):
-                            with div(cls="row m-1"):
+                            with div(cls="row m-3"):
                                 with div(cls="col text-primary"):
-                                    h3("EVOLUÇÃO DE CASOS E OBITOS")
-                            with div(cls="row m-1"):
-                                with div(cls="col-6 mr-1"):
-                                    raw(
-                                        trace1.to_html(
-                                            full_html=False,
-                                            include_plotlyjs="cdn",
-                                        )
-                                    )
-                                with div(cls="col-6"):
+                                    h3("EVOLUÇÃO DE CASOS E ÓBITOS")
+                            with div(cls="row m-3 justify-content-around"):
+                                with div(cls="col"):
+                                    raw(trace1.to_html(full_html=False, include_plotlyjs=False))
+                                with div(cls="col"):
                                     raw(trace3.to_html(full_html=False, include_plotlyjs=False))
-                            with div(cls="row m-1"):
-                                with div(cls="col-6 mr-1"):
+                            with div(cls="row m-3 justify-content-around"):
+                                with div(cls="col"):
                                     raw(trace5.to_html(full_html=False, include_plotlyjs=False))
-                                with div(cls="col-6"):
+                                with div(cls="col"):
                                     raw(trace7.to_html(full_html=False, include_plotlyjs=False))
-                            with div(cls="row m-1"):
-                                with div(cls="col-6 mr-1"):
+                            with div(cls="row m-3 justify-content-around"):
+                                with div(cls="col"):
                                     raw(trace9.to_html(full_html=False, include_plotlyjs=False))
-                                with div(cls="col-6 "):
+                                with div(cls="col "):
                                     raw(trace11.to_html(full_html=False, include_plotlyjs=False))
 
-                    with div(cls="row my-5"):
+                    with div(cls="row"):
                         with div(cls="col"):
-                            with div(cls="row m-1"):
+                            with div(cls="row m-3"):
                                 with div(cls="col text-primary"):
                                     h3("MAPAS DAS REGIÕES-SEDE DOS CAMPI DA UNILAB")
-                            with div(cls="row m-1"):
-                                with div(cls="col-6 mr-1"):
+                            with div(cls="row m-3 justify-content-around"):
+                                with div(cls="col"):
                                     raw(
                                         mapa_confirmados_ce.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
-                                with div(cls="col-6"):
+                                with div(cls="col"):
                                     raw(
                                         mapa_obitos_ce.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
-                            with div(cls="row m-1"):
-                                with div(cls="col-6 mr-1"):
+                            with div(cls="row m-3 justify-content-around"):
+                                with div(cls="col"):
                                     raw(
                                         mapa_confirmados_ba.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
-                                with div(cls="col-6"):
+                                with div(cls="col"):
                                     raw(
                                         mapa_obitos_ba.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
 
-                    with div(cls="row m-1"):
+                    with div(cls="row"):
                         with div(cls="text-primary text-center"):
                             p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
+
+        # <!-- Modal "Sobre o projeto" -->
+        with div(cls="modal fade", id="modalSobre", tabindex="-1", aria_hidden="true"):
+            with div(cls="modal-dialog"):
+                with div(cls="modal-content"):
+                    with div(cls="modal-header"):
+                        h5("Sobre o projeto", cls="modal-title")
+                        button(
+                            type="button",
+                            cls="btn-close",
+                            data_bs_dismiss="modal",
+                            aria_label="Close",
+                        )
+                    with div(cls="modal-body"):
+                        p(
+                            """
+                            Este site foi produzido no âmbito do projeto de extensão referente
+                            ao edital CAC/PROEX/UNILAB N° 01/2020 de Fomento às Atividades de
+                            Arte e Cultura em Resposta e Enfrentamento ao Coronavírus/Covid-19.
+                            O projeto em questão trata da análise da evolução do novo
+                            Coronavírus (Covid-19) nos municípios de Redenção (CE), Acarape (CE)
+                            e São Francisco Do Conde (BA), cidades que sediam campi da Unilab.
+                            """
+                        )
+                    with div(cls="modal-footer"):
+                        button("Close", type="button", cls="btn btn-secondary", data_bs_dismiss="modal")
 
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
         print(str(doc), file=html_file)
