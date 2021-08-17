@@ -543,7 +543,7 @@ def criar_pagina():
                                 )
 
         with div(cls="container-fluid bg-light"):
-            with div(cls="row", style="padding: 80px 15px 0;"):
+            with div(cls="row", style="padding: 90px 15px 0;"):
                 with div(cls="col"):
                     with div(cls="row row-cols-1 row-cols-md-3 g-4"):
                         with div(cls="col"):
