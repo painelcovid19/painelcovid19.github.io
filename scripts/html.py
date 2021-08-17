@@ -208,7 +208,7 @@ sfc_vac.update_layout(
     showlegend=False,
     height=350,
     width=500,
-    title_text="Vacinados em São Francisco do Conde",
+    title_text="Vacinados em SFC",
     # Add annotations in the center of the donut pies.
     annotations=[
         dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
@@ -313,264 +313,71 @@ vacinas.update_layout(
     ],
 )
 
-# Casos Confirmados de Acarape e a Media Movel
-trace1 = px.line(
-    df_acarape,
-    x="date",
-    y="MovingMeanConfirmed",
-    color_discrete_sequence=["orange"],
-    height=400,
-    width=650,
-)
-trace1.update_layout(
-    title="Casos Confirmados e a Media Movel em Acarape",
-    yaxis={"title": "Casos Confrimados e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace2 = px.bar(
-    df_acarape,
-    x="date",
-    y="new_confirmed",
-    color_discrete_sequence=["darkblue"],
-    height=400,
-    width=650,
-)
-trace2.update_layout(
-    title="Casos Confirmados em Acarape",
-    yaxis={"title": "Casos Confrimados e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace1.add_trace(trace2.data[0])
 
-# Obitos de Acarape e a Media Movel
+def create_scatter_plot(df, _type, title):
+    column = None
 
-trace3 = px.line(
-    df_acarape,
-    x="date",
-    y="MovingMeanDeaths",
-    color_discrete_sequence=["orange"],
-    height=400,
-    width=650,
-)
-trace3.update_layout(
-    title="Óbitos e Media Movel em Acarape",
-    template="plotly_white",
-    yaxis={"title": "Óbitos e Media Movel"},
-    xaxis={"title": ""},
-)
-trace4 = px.bar(
-    df_acarape,
-    x="date",
-    y="new_deaths",
-    color_discrete_sequence=["darkblue"],
-    height=400,
-    width=650,
-)
-trace4.update_layout(
-    title="Óbitos e Media Movel em Acarape",
-    template="plotly_white",
-    yaxis={"title": "Óbitos e Media Movel"},
-    xaxis={"title": ""},
-)
-trace3.add_trace(trace4.data[0])
+    if _type == "casos":
+        column = "new_confirmed"
+        moving_mean_column = "MovingMeanConfirmed"
+    elif _type == "óbitos":
+        column = "new_deaths"
+        moving_mean_column = "MovingMeanDeaths"
 
-# Casos Confirmados de Redenção e a Media Movel
+    fig = go.Figure(
+        layout=go.Layout(
+            title=title,
+            yaxis={"title": ""},
+            xaxis={"title": ""},
+            template="plotly_white",
+            legend=dict(
+                yanchor="top", y=0.99, xanchor="right", x=1, bordercolor="lightgrey", borderwidth=1
+            ),
+            height=400,
+            width=650,
+        )
+    )
+    fig.add_trace(
+        go.Bar(
+            x=df["date"],
+            y=df[column],
+            name=_type,
+            marker_color="darkblue",
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=df["date"],
+            y=df[moving_mean_column],
+            mode="lines",
+            name="média móvel",
+            marker_color="orange",
+        )
+    )
+    fig.update_yaxes({"rangemode": "nonnegative"})
 
-trace5 = px.line(
-    df_redencao,
-    x="date",
-    y="MovingMeanConfirmed",
-    color_discrete_sequence=["orange"],
-    height=400,
-    width=650,
-)
-trace5.update_layout(
-    title="Media Movel em Redenção",
-    template="plotly_white",
-    yaxis={"title": "Casos Confrimados e Media Movel"},
-    xaxis={"title": ""},
-)
-trace6 = px.bar(
-    df_redencao,
-    x="date",
-    y="new_confirmed",
-    color_discrete_sequence=["darkblue"],
-    height=400,
-    width=650,
-)
-trace6.update_layout(
-    title="Casos Confrimados Media Movel em Redenção",
-    yaxis={"title": "Casos Confrimados e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace5.add_trace(trace6.data[0])
-
-# Obitos de Redenção e Media Movel
-
-trace7 = px.line(
-    df_redencao,
-    x="date",
-    y="MovingMeanDeaths",
-    color_discrete_sequence=["orange"],
-    height=400,
-    width=650,
-)
-trace7.update_layout(
-    title="Óbitos e Media Movel em Redenção",
-    template="plotly_white",
-    yaxis={"title": "Óbitos e Media Movel"},
-    xaxis={"title": ""},
-)
-trace8 = px.bar(
-    df_redencao,
-    x="date",
-    y="new_deaths",
-    color_discrete_sequence=["darkblue"],
-    height=400,
-    width=650,
-)
-trace8.update_layout(
-    title="Óbitos e Media Movel em Redenção",
-    yaxis={"title": "Óbitos e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace7.add_trace(trace8.data[0])
-
-# Casos Confirmados de São Francisco de Conde e a Media Movel
-
-trace9 = px.line(
-    df_sfc,
-    x="date",
-    y="MovingMeanConfirmed",
-    color_discrete_sequence=["orange"],
-    height=400,
-    width=650,
-)
-trace9.update_layout(
-    title="Casos Confrimados Media Movel em São Francisco do Conde",
-    yaxis={"title": "Casos Confirmados e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace10 = px.bar(
-    df_sfc,
-    x="date",
-    y="new_confirmed",
-    color_discrete_sequence=["darkblue"],
-    height=400,
-    width=650,
-)
-trace10.update_layout(
-    title="Casos Confrimados e Media Movel em São Francisco de Conde",
-    yaxis={"title": "Casos Confirmados e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace9.add_trace(trace10.data[0])
-
-# Obitos de São Francsico de Conde e Media Movel
-
-trace11 = px.line(
-    df_sfc,
-    x="date",
-    y="MovingMeanDeaths",
-    color_discrete_sequence=["orange"],
-    height=400,
-    width=650,
-)
-trace11.update_layout(
-    title="Óbitos e Media Movel em São Francisco do Conde",
-    yaxis={"title": "Óbitos e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace12 = px.bar(
-    df_sfc,
-    x="date",
-    y="new_deaths",
-    color_discrete_sequence=["darkblue"],
-    height=400,
-    width=650,
-)
-trace12.update_layout(
-    title="Óbitos e Media Movel em São Francisco de Conde",
-    yaxis={"title": "Óbitos e Media Movel"},
-    xaxis={"title": ""},
-    template="plotly_white",
-)
-trace11.add_trace(trace12.data[0])
-"""
-redencao = px.line(
-    df_redencao,
-    x="date",
-    y="last_available_confirmed",
-    height=400,
-    width=650,
-).update_layout(
-    title='Confirmados Diários de Redenção',
-    yaxis={'title': 'Casos Confirmados'},
-    xaxis={'title': ''},
-    template="plotly_white",
-)
-
-redencao_obitos = px.line(
-    df_redencao,
-    x="date",
-    y="last_available_deaths",
-    height=400,
-    width=650,
-).update_layout(
-    title='Óbitos acumulados em Redenção',
-    yaxis={'title': 'Óbitos Diários'},
-    xaxis={'title': ''},
-    template="plotly_white",
-)
-
-acarape = px.line(
-    df_acarape,
-    x="date",
-    y="last_available_confirmed",
-    height=400,
-    width=650,
-).update_layout(
-    title='Confirmados Diários em Acarape',
-    yaxis={'title': 'Casos Confirmados'},
-    xaxis={'title': ''},
-    template="plotly_white",
-)
-
-acarape_obitos = px.line(
-    df_acarape,
-    x="date",
-    y="last_available_deaths",
-    height=400,
-    width=650,
-).update_layout(
-    title='Óbitos Acumulados em Acarape',
-    yaxis={'title': 'Óbitos Diários'},
-    xaxis={'title': ''},
-    template="plotly_white",
-)
+    return fig
 
 
-sfc_obitos = px.line(
-    df_sfc,
-    x="date",
-    y="last_available_deaths",
-    height=400,
-    width=650,
-).update_layout(
-    title='Óbitos Acumulados em São Francisco do Conde',
-    yaxis={'title': 'Óbitos Diários'},
-    xaxis={'title': ''},
-    template="plotly_white",
-)
-"""
+# Casos Confirmados de Acarape e a Média Movel
+trace1 = create_scatter_plot(df_acarape, "casos", "Casos Confirmados em Acarape")
 
+# Obitos de Acarape e a Média Movel
+trace3 = create_scatter_plot(df_acarape, "óbitos", "Óbitos em Acarape")
+
+# Casos Confirmados de Redenção e a Média Movel
+trace5 = create_scatter_plot(df_redencao, "casos", "Casos Confirmados em Redenção")
+
+# Obitos de Redenção e Média Movel
+trace7 = create_scatter_plot(df_redencao, "óbitos", "Óbitos em Redenção")
+
+# Casos Confirmados de São Francisco de Conde e a Média Movel
+trace9 = create_scatter_plot(df_sfc, "casos", "Casos Confirmados em SFC")
+
+# Obitos de São Francsico de Conde e Média Movel
+trace11 = create_scatter_plot(df_sfc, "óbitos", "Óbitos em SFC")
+
+# Mapas
 ceara = df_mapas[df_mapas["state"] == "CE"]
 municipios_CE = gpd.read_file("shapefiles/CE_Municipios_2020.shp")
 campi_CE = municipios_CE.merge(
@@ -697,19 +504,19 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados em Acarape")
+                                    h6("Casos em Acarape")
                                 with div(cls="card-body"):
                                     div(f"{df_acarape['last_available_confirmed'].iloc[1]}")
                         with div(cls="col"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados em Redenção")
+                                    h6("Casos em Redenção")
                                 with div(cls="card-body"):
                                     div(f"{df_redencao['last_available_confirmed'].iloc[1]}")
                         with div(cls="col"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Confirmados em São Francisco Do Conde")
+                                    h6("Casos em SFC")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_confirmed'].iloc[1]}")
                         with div(cls="col"):
@@ -727,7 +534,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
-                                    h6("Óbitos em São Francisco Do Conde")
+                                    h6("Óbitos em SFC")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
 
@@ -735,7 +542,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="row m-1"):
                                 with div(cls="col text-primary"):
-                                    h3("GRAFICOS DOS VACINADOS")
+                                    h3("APLICAÇÃO DE VACINAS")
                             with div(cls="container"):
                                 with div(cls="row"):
                                     with div(cls="col-sm"):
@@ -754,7 +561,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="row m-1"):
                                 with div(cls="col text-primary"):
-                                    h3("GRAFICOS DOS CASOS TOTAIS E OBITOS")
+                                    h3("EVOLUÇÃO DE CASOS E OBITOS")
                             with div(cls="row m-1"):
                                 with div(cls="col-6 mr-1"):
                                     raw(
@@ -780,7 +587,7 @@ def criar_pagina():
                         with div(cls="col"):
                             with div(cls="row m-1"):
                                 with div(cls="col text-primary"):
-                                    h3("MAPAS DAS REGIÕES SEDE DOS CAMPI DA UNILAB")
+                                    h3("MAPAS DAS REGIÕES-SEDE DOS CAMPI DA UNILAB")
                             with div(cls="row m-1"):
                                 with div(cls="col-6 mr-1"):
                                     raw(
