@@ -486,7 +486,7 @@ def criar_pagina():
 
     with doc.body:
         with header():
-            with nav(cls="navbar navbar-expand-lg fixed-top navbar-light"):
+            with nav(cls="navbar navbar-expand-lg fixed-top navbar-light bg-light"):
                 with div(cls="container-fluid"):
                     a(
                         h1("PAINEL COVID-19"),
@@ -539,7 +539,7 @@ def criar_pagina():
                                 )
 
         with div(cls="container-fluid bg-light"):
-            with div(cls="row", style="padding: 60px 15px 0;"):
+            with div(cls="row", style="padding: 80px 15px 0;"):
                 with div(cls="col"):
                     with div(cls="row row-cols-1 row-cols-md-3 g-4"):
                         with div(cls="col"):
@@ -647,7 +647,17 @@ def criar_pagina():
                                     )
 
                     with div(cls="row"):
-                        with div(cls="text-primary text-center"):
+                        with div(cls="text-primary"):
+                            p("Fontes:")
+                            with p("Casos e óbitos: "):
+                                a("Brasil.IO", href="https://brasil.io/")
+                            with p("Vacinação: "):
+                                a("Ministério da Saúde", href="https://dados.gov.br/dataset/covid-19-vacinacao")
+                            with p("Estimativa da população total: "):
+                                a("IBGE", href="https://www.ibge.gov.br/cidades-e-estados")
+
+                    with div(cls="row"):
+                        with div(cls="text-primary"):
                             p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
 
     with open("index.html", "w", newline="", encoding="utf-8") as html_file:
