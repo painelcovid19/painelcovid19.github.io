@@ -84,30 +84,34 @@ dose_1_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "1ª Dose"]
 dose_2_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "2ª Dose"]
 dose_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "Dose"]
 
+POPULACAO_ESTIMADA_ACARAPE = 15036  # https://www.ibge.gov.br/cidades-e-estados/ce/acarape.html
+POPULACAO_ESTIMADA_REDENCAO = 29146  # https://www.ibge.gov.br/cidades-e-estados/ce/redencao.html
+POPULACAO_ESTIMADA_SFC = 40245  # https://www.ibge.gov.br/cidades-e-estados/ba/sao-francisco-do-conde.html
+
 # primeira dose acarape
-falta_acarape_1 = 15338 - len(dose_1_acarape.index)
+falta_acarape_1 = POPULACAO_ESTIMADA_ACARAPE - len(dose_1_acarape.index)
 labels_acarape_1 = ["Não vacinados", "1ª Dose"]
 values_acarape_1 = [falta_acarape_1, len(dose_1_acarape.index)]
 # segunda dose acarape
-falta_acarape_2 = 15338 - len(dose_2_acarape.index)
+falta_acarape_2 = POPULACAO_ESTIMADA_ACARAPE - len(dose_2_acarape.index)
 labels_acarape_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_acarape_2 = [falta_acarape_1, len(dose_2_acarape.index), len(dose_acarape_unica.index)]
 
 # primeira dose redençao
-falta_redencao_1 = 29146 - len(dose_1_redencao.index)
+falta_redencao_1 = POPULACAO_ESTIMADA_REDENCAO - len(dose_1_redencao.index)
 labels_redencao_1 = ["Não vacinados", "1ª Dose"]
 values_redencao_1 = [falta_redencao_1, len(dose_1_redencao.index)]
 # segunda dose redencao
-falta_redencao_2 = 29146 - len(dose_2_redencao.index)
+falta_redencao_2 = POPULACAO_ESTIMADA_REDENCAO - len(dose_2_redencao.index)
 labels_redencao_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_redencao_2 = [falta_redencao_1, len(dose_2_redencao.index), len(dose_redencao_unica.index)]
 
 # primeira dose SFC
-falta_SFC_1 = 40245 - len(dose_1_sfc.index)
+falta_SFC_1 = POPULACAO_ESTIMADA_SFC - len(dose_1_sfc.index)
 labels_SFC_1 = ["Não vacinados", "1ª Dose"]
 values_SFC_1 = [falta_SFC_1, len(dose_1_sfc.index)]
 # segunda dose SFC
-falta_SFC_2 = 40245 - len(dose_2_sfc.index)
+falta_SFC_2 = POPULACAO_ESTIMADA_SFC - len(dose_2_sfc.index)
 labels_SFC_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_SFC_2 = [falta_SFC_2, len(dose_2_sfc.index), len(dose_sfc.index)]
 c = ["#dee1e3", "#0793f0"]
