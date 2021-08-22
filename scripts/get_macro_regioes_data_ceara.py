@@ -78,18 +78,7 @@ def main(api_key):
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
     # pegando os dados das cidades do Ceará
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-    def macroregiao(city):
-        macroregiao = ""
-        if city == "Fortaleza" or city == "Aquiraz" or city == "Eusébio" or city == "Itaitinga":
-            macroregiao = "1° REGIÃO DE FORTALEZA"
-        elif city == "Caucaia":
-            macroregiao = "2° REGIÃO DE CAUCAIA"
-        elif city == "Acarape" or city == "Barreira" or city == "Guaiúba" or city == "Maracanaú" or city == "Maranguape" or city == "Pacatuba" or city == "Palmácia" or city == "Redenção":
-            macroregiao = "3° REGIÃO DE MARACANAÚ"
-        else:
-            if city == "Aracoiaba" or city == "Aratuba" or city == "Baturité" or city == "Capistrano" or city == "Guaramiranga" or city == "Itapiúna" or city == "Mulungu" or city == "Pacoti":
-                macroregiao = "4° REGIÃO BATURITÉ"
-        return macroregiao
+
 
     with open(
         "data/df_dados_macro_regioes_ceara.csv", "w", newline="", encoding="utf-8"
@@ -99,7 +88,6 @@ def main(api_key):
             [
                 "city",
                 "city_ibge_code",
-                "macro_region",
                 "date",
                 "last_available_confirmed",
                 "last_available_confirmed_per_100k_inhabitants",
@@ -113,41 +101,45 @@ def main(api_key):
         )
 
         codigosIBG_CE = [
-            2301950,
-            2300150,
-            2301406,
-            2304954,
-            2307650,
-            2307700,
-            2309706,
-            2310100,
-            2311603,
-            2310100,
-            2301208,
-            2302107,
-            2305100,
-            2309805,
-            2302909,
-            2309102,
-            2306504,
-            2301000,
-            2304285,
-            2304400,
-            2306256,
-            2303709, 
+        2300150,
+        2300903,	
+        2301208,	
+        2301406,	
+        2301950,	
+        2302107,	
+        2302206,	
+        2302800,	
+        2302909,	
+        2303006,	
+        2303501,	
+        2303709,	
+        2303931,
+        2303956,	
+        2304285,
+        2304400,
+        2304954,
+        2305100,
+        2305233,	
+        2305266,
+        2306256,	
+        2306504,	
+        2307650,	
+        2307700,	
+        2308708,	
+        2309102,	
+        2309458,	
+        2309607,	
+        2309706,	
+        2309805,	
+        2310100,	
+        2310407,	
+        2310704,	
+        2310852,	
+        2311306,	
+        2311603,
         ]
 
-        # codigosIBG_BA = [
-        #     # 2906501,
-        #     # 2916104,
-        #     # 2919207,
-        #     # 2919926,
-        #     # 2927408,
-        #     # 2928604,
-        #     # 2929206,
-        #     # 2929503,
-        #     # 2929750,
-        # ]
+
 
         # pegando os dados acumulados das cidades do Ceará
         filters_CE_acumulados = {"state": "CE", "is_last": True}
@@ -158,7 +150,6 @@ def main(api_key):
                     city = row["city"]
                     logging.info(f"Coletando dados de {city}")
                     city_ibge_code = row["city_ibge_code"]
-                    macro_region = macroregiao(city)
                     date = row["date"]
                     last_available_confirmed = row["last_available_confirmed"]
                     last_available_confirmed_per_100k_inhabitants = row[
@@ -176,7 +167,6 @@ def main(api_key):
                         [
                             city,
                             city_ibge_code,
-                            macro_region,
                             date,
                             last_available_confirmed,
                             last_available_confirmed_per_100k_inhabitants,
