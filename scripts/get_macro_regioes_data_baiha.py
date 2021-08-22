@@ -5,7 +5,7 @@ from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
 import sys
 import os
-from dotenv import load_dotenv, find_dotenv
+
 
 # lendo o arquivo .env para obter a key
 # load_dotenv(find_dotenv())
@@ -77,38 +77,7 @@ def main(api_key):
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
     # pegando os dados das cidades do Ceará
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-    alagoinhas = [2900306,  290070, 290190, 290205,290220, 290700, 290750, 290960,  291050, 
-        291060,  291370, 291590, 291650, 291790, 292330,292410, 292700, 292970,
-    ]
-    camacari = [290570, 290860, 291005, 292100, 292520, 293070, ]
-    salvador = [290650, 291610, 291920, 291992, 292740,292860,292920, 292950, 292975, 293320, ]
-    cruz_das_almas = [290485,290490, 290820, 290980, 291160, 292060, 292230, 292900,292960, ]
-    santo_antonio_de_jesus =[290100,290230,290730, 290830, 291020, 291030, 291685, 291780, 291820,291880,
-    292130, 292220, 292240, 292250, 292575, 292730,292850, 292870, 292910, 292940, 293210, 293317, ]
 
-    list_of_microregion = [alagoinhas,salvador, cruz_das_almas, santo_antonio_de_jesus, camacari ]
-    def macroregiao(code):
-        macroregiao = ""
-        for ibge_code in list_of_microregion[0]:
-            if ibge_code == code:
-                macroregiao = "Alagoinhas"
-                return macroregiao
-        for ibge_code in list_of_microregion[1]:
-            if ibge_code == code:
-                macroregiao = "Salvador"
-                return macroregiao
-        for ibge_code in list_of_microregion[2]:
-            if ibge_code == code:
-                macroregiao = "Cruz das almas"
-                return macroregiao
-        for ibge_code in list_of_microregion[3]:
-            if ibge_code == code:
-                macroregiao = "Santo Antônio de Jesus"
-                return macroregiao
-        for ibge_code in list_of_microregion[4]:
-            if ibge_code == code:
-                macroregiao = "Camaçari"
-                return macroregiao
                 
 
     with open(
@@ -119,7 +88,6 @@ def main(api_key):
             [
                 "city",
                 "city_ibge_code",
-                "macro_region",
                 "date",
                 "last_available_confirmed",
                 "last_available_confirmed_per_100k_inhabitants",
@@ -132,13 +100,52 @@ def main(api_key):
             ]
         )
 
-        codigosIBG_BA = [2900306,  290070, 290190, 290205,290220, 290700, 290750, 290960,  291050, 
-        291060,  291370, 291590, 291650, 291790, 292330,292410, 292700, 292970,290570, 290860, 
-        291005, 292100, 292520, 293070,290650, 291610, 291920, 291992, 292740,292860,292920,
-         292950, 292975, 293320,290485,290490, 290820, 290980, 291160, 292060, 292230, 292900,
-         292960,290100,290230,290730, 290830, 291020, 291030, 291685, 291780, 291820,291880,
-        292130, 292220, 292240, 292250, 292575, 292730,292850, 292870, 292910, 292940, 293210, 
-        293317,
+        codigosIBG_BA = [2900702,
+        2901106,
+        2901700,
+        2902054,
+        2902203,
+        2902302,
+        2904852,
+        2904902,
+        2905701,
+        2906501,
+        2907509,
+        2908200,	
+        2908309,	
+        2908507,	
+        2908903,	
+        2909802,	
+        2910057,	
+        2910800,	
+        2911600,	
+        2914505,	
+        2916104,	
+        2917805,	
+        2919207,	
+        2919926,	
+        2920601,	
+        2921005,	
+        2922201,	
+        2922300,	
+        2922508,	
+        2924108,	
+        2925204,	
+        2927309,	
+        2927408,	
+        2928604,	
+        2928802,	
+        2929008,
+        2929107,	
+        2929206,	
+        2929305,	
+        2929503,	
+        2929602,	
+        2929750,	
+        2930709,	
+        2931400,	
+        2931707,	
+        2933208,
         ]
 
         # pegando os dados acumulados das cidades do Ceará
@@ -148,9 +155,8 @@ def main(api_key):
             for cod in codigosIBG_BA:
                 if row["city_ibge_code"] == cod:
                     city = row["city"]
-                    # logging.info(f"Coletando dados de {city}")
+                    logging.info(f"Coletando dados de {city}")
                     city_ibge_code = row["city_ibge_code"]
-                    macro_region = macroregiao(city_ibge_code)
                     date = row["date"]
                     last_available_confirmed = row["last_available_confirmed"]
                     last_available_confirmed_per_100k_inhabitants = row[
@@ -168,7 +174,6 @@ def main(api_key):
                         [
                             city,
                             city_ibge_code,
-                            macro_region,
                             date,
                             last_available_confirmed,
                             last_available_confirmed_per_100k_inhabitants,
