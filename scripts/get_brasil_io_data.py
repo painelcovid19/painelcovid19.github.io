@@ -220,8 +220,8 @@ def main(api_key):
                     )
 
         # pegando os dados acumulados das cidades da Bahia
-        filters_Baiha = {"state": "BA", "is_last": True}
-        data_BA = api.data(dataset_slug, table_name, filters_Baiha)
+        filters_Bahia = {"state": "BA", "is_last": True}
+        data_BA = api.data(dataset_slug, table_name, filters_Bahia)
         logging.info("Coletando os dados acumulados da Bahia")
         for row in data_BA:
             for cod in codigosIBG_BA:
