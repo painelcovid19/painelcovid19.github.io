@@ -64,7 +64,7 @@ class BrasilIO:
 
 
 def main(api_key):
-    logging.info("Inicioando o script")
+    logging.info("Iniciando o script")
     api = BrasilIO(api_key)
     dataset_slug = "covid19"
     table_name = "caso_full"
@@ -72,13 +72,6 @@ def main(api_key):
     directory = "./data"
     if not os.path.exists(directory):
         os.makedirs(directory)
-
-    # Para navegar pela API:
-    # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-    # pegando os dados das cidades do Ceará
-    # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-
-                
 
     with open(
         "data/df_dados_macro_regioes_bahia.csv", "w", newline="", encoding="utf-8"
