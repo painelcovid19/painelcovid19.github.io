@@ -480,6 +480,7 @@ def criar_pagina():
                gtag('js', new Date());
                gtag('config', 'G-SNWM62XYE3');"""
         )
+        link(rel='stylesheet', href='css/style.css')
         link(
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css",
             rel="stylesheet",
@@ -488,7 +489,8 @@ def criar_pagina():
         )
         meta(encodings="utf-8")
 
-    with doc.body:
+    with doc.body():
+        div(cls="spinner")
         with header():
             with nav(cls="navbar navbar-expand-lg fixed-top navbar-light bg-light"):
                 with div(cls="container-fluid"):
@@ -602,7 +604,7 @@ def criar_pagina():
                             with div(cls="row m-3"):
                                 with div(cls="col text-primary"):
                                     h4("EVOLUÇÃO DE CASOS E ÓBITOS")
-                            with div(cls="row m-3 justify-content-around"):
+                            with div(cls="row justify-content-around"):
                                 with div(cls="col"):
                                     raw(trace1.to_html(full_html=False, include_plotlyjs=False))
                                 with div(cls="col"):
@@ -664,8 +666,12 @@ def criar_pagina():
                         with div(cls="text-primary"):
                             p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
 
-    with open("index.html", "w", newline="", encoding="utf-8") as html_file:
-        print(str(doc), file=html_file)
-
+    script("""
+        Let spinner = document.querySelector('.spinner');
+        
+        window.addEventListener('load', function() {
+            spinner.style.display = 'none';
+        });
+    """)
 
 criar_pagina()
