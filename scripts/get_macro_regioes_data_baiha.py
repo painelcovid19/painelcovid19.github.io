@@ -8,10 +8,10 @@ import os
 from dotenv import load_dotenv, find_dotenv
 
 # lendo o arquivo .env para obter a key
-load_dotenv(find_dotenv())
-api_key = os.getenv("my_API_key")
+# load_dotenv(find_dotenv())
+# api_key = os.getenv("my_API_key")
 
-# logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 
 
 class BrasilIO:
@@ -63,16 +63,15 @@ class BrasilIO:
         return response
 
 
-# def main(api_key):
-#     logging.info("Inicioando o script")
-if __name__ == "__main__":
+def main(api_key):
+    logging.info("Inicioando o script")
     api = BrasilIO(api_key)
     dataset_slug = "covid19"
     table_name = "caso_full"
 
-    # directory = "./data"
-    # if not os.path.exists(directory):
-    #     os.makedirs(directory)
+    directory = "./data"
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     # Para navegar pela API:
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
@@ -182,6 +181,6 @@ if __name__ == "__main__":
                         ]
                     )
 
-# logging.info("dados coletados")
-# if __name__ == "__main__":
-    # main(sys.argv[1])
+logging.info("dados coletados")
+if __name__ == "__main__":
+    main(sys.argv[1])
