@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Retrieve Brasil.IO data
-        run: python ./scripts/df_dados_macro_regioes_baiha.py ${{ secrets.BRASIL_IO_API_KEY }}
+        run: python ./scripts/get_macro_regioes_data_baiha.py ${{ secrets.BRASIL_IO_API_KEY }}
 
       - name: Commit and Push
         run: |
