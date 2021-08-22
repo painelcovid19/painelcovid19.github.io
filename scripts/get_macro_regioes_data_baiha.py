@@ -5,9 +5,9 @@ from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
 import sys
 import os
-# from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv, find_dotenv
 
-# # lendo o arquivo .env para obter a key
+# lendo o arquivo .env para obter a key
 # load_dotenv(find_dotenv())
 # api_key = os.getenv("my_API_key")
 
@@ -65,7 +65,6 @@ class BrasilIO:
 
 def main(api_key):
     logging.info("Inicioando o script")
-
     api = BrasilIO(api_key)
     dataset_slug = "covid19"
     table_name = "caso_full"
@@ -78,21 +77,42 @@ def main(api_key):
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
     # pegando os dados das cidades do Ceará
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-    def macroregiao(city):
+    alagoinhas = [2900306,  290070, 290190, 290205,290220, 290700, 290750, 290960,  291050, 
+        291060,  291370, 291590, 291650, 291790, 292330,292410, 292700, 292970,
+    ]
+    camacari = [290570, 290860, 291005, 292100, 292520, 293070, ]
+    salvador = [290650, 291610, 291920, 291992, 292740,292860,292920, 292950, 292975, 293320, ]
+    cruz_das_almas = [290485,290490, 290820, 290980, 291160, 292060, 292230, 292900,292960, ]
+    santo_antonio_de_jesus =[290100,290230,290730, 290830, 291020, 291030, 291685, 291780, 291820,291880,
+    292130, 292220, 292240, 292250, 292575, 292730,292850, 292870, 292910, 292940, 293210, 293317, ]
+
+    list_of_microregion = [alagoinhas,salvador, cruz_das_almas, santo_antonio_de_jesus, camacari ]
+    def macroregiao(code):
         macroregiao = ""
-        if city == "Fortaleza" or city == "Aquiraz" or city == "Eusébio" or city == "Itaitinga":
-            macroregiao = "1° REGIÃO DE FORTALEZA"
-        elif city == "Caucaia":
-            macroregiao = "2° REGIÃO DE CAUCAIA"
-        elif city == "Acarape" or city == "Barreira" or city == "Guaiúba" or city == "Maracanaú" or city == "Maranguape" or city == "Pacatuba" or city == "Palmácia" or city == "Redenção":
-            macroregiao = "3° REGIÃO DE MARACANAÚ"
-        else:
-            if city == "Aracoiaba" or city == "Aratuba" or city == "Baturité" or city == "Capistrano" or city == "Guaramiranga" or city == "Itapiúna" or city == "Mulungu" or city == "Pacoti":
-                macroregiao = "4° REGIÃO BATURITÉ"
-        return macroregiao
+        for ibge_code in list_of_microregion[0]:
+            if ibge_code == code:
+                macroregiao = "Alagoinhas"
+                return macroregiao
+        for ibge_code in list_of_microregion[1]:
+            if ibge_code == code:
+                macroregiao = "Salvador"
+                return macroregiao
+        for ibge_code in list_of_microregion[2]:
+            if ibge_code == code:
+                macroregiao = "Cruz das almas"
+                return macroregiao
+        for ibge_code in list_of_microregion[3]:
+            if ibge_code == code:
+                macroregiao = "Santo Antônio de Jesus"
+                return macroregiao
+        for ibge_code in list_of_microregion[4]:
+            if ibge_code == code:
+                macroregiao = "Camaçari"
+                return macroregiao
+                
 
     with open(
-        "data/df_dados_macro_regioes_ceara.csv", "w", newline="", encoding="utf-8"
+        "data/df_dados_macro_regioes_baiha.csv", "w", newline="", encoding="utf-8"
     ) as csvDadosAcumulados:
         dadosAcumulados = csv.writer(csvDadosAcumulados)
         dadosAcumulados.writerow(
@@ -112,53 +132,25 @@ def main(api_key):
             ]
         )
 
-        codigosIBG_CE = [
-            2301950,
-            2300150,
-            2301406,
-            2304954,
-            2307650,
-            2307700,
-            2309706,
-            2310100,
-            2311603,
-            2310100,
-            2301208,
-            2302107,
-            2305100,
-            2309805,
-            2302909,
-            2309102,
-            2306504,
-            2301000,
-            2304285,
-            2304400,
-            2306256,
-            2303709, 
+        codigosIBG_BA = [2900306,  290070, 290190, 290205,290220, 290700, 290750, 290960,  291050, 
+        291060,  291370, 291590, 291650, 291790, 292330,292410, 292700, 292970,290570, 290860, 
+        291005, 292100, 292520, 293070,290650, 291610, 291920, 291992, 292740,292860,292920,
+         292950, 292975, 293320,290485,290490, 290820, 290980, 291160, 292060, 292230, 292900,
+         292960,290100,290230,290730, 290830, 291020, 291030, 291685, 291780, 291820,291880,
+        292130, 292220, 292240, 292250, 292575, 292730,292850, 292870, 292910, 292940, 293210, 
+        293317,
         ]
 
-        # codigosIBG_BA = [
-        #     # 2906501,
-        #     # 2916104,
-        #     # 2919207,
-        #     # 2919926,
-        #     # 2927408,
-        #     # 2928604,
-        #     # 2929206,
-        #     # 2929503,
-        #     # 2929750,
-        # ]
-
         # pegando os dados acumulados das cidades do Ceará
-        filters_CE_acumulados = {"state": "CE", "is_last": True}
-        data_CE_acumlados = api.data(dataset_slug, table_name, filters_CE_acumulados)
-        for row in data_CE_acumlados:
-            for cod in codigosIBG_CE:
+        filters_BA_acumulados = {"state": "BA", "is_last": True}
+        data_BA_acumlados = api.data(dataset_slug, table_name, filters_BA_acumulados)
+        for row in data_BA_acumlados:
+            for cod in codigosIBG_BA:
                 if row["city_ibge_code"] == cod:
                     city = row["city"]
-                    logging.info(f"Coletando dados de {city}")
+                    # logging.info(f"Coletando dados de {city}")
                     city_ibge_code = row["city_ibge_code"]
-                    macro_region = macroregiao(city)
+                    macro_region = macroregiao(city_ibge_code)
                     date = row["date"]
                     last_available_confirmed = row["last_available_confirmed"]
                     last_available_confirmed_per_100k_inhabitants = row[
@@ -188,8 +180,7 @@ def main(api_key):
                             new_deaths,
                         ]
                     )
-    logging.info("dados coletados")
 
-
+logging.info("dados coletados")
 if __name__ == "__main__":
     main(sys.argv[1])
