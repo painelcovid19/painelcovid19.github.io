@@ -490,7 +490,8 @@ def criar_pagina():
         meta(encodings="utf-8")
 
     with doc.body:
-        div(cls="spinner")
+        with div(cls="spinner"):
+            img(src="images/spinner.gif", alt="Loading...")
         with header():
             with nav(cls="navbar navbar-expand-lg fixed-top navbar-light bg-light"):
                 with div(cls="container-fluid"):
