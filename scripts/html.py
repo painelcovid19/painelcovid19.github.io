@@ -667,12 +667,15 @@ def criar_pagina():
                         with div(cls="text-primary"):
                             p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
 
-    script("""
-        Let spinner = document.querySelector('.spinner');
-        
-        window.addEventListener('load', function() {
-            spinner.style.display = 'none';
-        });
-    """)
+        script("""
+            let spinner = document.querySelector('.spinner');
+            
+            window.addEventListener('load', function() {
+                spinner.style.display = 'none';
+            });
+        """)
+    
+    with open("index.html", "w", newline="", encoding="utf-8") as html_file:
+        print(str(doc), file=html_file)
 
 criar_pagina()
