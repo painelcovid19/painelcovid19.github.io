@@ -86,7 +86,9 @@ dose_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "Dose"]
 
 POPULACAO_ESTIMADA_ACARAPE = 15036  # https://www.ibge.gov.br/cidades-e-estados/ce/acarape.html
 POPULACAO_ESTIMADA_REDENCAO = 29146  # https://www.ibge.gov.br/cidades-e-estados/ce/redencao.html
-POPULACAO_ESTIMADA_SFC = 40245  # https://www.ibge.gov.br/cidades-e-estados/ba/sao-francisco-do-conde.html
+POPULACAO_ESTIMADA_SFC = (
+    40245  # https://www.ibge.gov.br/cidades-e-estados/ba/sao-francisco-do-conde.html
+)
 
 # primeira dose acarape
 falta_acarape_1 = POPULACAO_ESTIMADA_ACARAPE - len(dose_1_acarape.index)
@@ -480,7 +482,7 @@ def criar_pagina():
                gtag('js', new Date());
                gtag('config', 'G-SNWM62XYE3');"""
         )
-        link(rel='stylesheet', href='css/style.css')
+        link(rel="stylesheet", href="css/style.css")
         link(
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css",
             rel="stylesheet",
@@ -659,7 +661,10 @@ def criar_pagina():
                             with p("Casos e óbitos: "):
                                 a("Brasil.IO", href="https://brasil.io/")
                             with p("Vacinação: "):
-                                a("Ministério da Saúde", href="https://dados.gov.br/dataset/covid-19-vacinacao")
+                                a(
+                                    "Ministério da Saúde",
+                                    href="https://dados.gov.br/dataset/covid-19-vacinacao",
+                                )
                             with p("Estimativa da população total: "):
                                 a("IBGE", href="https://www.ibge.gov.br/cidades-e-estados")
 
@@ -667,12 +672,18 @@ def criar_pagina():
                         with div(cls="text-primary"):
                             p(f"Última atualização: {now.strftime('%d/%m/%Y %H:%M:%S')}")
 
-    script("""
-        Let spinner = document.querySelector('.spinner');
-        
-        window.addEventListener('load', function() {
-            spinner.style.display = 'none';
-        });
-    """)
+        script(
+            """
+            let spinner = document.querySelector('.spinner');
+            
+            window.addEventListener('load', function() {
+                spinner.style.display = 'none';
+            });
+        """
+        )
+
+    with open("index.html", "w", newline="", encoding="utf-8") as html_file:
+        print(str(doc), file=html_file)
+
 
 criar_pagina()
