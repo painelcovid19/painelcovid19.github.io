@@ -608,19 +608,19 @@ def criar_pagina():
                                 with div(cls="col text-primary"):
                                     h4("EVOLUÇÃO DE CASOS E ÓBITOS")
                             with div(cls="row justify-content-around"):
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(trace1.to_html(full_html=False, include_plotlyjs=False))
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(trace3.to_html(full_html=False, include_plotlyjs=False))
                             with div(cls="row m-3 justify-content-around"):
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(trace5.to_html(full_html=False, include_plotlyjs=False))
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(trace7.to_html(full_html=False, include_plotlyjs=False))
                             with div(cls="row m-3 justify-content-around"):
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(trace9.to_html(full_html=False, include_plotlyjs=False))
-                                with div(cls="col "):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(trace11.to_html(full_html=False, include_plotlyjs=False))
 
                     with div(cls="row"):
@@ -629,26 +629,26 @@ def criar_pagina():
                                 with div(cls="col text-primary"):
                                     h4("MAPAS DAS REGIÕES-SEDE DOS CAMPI DA UNILAB")
                             with div(cls="row m-3 justify-content-around"):
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(
                                         mapa_confirmados_ce.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(
                                         mapa_obitos_ce.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
                             with div(cls="row m-3 justify-content-around"):
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(
                                         mapa_confirmados_ba.to_html(
                                             full_html=False, include_plotlyjs=False
                                         )
                                     )
-                                with div(cls="col"):
+                                with div(cls="col d-flex justify-content-center"):
                                     raw(
                                         mapa_obitos_ba.to_html(
                                             full_html=False, include_plotlyjs=False
