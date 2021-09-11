@@ -3,7 +3,7 @@ name: CreateVaccineCSV
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 0 * * *'
+    - cron: '35 0 * * *'
 
 jobs:
   get_vaccine_data_and_push:
