@@ -511,7 +511,7 @@ def criar_pagina():
                         aria_expanded="false",
                         aria_label="Toggle navigation",
                     ):
-                        span(cls="navbar-toggle-icon")
+                        span(cls="navbar-toggler-icon")
 
                     with div(cls="collapse navbar-collapse", id="navbarTogglerDemo01"):
                         with ul(cls="navbar-nav me-auto"):
