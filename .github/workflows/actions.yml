@@ -1,0 +1,119 @@
+name: CreateCSVs and Generate HTML file
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  get_brasil_io_data_and_push:
+    name: csv acarape redencao and SFC
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Retrieve Brasil.IO data
+        run: python ./scripts/get_brasil_io_data.py ${{ secrets.BRASIL_IO_API_KEY }}
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Updated CSV"
+          git push
+
+  get_ceara_data_and_push:
+    name: csv macro region Ceara
+    if: always()
+    needs: get_brasil_io_data_and_push
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Retrieve Brasil.IO data
+        run: python ./scripts/get_macro_regioes_data_ceara.py ${{ secrets.BRASIL_IO_API_KEY }}
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Updated CSV Ceara Region Data"
+          git push
+
+  get_bahia_data_and_push:
+    name: csv macro region Bahia
+    if: always()
+    needs: [get_brasil_io_data_and_push, get_ceara_data_and_push ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Retrieve Brasil.IO data
+        run: python ./scripts/get_macro_regioes_data_bahia.py ${{ secrets.BRASIL_IO_API_KEY }}
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Updated CSV Bahia Data Region"
+          git push
+
+  get_vaccine_data_and_push:
+    name: csv Vaccine
+    if: always()
+    needs: [get_brasil_io_data_and_push, get_ceara_data_and_push, get_bahia_data_and_push]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: installing dependecies
+        run: |
+          pip install elasticsearch7
+          pip install elasticsearch-dsl
+          pip install tqdm
+          pip install pandas
+      
+      - name: Generate CSV files for vaccine data
+        run: python ./scripts/get_vaccination_data.py 
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Updated Vaccine CSV"
+          git push
+
+  generate_html_file_and_push:
+    name: Gerate html file
+    if: always()
+    needs: [get_brasil_io_data_and_push, get_ceara_data_and_push, get_bahia_data_and_push, get_vaccine_data_and_push]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: installing dependencies
+        run: |
+          pip install plotly==4.14.3
+          pip install pandas
+          pip install dominate
+          pip install geopandas
+
+      - name: Generate HTML file
+        run: python -O ./scripts/html.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Generated HTML file"
+          git push
