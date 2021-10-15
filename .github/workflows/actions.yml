@@ -19,7 +19,6 @@ jobs:
           pip install elasticsearch-dsl
           pip install tqdm
           pip install pandas
-          pip install --default-timeout=100 future 
       
       - name: Generate CSV files for vaccine data
         run: python ./scripts/get_vaccination_data.py 
