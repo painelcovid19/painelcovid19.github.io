@@ -16,6 +16,7 @@ client = Elasticsearch(
         "Content-Type": "application/json",
         "Cookie": "ELASTIC-PROD=1618079452.839.9136.791476",
     },
+    request_timeout = 60000
 )
 
 for key in locations.keys():
