@@ -463,7 +463,7 @@ mapa_obitos_ba = px.choropleth_mapbox(
     title="Óbitos na Região Metropolitana <br>de Salvador (por 100 mil hab.)",
     color_continuous_scale=px.colors.sequential.Reds,
     zoom=7.75,
-    height=400,
+    height=650,
     width=650,
 )
 
@@ -515,6 +515,8 @@ def criar_pagina():
 
                     with div(cls="collapse navbar-collapse", id="navbarTogglerDemo01"):
                         with ul(cls="navbar-nav me-auto"):
+                            with li(cls="nav-item active"):
+                                a("Mapas das Macro-Regiões", cls="nav-link", href=r"./macro_regioes.html")
                             with li(cls="nav-item active"):
                                 a("Sobre o projeto", cls="nav-link", href=r"./sobre.html")
                             with li(cls="nav-item active"):
