@@ -516,8 +516,6 @@ def criar_pagina():
                     with div(cls="collapse navbar-collapse", id="navbarTogglerDemo01"):
                         with ul(cls="navbar-nav me-auto"):
                             with li(cls="nav-item active"):
-                                a("Mapas das Macro-Regiões", cls="nav-link", href=r"./macro_regioes.html")
-                            with li(cls="nav-item active"):
                                 a("Sobre o projeto", cls="nav-link", href=r"./sobre.html")
                             with li(cls="nav-item active"):
                                 a("Equipe", cls="nav-link", href=r"./equipe.html")
