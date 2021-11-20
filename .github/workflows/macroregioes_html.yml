@@ -1,0 +1,31 @@
+name: Generate macroregions HTML file
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '58 0 * * *'
+
+jobs:
+  generate_macroregions_html_file_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: installing dependencies
+        run: |
+          pip install plotly==4.14.3
+          pip install pandas
+          pip install dominate
+          pip install geopandas
+
+      - name: Generate macroregions HTML file
+        run: python -O ./scripts/macro_regioes.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit --allow-empty -m ":robot: Generated macroregions HTML file"
+          git push
