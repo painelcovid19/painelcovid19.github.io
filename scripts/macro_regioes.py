@@ -34,7 +34,7 @@ if __debug__:
     macro_dados_ba = pd.read_csv("./data/df_dados_macro_regioes_bahia.csv")
 else:
     macro_dados = pd.read_csv(
-        'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/dadosMacroRegioes/data/df_dados_macro_regioes.csv')
+        'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_ceara.csv')
     macro_dados_ba = pd.read_csv(
         'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_bahia.csv')
 
