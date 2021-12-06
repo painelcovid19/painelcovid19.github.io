@@ -3,8 +3,10 @@ import json
 import logging
 from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
+from datetime import datetime, timedelta
 import sys
 import os
+
 # from dotenv import load_dotenv, find_dotenv
 
 # # lendo o arquivo .env para obter a key
@@ -63,6 +65,12 @@ class BrasilIO:
         return response
 
 
+def getYesterdaysDate():
+    date = datetime.strftime(datetime.now() - timedelta(1), "%Y-%m-%d")
+
+    return date
+
+
 def main(api_key):
     logging.info("Inicioando o script")
 
@@ -78,7 +86,6 @@ def main(api_key):
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
     # pegando os dados das cidades do Ceará
     # criando o dataset para as  cidades de redenção, Acarape e São Francisco do Conde
-
 
     with open(
         "data/df_dados_macro_regioes_ceara.csv", "w", newline="", encoding="utf-8"
@@ -101,50 +108,55 @@ def main(api_key):
         )
 
         codigosIBG_CE = [
-        2301000,
-        2305332,    
-        2300150,
-        2300903,	
-        2301208,	
-        2301406,	
-        2301950,	
-        2302107,	
-        2302206,	
-        2302800,	
-        2302909,	
-        2303006,	
-        2303501,	
-        2303709,	
-        2303931,
-        2303956,	
-        2304285,
-        2304400,
-        2304954,
-        2305100,
-        2305233,	
-        2305266,
-        2306256,	
-        2306504,	
-        2307650,	
-        2307700,	
-        2308708,	
-        2309102,	
-        2309458,	
-        2309607,	
-        2309706,	
-        2309805,	
-        2310100,	
-        2310407,	
-        2310704,	
-        2310852,	
-        2311306,	
-        2311603,
+            2301000,
+            2305332,
+            2300150,
+            2300903,
+            2301208,
+            2301406,
+            2301950,
+            2302107,
+            2302206,
+            2302800,
+            2302909,
+            2303006,
+            2303501,
+            2303709,
+            2303931,
+            2303956,
+            2304285,
+            2304400,
+            2304954,
+            2305100,
+            2305233,
+            2305266,
+            2306256,
+            2306504,
+            2307650,
+            2307700,
+            2308708,
+            2309102,
+            2309458,
+            2309607,
+            2309706,
+            2309805,
+            2310100,
+            2310407,
+            2310704,
+            2310852,
+            2311306,
+            2311603,
         ]
 
-
-
         # pegando os dados acumulados das cidades do Ceará
-        filters_CE_acumulados = {"state": "CE", "is_last": True}
+
+        date = getYesterdaysDate()
+
+        filters_CE_acumulados = {
+            "state": "CE",
+            "had_cases": True,
+            "date": "{}".format(date),
+        }
         data_CE_acumlados = api.data(dataset_slug, table_name, filters_CE_acumulados)
         for row in data_CE_acumlados:
             for cod in codigosIBG_CE:
