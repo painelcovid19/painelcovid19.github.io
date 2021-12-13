@@ -34,7 +34,7 @@ if __debug__:
     macro_dados_ba = pd.read_csv("./data/df_dados_macro_regioes_bahia.csv")
 else:
     macro_dados = pd.read_csv(
-        'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_ceara.csv')
+        'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/dadosMacroRegioes/data/df_dados_macro_regioes.csv')
     macro_dados_ba = pd.read_csv(
         'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_bahia.csv')
 
@@ -62,6 +62,21 @@ macro_fig_ce = px.choropleth_mapbox(macro_mapa_ceara,
                            width=1000
                            )
 
+macro_fig_ce_ob = px.choropleth_mapbox(macro_mapa_ceara,
+                           geojson=macro_mapa_ceara.geometry,
+                           locations=macro_mapa_ceara.index,
+                           color="Mortes por 100 mil habitantes",
+                           center={"lat": -4.1718, "lon": -38.7491},
+                           opacity = 0.7,
+                           mapbox_style="carto-positron",
+                           title = "Óbitos por 100 mil na Macro Região do Maciço de Baturité",
+                           labels={"Mortes por 100 mil habitantes": ""},
+                           color_continuous_scale=px.colors.sequential.PuBuGn,
+                           zoom=7.85,
+                           height=600,
+                           width=1000
+                           )
+
 macro_dados_ba = macro_dados_ba.rename(columns={'last_available_confirmed_per_100k_inhabitants': 'Confirmados por 100 mil habitantes',
                               'last_available_deaths_per_100k_inhabitants': 'Mortes por 100 mil habitantes'})
 
@@ -82,6 +97,21 @@ macro_fig_ba = px.choropleth_mapbox(macro_mapa_bahia,
                            zoom=7.85,
                            height=600,
                            width=1000
+                           )
+
+macro_fig_ba_ob = px.choropleth_mapbox(macro_mapa_bahia,
+                           geojson=macro_mapa_bahia.geometry,
+                           locations=macro_mapa_bahia.index,
+                           color="Mortes por 100 mil habitantes",
+                           center={"lat": -12.6089, "lon": -38.654},
+                           opacity = 0.7,
+                           mapbox_style="carto-positron",
+                           title = "Óbitos por 100 mil na Macro Região de Salvador",
+                           labels={"Mortes por 100 mil habitantes": ""},
+                           color_continuous_scale=px.colors.sequential.PuBuGn,
+                           zoom=7.75,
+                           height=600,
+                           width=1050
                            )
 
 
@@ -180,7 +210,21 @@ def criar_pagina():
                     with div(cls="row m-3 justify-content-around"):
                         with div(cls="col d-flex justify-content-center"):
                             raw(
+                                macro_fig_ce_ob.to_html(
+                                    full_html=False, include_plotlyjs=False
+                                )
+                            )
+                    with div(cls="row m-3 justify-content-around"):
+                        with div(cls="col d-flex justify-content-center"):
+                            raw(
                                 macro_fig_ba.to_html(
+                                    full_html=False, include_plotlyjs=False
+                                )
+                            )
+                    with div(cls="row m-3 justify-content-around"):
+                        with div(cls="col d-flex justify-content-center"):
+                            raw(
+                                macro_fig_ba_ob.to_html(
                                     full_html=False, include_plotlyjs=False
                                 )
                             )
