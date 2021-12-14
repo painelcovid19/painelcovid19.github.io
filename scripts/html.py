@@ -75,20 +75,31 @@ vacina_SFC["vacina_descricao_dose"] = vacina_SFC["vacina_descricao_dose"].str.re
 dose_1_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "1ª Dose"]
 dose_2_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "2ª Dose"]
 dose_acarape_unica = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "Dose"]
+reforco_acarape = vacina_acarape[vacina_acarape["vacina_descricao_dose"] == "Reforço"]
 
 dose_1_redencao = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "1ª Dose"]
 dose_2_redencao = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "2ª Dose"]
 dose_redencao_unica = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "Dose"]
+reforco_redencao = vacina_redencao[vacina_redencao["vacina_descricao_dose"] == "Reforço"]
 
 dose_1_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "1ª Dose"]
 dose_2_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "2ª Dose"]
 dose_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "Dose"]
+reforco_sfc = vacina_SFC[vacina_SFC["vacina_descricao_dose"] == "Reforço"]
+
+
+# In[204]:
+
 
 POPULACAO_ESTIMADA_ACARAPE = 15036  # https://www.ibge.gov.br/cidades-e-estados/ce/acarape.html
 POPULACAO_ESTIMADA_REDENCAO = 29146  # https://www.ibge.gov.br/cidades-e-estados/ce/redencao.html
 POPULACAO_ESTIMADA_SFC = (
     40245  # https://www.ibge.gov.br/cidades-e-estados/ba/sao-francisco-do-conde.html
 )
+
+
+# In[205]:
+
 
 # primeira dose acarape
 falta_acarape_1 = POPULACAO_ESTIMADA_ACARAPE - len(dose_1_acarape.index)
@@ -98,6 +109,10 @@ values_acarape_1 = [falta_acarape_1, len(dose_1_acarape.index)]
 falta_acarape_2 = POPULACAO_ESTIMADA_ACARAPE - len(dose_2_acarape.index)
 labels_acarape_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_acarape_2 = [falta_acarape_1, len(dose_2_acarape.index), len(dose_acarape_unica.index)]
+# reforço dose acarape
+falta_acarape_3 = POPULACAO_ESTIMADA_ACARAPE - len(reforco_acarape.index)
+labels_acarape_3 = ["Não vacinados", "Dose de Reforço"]
+values_acarape_3 = [falta_acarape_1, len(reforco_redencao.index)]
 
 # primeira dose redençao
 falta_redencao_1 = POPULACAO_ESTIMADA_REDENCAO - len(dose_1_redencao.index)
@@ -107,6 +122,10 @@ values_redencao_1 = [falta_redencao_1, len(dose_1_redencao.index)]
 falta_redencao_2 = POPULACAO_ESTIMADA_REDENCAO - len(dose_2_redencao.index)
 labels_redencao_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_redencao_2 = [falta_redencao_1, len(dose_2_redencao.index), len(dose_redencao_unica.index)]
+# reforço dose redenção
+falta_redencao_3 = POPULACAO_ESTIMADA_REDENCAO - len(reforco_redencao.index)
+labels_redencao_3 = ["Não vacinados", "Dose de Reforço"]
+values_redencao_3 = [falta_redencao_1, len(reforco_redencao.index)]
 
 # primeira dose SFC
 falta_SFC_1 = POPULACAO_ESTIMADA_SFC - len(dose_1_sfc.index)
@@ -116,9 +135,28 @@ values_SFC_1 = [falta_SFC_1, len(dose_1_sfc.index)]
 falta_SFC_2 = POPULACAO_ESTIMADA_SFC - len(dose_2_sfc.index)
 labels_SFC_2 = ["Não vacinados", "2ª Dose", "Única dose"]
 values_SFC_2 = [falta_SFC_2, len(dose_2_sfc.index), len(dose_sfc.index)]
+# reforço dose SFC
+falta_SFC_3 = POPULACAO_ESTIMADA_SFC - len(reforco_sfc.index)
+labels_SFC_3 = ["Não vacinados", "Dose de Reforço"]
+values_SFC_3 = [falta_SFC_2,  len(reforco_sfc.index)]
+
 c = ["#dee1e3", "#0793f0"]
 
-acarape_vac = make_subplots(rows=1, cols=2, specs=[[{"type": "domain"}, {"type": "domain"}]])
+
+# In[206]:
+
+
+values_SFC_2
+
+
+# In[207]:
+
+
+from plotly import express as px
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+
+acarape_vac = make_subplots(rows=1, cols=3, specs=[[{"type": "domain"}, {"type": "domain"}, {"type": "domain"}]])
 acarape_vac.add_trace(
     go.Pie(
         labels=labels_acarape_1,
@@ -139,6 +177,16 @@ acarape_vac.add_trace(
     1,
     2,
 )
+acarape_vac.add_trace(
+    go.Pie(
+        labels=labels_acarape_3,
+        values=values_acarape_3,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    1,
+    3,
+)
 
 # Use `hole` to create a donut-like pie chart
 acarape_vac.update_traces(hole=0.7, hoverinfo="label+percent+name")
@@ -152,11 +200,16 @@ acarape_vac.update_layout(
     annotations=[
         dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
         dict(text="2ª dose e única", x=0.935, y=0.5, font_size=20, showarrow=False),
+        dict(text="Dose de reforço", x=0.935, y=0.5, font_size=20, showarrow=False),
     ],
 )
 
+
+# In[208]:
+
+
 # Create subplots: use 'domain' type for Pie subplot
-redencao_vac = make_subplots(rows=1, cols=2, specs=[[{"type": "domain"}, {"type": "domain"}]])
+redencao_vac = make_subplots(rows=1, cols=3, specs=[[{"type": "domain"}, {"type": "domain"}, {"type": "domain"}]])
 redencao_vac.add_trace(
     go.Pie(
         labels=labels_redencao_1,
@@ -177,6 +230,16 @@ redencao_vac.add_trace(
     1,
     2,
 )
+redencao_vac.add_trace(
+    go.Pie(
+        labels=labels_redencao_3,
+        values=values_redencao_3,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    1,
+    3,
+)
 
 # Use `hole` to create a donut-like pie chart
 redencao_vac.update_traces(hole=0.7, hoverinfo="label+percent+name")
@@ -190,11 +253,16 @@ redencao_vac.update_layout(
     annotations=[
         dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
         dict(text="2ª dose e única", x=0.935, y=0.5, font_size=20, showarrow=False),
+        dict(text="Dose de reforço", x=0.935, y=0.5, font_size=20, showarrow=False),
     ],
 )
 
+
+# In[209]:
+
+
 # Create subplots: use 'domain' type for Pie subplot
-sfc_vac = make_subplots(rows=1, cols=2, specs=[[{"type": "domain"}, {"type": "domain"}]])
+sfc_vac = make_subplots(rows=1, cols=3, specs=[[{"type": "domain"}, {"type": "domain"}, {"type": "domain"}]])
 sfc_vac.add_trace(
     go.Pie(
         labels=labels_SFC_1, values=values_SFC_1, marker_colors=["#f2f7f7", "#7FFFD4"], name=" "
@@ -212,6 +280,16 @@ sfc_vac.add_trace(
     1,
     2,
 )
+sfc_vac.add_trace(
+    go.Pie(
+        labels=labels_SFC_3,
+        values=values_SFC_3,
+        marker_colors=["#f2f7f7", "#00FA9A", "#40E0D0"],
+        name=" ",
+    ),
+    1,
+    3,
+)
 
 # Use `hole` to create a donut-like pie chart
 sfc_vac.update_traces(hole=0.7, hoverinfo="label+percent+name")
@@ -225,16 +303,22 @@ sfc_vac.update_layout(
     annotations=[
         dict(text="1ª dose", x=0.125, y=0.5, font_size=20, showarrow=False),
         dict(text="2ª dose e única", x=0.935, y=0.5, font_size=20, showarrow=False),
+        dict(text="Dose de reforço", x=0.935, y=0.5, font_size=20, showarrow=False),
     ],
 )
 
+
+# In[210]:
+
+
 # TESTE
 vacinas = make_subplots(
-    rows=2,
+    rows=3,
     cols=3,
     specs=[
         [{"type": "domain"}, {"type": "domain"}, {"type": "domain"}],
         [{"type": "domain"}, {"type": "domain"}, {"type": "domain"}],
+        [{"type": "domain"}, {"type": "domain"}, {"type": "domain"}]
     ],
 )
 
@@ -260,7 +344,16 @@ vacinas.add_trace(
     2,
     1,
 )
-
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_acarape_3,
+        values=values_acarape_3,
+        marker_colors=["#f2f7f7", "#446fd4", "#40E0D0"],
+        name=" ",
+    ),
+    3,
+    1,
+)
 # REDENÇÃO
 vacinas.add_trace(
     go.Pie(
@@ -283,6 +376,16 @@ vacinas.add_trace(
     2,
     2,
 )
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_redencao_3,
+        values=values_redencao_3,
+        marker_colors=["#f2f7f7", "#446fd4", "#40E0D0"],
+        name=" ",
+    ),
+    3,
+    2,
+)
 
 # SFC
 vacinas.add_trace(
@@ -303,6 +406,21 @@ vacinas.add_trace(
     2,
     3,
 )
+vacinas.add_trace(
+    go.Pie(
+        labels=labels_SFC_3,
+        values=values_SFC_3,
+        marker_colors=["#f2f7f7", "#446fd4", "#40E0D0"],
+        name=" ",
+    ),
+    3,
+    3,
+)
+
+
+# In[211]:
+
+
 
 # Use `hole` to create a donut-like pie chart
 vacinas.update_traces(hole=0.7, hoverinfo="label+percent+name")
@@ -313,15 +431,18 @@ vacinas.update_layout(
     title_text=" ",
     # Add annotations in the center of the donut pies.
     annotations=[
-        dict(text="1ª dose", x=0.11, y=0.8, font_size=15, showarrow=False),
-        dict(text="1ª dose", x=0.5, y=0.8, font_size=15, showarrow=False),
-        dict(text="1ª dose", x=0.89, y=0.8, font_size=15, showarrow=False),
-        dict(text="2ª dose e única", x=0.078, y=0.19, font_size=15, showarrow=False),
-        dict(text="2ª dose e única", x=0.5, y=0.19, font_size=15, showarrow=False),
-        dict(text="2ª dose e única", x=0.93, y=0.19, font_size=15, showarrow=False),
-        dict(text="Acarape", x=0.071, y=1.1, font_size=24, showarrow=False),
-        dict(text="Redenção", x=0.5, y=1.1, font_size=24, showarrow=False),
-        dict(text="SFC", x=0.88, y=1.1, font_size=24, showarrow=False),
+        dict(text="1ª dose", x=0.11, y=0.88, font_size=12, showarrow=False),
+        dict(text="1ª dose", x=0.5, y=0.88, font_size=12, showarrow=False),
+        dict(text="1ª dose", x=0.89, y=0.88, font_size=12, showarrow=False),
+        dict(text="2ª dose e única", x=0.086, y=0.5, font_size=12, showarrow=False),
+        dict(text="2ª dose e única", x=0.5, y=0.5, font_size=12, showarrow=False),
+        dict(text="2ª dose e única", x=0.915, y=0.5, font_size=12, showarrow=False),
+        dict(text="Dose de Reforço", x=0.085, y=0.12, font_size=12, showarrow=False),
+        dict(text="Dose de Reforço", x=0.5, y=0.12, font_size=12, showarrow=False),
+        dict(text="Dose de Reforço", x=0.915, y=0.12, font_size=12, showarrow=False),
+        dict(text="Acarape", x=0.09, y=1.1, font_size=18, showarrow=False),
+        dict(text="Redenção", x=0.489, y=1.1, font_size=18, showarrow=False),
+        dict(text="SFC", x=0.87, y=1.1, font_size=18, showarrow=False),
     ],
 )
 
@@ -447,7 +568,7 @@ mapa_confirmados_ba = px.choropleth_mapbox(
     color_continuous_scale=px.colors.sequential.PuBuGn,
     zoom=7.75,
     height=400,
-    width=650,
+    width=650
 )
 
 mapa_obitos_ba = px.choropleth_mapbox(
@@ -463,8 +584,8 @@ mapa_obitos_ba = px.choropleth_mapbox(
     title="Óbitos na Região Metropolitana <br>de Salvador (por 100 mil hab.)",
     color_continuous_scale=px.colors.sequential.Reds,
     zoom=7.75,
-    height=650,
-    width=650,
+    height=400,
+    width=650
 )
 
 
@@ -516,7 +637,7 @@ def criar_pagina():
                     with div(cls="collapse navbar-collapse", id="navbarTogglerDemo01"):
                         with ul(cls="navbar-nav me-auto"):
                             with li(cls="nav-item active"):
-                                a("Mapas das Macro Regiões", cls="nav-link", href=r"./macro_regioes.html")
+                                a("Mapas das Macro-Regiões", cls="nav-link", href=r"./macro_regioes.html")
                             with li(cls="nav-item active"):
                                 a("Sobre o projeto", cls="nav-link", href=r"./sobre.html")
                             with li(cls="nav-item active"):
