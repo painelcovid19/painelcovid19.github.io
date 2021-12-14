@@ -109,7 +109,7 @@ macro_fig_ba_ob = px.choropleth_mapbox(macro_mapa_bahia,
                            title = "Óbitos por 100 mil na Macro Região de Salvador",
                            labels={"Mortes por 100 mil habitantes": ""},
                            color_continuous_scale=px.colors.sequential.PuBuGn,
-                           zoom=7.75,
+                           zoom=7.85,
                            height=600,
                            width=1000
                            )
