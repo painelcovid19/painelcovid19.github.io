@@ -91,7 +91,7 @@ macro_fig_ba = px.choropleth_mapbox(macro_mapa_bahia,
                            center={"lat": -12.6089, "lon": -38.654},
                            opacity = 0.7,
                            mapbox_style="carto-positron",
-                           title = "Casos confirmados por 100 mil na Macro Região de Salvador",
+                           title = "Casos confirmados por 100 mil habitantes nos vizinhos de redenção na Macro Região de Salvador",
                            labels={"Confirmados por 100 mil habitantes": ""},
                            color_continuous_scale=px.colors.sequential.PuBuGn,
                            zoom=7.85,
@@ -111,7 +111,7 @@ macro_fig_ba_ob = px.choropleth_mapbox(macro_mapa_bahia,
                            color_continuous_scale=px.colors.sequential.PuBuGn,
                            zoom=7.75,
                            height=600,
-                           width=1050
+                           width=1000
                            )
 
 
