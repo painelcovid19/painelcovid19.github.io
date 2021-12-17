@@ -37,8 +37,9 @@ else:
         "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_ceara.csv"
     )
     macro_dados_ba = pd.read_csv(
-        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_bahia.csv"
+        'https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_macro_regioes_bahia.csv'
     )
+
 
 # MODIFICANDO O NOME DAS COLUNAS last_available_confirmed_per_100k_inhabitants E last_available_deaths_per_100k_inhabitants
 macro_dados = macro_dados.rename(
