@@ -5,6 +5,7 @@ import os
 import sys
 from urllib.parse import urlencode, urljoin
 from urllib.request import Request, urlopen
+from datetime import datetime, timedelta
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -56,6 +57,11 @@ class BrasilIO:
         request = Request(url, headers=self.headers)
         response = urlopen(request)
         return response
+
+
+def getYesterdaysDate():
+    date = datetime.strftime(datetime.now() - timedelta(1), "%Y-%m-%d")
+    return date
 
 
 def main(api_key):
@@ -182,7 +188,15 @@ def main(api_key):
         ]
 
         # pegando os dados acumulados das cidades do Ceará
-        filters_CE_acumulados = {"state": "CE", "is_last": True}
+        date = getYesterdaysDate()
+
+        # pegando os dados acumulados das cidades do ceará
+        filters_CE_acumulados = {
+            "state": "CE",
+            "had_cases": True,
+            "date": "{}".format(date),
+        }
+
         data_CE_acumlados = api.data(dataset_slug, table_name, filters_CE_acumulados)
         logging.info("Coletando os dados acumulados do Ceará")
         for row in data_CE_acumlados:
@@ -219,8 +233,16 @@ def main(api_key):
                         ]
                     )
 
-        # pegando os dados acumulados das cidades da Bahia
-        filters_Bahia = {"state": "BA", "is_last": True}
+        # pegando os dados acumulados das cidades da Baiha
+        date = getYesterdaysDate()
+
+        # pegando os dados acumulados das cidades da Baiha
+        filters_Bahia = {
+            "state": "BA",
+            "had_cases": True,
+            "date": "{}".format(date),
+        }
+
         data_BA = api.data(dataset_slug, table_name, filters_Bahia)
         logging.info("Coletando os dados acumulados da Bahia")
         for row in data_BA:
