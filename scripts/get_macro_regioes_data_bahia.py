@@ -2,6 +2,7 @@ import csv
 import json
 import logging
 from urllib.parse import urlencode, urljoin
+from datetime import datetime, timedelta
 from urllib.request import Request, urlopen
 import sys
 import os
@@ -63,6 +64,11 @@ class BrasilIO:
         return response
 
 
+def getYesterdaysDate():
+    date = datetime.strftime(datetime.now() - timedelta(1), "%Y-%m-%d")
+    return date
+
+
 def main(api_key):
     logging.info("Iniciando o script")
     api = BrasilIO(api_key)
@@ -105,45 +111,51 @@ def main(api_key):
             2905701,
             2906501,
             2907509,
-            2908200,	
-            2908309,	
-            2908507,	
-            2908903,	
-            2909802,	
-            2910057,	
-            2910800,	
-            2911600,	
-            2914505,	
-            2916104,	
-            2917805,	
-            2919207,	
-            2919926,	
-            2920601,	
-            2921005,	
-            2922201,	
-            2922300,	
-            2922508,	
-            2924108,	
-            2925204,	
-            2927309,	
-            2927408,	
-            2928604,	
-            2928802,	
+            2908200,
+            2908309,
+            2908507,
+            2908903,
+            2909802,
+            2910057,
+            2910800,
+            2911600,
+            2914505,
+            2916104,
+            2917805,
+            2919207,
+            2919926,
+            2920601,
+            2921005,
+            2922201,
+            2922300,
+            2922508,
+            2924108,
+            2925204,
+            2927309,
+            2927408,
+            2928604,
+            2928802,
             2929008,
-            2929107,	
-            2929206,	
-            2929305,	
-            2929503,	
-            2929602,	
-            2929750,	
-            2930709,	
-            2931400,	
-            2931707,	
+            2929107,
+            2929206,
+            2929305,
+            2929503,
+            2929602,
+            2929750,
+            2930709,
+            2931400,
+            2931707,
             2933208,
         ]
+        # pegando os dados acumulados das cidades da Baiha
+        date = getYesterdaysDate()
 
-        # pegando os dados acumulados das cidades do Ceará
-        filters_BA_acumulados = {"state": "BA", "is_last": True}
+        # pegando os dados acumulados das cidades da Baiha
+        filters_BA_acumulados = {
+            "state": "BA",
+            "had_cases": True,
+            "date": "{}".format(date),
+        }
         data_BA_acumlados = api.data(dataset_slug, table_name, filters_BA_acumulados)
         for row in data_BA_acumlados:
             for cod in codigosIBG_BA:
@@ -180,6 +192,7 @@ def main(api_key):
                         ]
                     )
     logging.info("dados coletados")
+
 
 if __name__ == "__main__":
     main(sys.argv[1])
