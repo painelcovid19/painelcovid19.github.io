@@ -45,7 +45,8 @@ for key in locations.keys():
                 "vacina_descricao_dose": hit.vacina_descricao_dose,
                 "vacina_fabricante_nome": hit.vacina_fabricante_nome,
                 "vacina_nome": hit.vacina_nome,
-                # "paciente_idade": hit.paciente_idade,
+                "paciente_idade": hit.paciente_idade,
+                "paciente_enumSexoBiologico": hit.paciente_enumSexoBiologico,
                 # "paciente_dataNascimento": hit.paciente_dataNascimento,
             }
         )
