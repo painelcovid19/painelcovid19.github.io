@@ -16,7 +16,7 @@ client = Elasticsearch(
         "Content-Type": "application/json",
         "Cookie": "ELASTIC-PROD=1618079452.839.9136.791476",
     },
-    request_timeout = 30
+    request_timeout=30,
 )
 
 for key in locations.keys():
@@ -43,8 +43,8 @@ for key in locations.keys():
             {
                 "vacina_dataAplicacao": hit.vacina_dataAplicacao,
                 "vacina_descricao_dose": hit.vacina_descricao_dose,
-                "vacina_fabricante_nome": hit.vacina_fabricante_nome,
-                "vacina_nome": hit.vacina_nome,
+                # "vacina_fabricante_nome": hit.vacina_fabricante_nome,
+                # "vacina_nome": hit.vacina_nome,
                 "paciente_idade": hit.paciente_idade,
                 "paciente_enumSexoBiologico": hit.paciente_enumSexoBiologico,
                 # "paciente_dataNascimento": hit.paciente_dataNascimento,
