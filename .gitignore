@@ -2,3 +2,5 @@
 .vscode
 .idea
 */__pycache__/*
+.env
+new_scripts/packages/__pycache__/
