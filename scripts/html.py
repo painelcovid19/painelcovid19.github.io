@@ -31,6 +31,7 @@ from plotly.subplots import make_subplots
 if __debug__:
     df_cidades_campi = pd.read_csv("./data/df_cidades_campi.csv")
     df_mapas = pd.read_csv("./data/df_dados_acumulados.csv")
+    df_atualizacao = pd.read_csv("./data/last_update_dates.csv")
 else:
     df_cidades_campi = pd.read_csv(
         "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_cidades_campi.csv"
@@ -40,12 +41,21 @@ else:
         "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/df_dados_acumulados.csv"
     )
 
+    df_atualizacao = pd.read_csv(
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/new_features/data/last_update_dates.csv"
+    )
+
 df_cidades_campi["MovingMeanConfirmed"] = df_cidades_campi["new_confirmed"].rolling(14).mean()
 df_cidades_campi["MovingMeanDeaths"] = df_cidades_campi["new_deaths"].rolling(14).mean()
 
 df_redencao = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2311603)]
 df_sfc = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2929206)]
 df_acarape = df_cidades_campi.loc[(df_cidades_campi["city_ibge_code"] == 2300150)]
+
+df_acarape_atualizacao = df_atualizacao.loc[(df_atualizacao["city"] == "Acarape")]
+df_redencao_atualizacao = df_atualizacao.loc[(df_atualizacao["city"] == "Redenção")]
+df_sfc_atualizacao = df_atualizacao.loc[(df_atualizacao["city"] == "São Francisco do Conde" )]
+
 
 # GRÁFICOS DE VACINADOS
 if __debug__:
@@ -710,6 +720,28 @@ def criar_pagina():
                                     h6("Óbitos em SFC")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc['last_available_deaths'].iloc[1]}")
+                        
+                        with div(cls="col"):
+                            with div(cls="card text-primary text-center"):
+                                with div(cls="card-header"):
+                                    p("Ultima Atualização Dos Dados de Acarape")
+                                with div(cls="card-body"):
+                                    div(f"{df_acarape_atualizacao['last_update_date'].loc[0]}")
+                        with div(cls="col"):
+                            with div(cls="card text-primary text-center"):
+                                with div(cls="card-header"):
+                                    p("Ultima Atualização Dos Dados de Redenção")
+                                with div(cls="card-body"):
+                                    div(f"{df_redencao_atualizacao['last_update_date'].loc[1]}")
+                        with div(cls="col"):
+                            with div(cls="card text-primary text-center"):
+                                with div(cls="card-header"):
+                                    p("Ultima Atualização Dos Dados de São Francisco do Conde")
+                                with div(cls="card-body"):
+                                    div(f"{df_sfc_atualizacao['last_update_date'].loc[2]}")
+
+
+
 
                     with div(cls="row m-3"):
                         with div(cls="col"):
