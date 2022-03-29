@@ -9,7 +9,6 @@ import os
 
 logging.basicConfig(level=logging.DEBUG)
 
-
 date = getYesterdaysDate()
 payload = {"state": "CE", "had_cases": True, "date": "{}".format(date)}
 
