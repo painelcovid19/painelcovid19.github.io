@@ -66,31 +66,3 @@ jobs:
           git add -A
           git commit --allow-empty -m ":robot: Updated CSV Bahia Data Region"
           git push
-
-  generate_html_file_and_push:
-    name: Gerate html file
-    if: always()
-    needs: [get_brasil_io_data_and_push, get_ceara_data_and_push, get_bahia_data_and_push, get_vaccine_data_and_push]
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: installing dependencies
-        run: |
-          pip install plotly==4.14.3
-          pip install pandas
-          pip install dominate
-          pip install geopandas
-
-      - name: Generate HTML file
-        run: python -O ./scripts/html.py
-
-      - name: Commit and Push
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull
-          git add -A
-          git commit --allow-empty -m ":robot: Generated HTML file"
-          git push
