@@ -37,7 +37,7 @@ def main(api_key):
 
     last_dates = []
 
-    with open(f"{directory}/.csv", "w", newline="", encoding="utf-8") as csv_file:
+    with open(f"{directory}/df_cidades_campi.csv", "w", newline="", encoding="utf-8") as csv_file:
         csv_write = csv.writer(csv_file)
         csv_write.writerow(columns)
         logging.info("Iniciando a coleta de dados")
