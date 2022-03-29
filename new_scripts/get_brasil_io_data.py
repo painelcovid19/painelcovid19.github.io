@@ -2,11 +2,13 @@ from packages.generate_csv_file import write_csv_file, get_last_update_date
 from packages.api import url
 import requests
 import csv
+import sys
 import os
+import logging
 from dotenv import load_dotenv, find_dotenv
 
-load_dotenv(find_dotenv())
-api_key = os.getenv("API_KEY")
+
+logging.basicConfig(level=logging.DEBUG)
 
 payload = [
     {"state": "CE", "is_last": False, "city": "Acarape"},
