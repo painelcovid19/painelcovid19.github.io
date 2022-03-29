@@ -68,4 +68,4 @@ def main(api_key):
 
 
 if __name__ == "__main__":
-    main("3ad6d8d9df085cdea89c2beef76f584c74f47aee")
+    main(sys.argv[1])
