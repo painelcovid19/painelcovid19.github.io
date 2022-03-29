@@ -38,14 +38,14 @@ columns = [
 
 last_dates = []
 
-directory = "./data"
+directory = "./dt"
 
 if not os.path.exists(directory):
     os.makedirs(directory)
 
 
 def main(api_key):
-    headers = {"authorization": f"{api_key}"}
+    headers = {"authorization": f"Token {api_key}"}
 
     response_CE = requests.get(url, headers=headers, params=filters[0])
     response_BA = requests.get(url, headers=headers, params=filters[1])
@@ -68,4 +68,4 @@ def main(api_key):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main("3ad6d8d9df085cdea89c2beef76f584c74f47aee")
