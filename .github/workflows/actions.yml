@@ -46,17 +46,17 @@ jobs:
           git commit --allow-empty -m ":robot: Updated CSV Ceara Region Data"
           git push
 
-  get_bahia_data_and_push:
-    name: csv macro region Bahia
+  get_acumulated_data_and_push:
+    name: csv Acumulated data
     if: always()
-    needs: [get_brasil_io_data_and_push, get_ceara_data_and_push, get_vaccine_data_and_push]
+    needs: [get_brasil_io_data_cities, get_macro_rigions_data_and_push]
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       
       - name: Retrieve Brasil.IO data
-        run: python ./scripts/get_macro_regioes_data_bahia.py ${{ secrets.BRASIL_IO_API_KEY }}
+        run: python ./new_scripts/get_acumulate_data.py ${{ secrets.BRASIL_IO_API_KEY }}
 
       - name: Commit and Push
         run: |
