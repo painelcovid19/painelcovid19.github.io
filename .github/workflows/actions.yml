@@ -25,38 +25,17 @@ jobs:
           git commit --allow-empty -m ":robot: Updated Vaccine CSV"
           git push
 
-  get_brasil_io_data_and_push:
-    name: csv acarape redencao and SFC
+  get_macro_rigions_data_and_push:
+    name: csv macro regions of Ceara and Baiha
     if: always()
-    needs: get_vaccine_data_and_push
+    needs: get_brasil_io_data_cities
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
       
       - name: Retrieve Brasil.IO data
-        run: python ./scripts/get_brasil_io_data.py ${{ secrets.BRASIL_IO_API_KEY }}
-
-      - name: Commit and Push
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull
-          git add -A
-          git commit --allow-empty -m ":robot: Updated CSV"
-          git push
-
-  get_ceara_data_and_push:
-    name: csv macro region Ceara
-    if: always()
-    needs: [get_brasil_io_data_and_push, get_vaccine_data_and_push]
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      
-      - name: Retrieve Brasil.IO data
-        run: python ./scripts/get_macro_regioes_data_ceara.py ${{ secrets.BRASIL_IO_API_KEY }}
+        run: python ./new_scripts/get_macro_regions_data.py ${{ secrets.BRASIL_IO_API_KEY }}
 
       - name: Commit and Push
         run: |
