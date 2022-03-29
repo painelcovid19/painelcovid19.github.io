@@ -1,4 +1,4 @@
-name: CreateCSVs and Generate HTML file
+name: CreateCSVs Data files
 
 on:
   workflow_dispatch:
@@ -6,22 +6,15 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
-  get_vaccine_data_and_push:
-    name: csv Vaccine
+  get_brasil_io_data_cities:
+    name: csv Cities of Campis
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: installing dependecies
-        run: |
-          pip install elasticsearch7
-          pip install elasticsearch-dsl
-          pip install tqdm
-          pip install pandas
       
-      - name: Generate CSV files for vaccine data
-        run: python ./scripts/get_vaccination_data.py 
+      - name: Retrieve Brasil.IO data 
+        run: python ./new_scripts/get_brasil_io_data.py ${{ secrets.BRASIL_IO_API_KEY }}
 
       - name: Commit and Push
         run: |
