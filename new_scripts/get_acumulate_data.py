@@ -38,7 +38,7 @@ columns = [
 
 last_dates = []
 
-directory = "./dt"
+directory = "./data"
 
 if not os.path.exists(directory):
     os.makedirs(directory)
