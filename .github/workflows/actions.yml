@@ -22,7 +22,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull
           git add -A
-          git commit --allow-empty -m ":robot: Updated Vaccine CSV"
+          git commit --allow-empty -m ":robot: Updated Cities of Campis data csv"
           git push
 
   get_macro_rigions_data_and_push:
@@ -43,7 +43,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull
           git add -A
-          git commit --allow-empty -m ":robot: Updated CSV Ceara Region Data"
+          git commit --allow-empty -m ":robot: Updated macro regions of Ceara and Baiha csv"
           git push
 
   get_acumulated_data_and_push:
@@ -64,5 +64,5 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull
           git add -A
-          git commit --allow-empty -m ":robot: Updated CSV Bahia Data Region"
+          git commit --allow-empty -m ":robot: Updated Acumulated data csv"
           git push
