@@ -6,13 +6,16 @@ on:
     - cron: '10 0 * * *'
 
 jobs:
-  get_brasil_io_data_and_push:
+  get_covid_br_data_and_push:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+      - name: installing dependecies
+        run: |
+          pip install pandas
       
-      - name: Retrieve Brasil.IO data
+      - name: Retrieve Covid_br data
         run: python ./covid_br/get_accumulated_data.py
 
       - name: Commit and Push
