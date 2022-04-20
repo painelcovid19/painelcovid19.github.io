@@ -4,4 +4,5 @@
 */__pycache__/*
 .env
 new_scripts/packages/__pycache__/
+covid_br/.ipynb_checkpoints/
 covid_br/cases-brazil-cities-time.csv
