@@ -42,8 +42,8 @@ datas = get_acumulated_data(codigosIBG_acum)
 
 acumulated_data = pd.concat(datas)
 
-columns = ["city", "ibgeID", "date", "totalCases","deaths_per_100k_inhabitants", "totalCases_per_100k_inhabitants", "deaths", "newCases", "newDeaths"]
-new_columns =["city", "city_ibge_code", "date", "last_available_confirmed","last_available_deaths_per_100k_inhabitants", "last_available_confirmed_per_100k_inhabitants", "last_available_deaths", "new_confirmed", "new_deaths"]
+columns = ["city", "ibgeID", "date","state", "totalCases","deaths_per_100k_inhabitants", "totalCases_per_100k_inhabitants", "deaths", "newCases", "newDeaths"]
+new_columns =["city", "city_ibge_code", "date", "state", "last_available_confirmed","last_available_deaths_per_100k_inhabitants", "last_available_confirmed_per_100k_inhabitants", "last_available_deaths", "new_confirmed", "new_deaths"]
 
 acumulated_data = acumulated_data[columns]
 

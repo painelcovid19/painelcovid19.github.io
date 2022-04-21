@@ -17,7 +17,7 @@ df_filter = (df_cases["city"] == "Acarape/CE") | (df_cases["city"] == "Redençã
 
 df_campis = df_cases[df_filter][columns]
 
-df_campis.columns = ["city", "city_ibge_code", "date", "last_available_confirmed", "last_available_confirmed_per_100k_inhabitants", "last_available_deaths", "new_confirmed", "new_deaths"]
+df_campis.columns = ["city", "city_ibge_code", "date", "state", "last_available_confirmed", "last_available_confirmed_per_100k_inhabitants", "last_available_deaths", "new_confirmed", "new_deaths"]
 
 df_campis = df_campis.sort_values(by="city")
 
