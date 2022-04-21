@@ -56,5 +56,12 @@ acumulated_data.head()
 
 acumulated_data = acumulated_data.sort_values(by="city", ignore_index=True)
 
+def rename_city(city):
+    city_name, uf = city.split("/")
+    city = city_name
+    return city
+    
+acumulated_data["city"] = acumulated_data["city"].apply(rename_city)
+
 acumulated_data.to_csv("./data/df_dados_acumulados.csv", index=False)
 
