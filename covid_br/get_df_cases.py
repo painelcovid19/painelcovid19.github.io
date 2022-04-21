@@ -1,11 +1,12 @@
 import pandas as pd
 
-df_cases = pd.read_csv("covid_br/cases-brazil-cities-time.csv")
+df_cases = pd.read_csv("https://github.com/wcota/covid19br/blob/master/cases-brazil-cities-time.csv.gz?raw=true", compression='gzip')
 
 columns = [
     "city",
      "ibgeID", 
-     "date", 
+     "date",
+     "state", 
      "totalCases",
       "totalCases_per_100k_inhabitants", 
       "deaths", 
