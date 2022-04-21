@@ -12,6 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: installing dependecies
+        run: |
+          pip install pandas
       
       - name: Retrieve Brasil.IO data 
         run: python ./covid_br/get_df_cases.py
