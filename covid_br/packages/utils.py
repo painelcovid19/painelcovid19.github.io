@@ -6,8 +6,8 @@ def get_last_update_date(data):
     last_updates = {}
     for index, row in enumerate(data["new_confirmed"]):
         if row >= 1:
-            last_updates["city"] = data["city"].loc[0]
-            last_updates["date"] = data.loc[index, "date"]
+            last_updates["city"] = data["city"].iloc[index]
+            last_updates["date"] = data.iloc[index, 2]
             break
     return last_updates
 
