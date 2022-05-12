@@ -17,9 +17,6 @@ jobs:
       
       - name: Retrieve Covid_br data
         run: python ./covid_br/get_accumulated_data.py
-      
-      - name: getting macroregions datas
-      - run : python ./covid_br/get_macroregion_data.py
 
       - name: Commit and Push
         run: |
