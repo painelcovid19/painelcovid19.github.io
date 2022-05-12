@@ -49,7 +49,7 @@ if not os.path.exists(directory):
 
 df_campis.to_csv(f"{directory}/df_cidades_campi.csv", index=False)
 
-with open(f"{directory}/last_updated_dates.csv", "w", encoding="utf-8") as csv_file:
+with open(f"{directory}/last_update_dates.csv", "w", encoding="utf-8") as csv_file:
     csv_writer= csv.writer(csv_file)
     csv_writer.writerow(["city", "dates"])
     for row in last_updated_date:
