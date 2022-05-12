@@ -1,4 +1,7 @@
 import pandas as pd
+import os
+import csv
+from packages.utils import get_last_update_date, rename_city
 
 df_cases = pd.read_csv("https://github.com/wcota/covid19br/blob/master/cases-brazil-cities-time.csv.gz?raw=true", compression='gzip')
 
