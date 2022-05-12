@@ -26,9 +26,9 @@ df_campis.columns = ["city", "city_ibge_code", "date", "state", "last_available_
 df_campis = df_campis.sort_values(by="city")
 df_campis["city"] = df_campis["city"].apply(rename_city)
 
-df_Acarape = df_campis[df_campis["city"] == "Acarape/CE"].sort_values(by="date", ascending=False)
-df_Redencao = df_campis[df_campis["city"] == "Redenção/CE"].sort_values(by="date", ascending=False)
-df_SFC = df_campis[df_campis["city"] == "São Francisco do Conde/BA"].sort_values(by="date", ascending=False)
+df_Acarape = df_campis[df_campis["city"] == "Acarape"].sort_values(by="date", ascending=False)
+df_Redencao = df_campis[df_campis["city"] == "Redenção"].sort_values(by="date", ascending=False)
+df_SFC = df_campis[df_campis["city"] == "São Francisco do Conde"].sort_values(by="date", ascending=False)
 
 df_campis = pd.concat([df_Acarape, df_Redencao, df_SFC])
 
