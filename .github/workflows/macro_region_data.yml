@@ -11,9 +11,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: installing dependecy
+      - run: |
+          pip install pandas
       
       - name: Retrieve Brasil.IO data
-        run: python ./new_scripts/get_macro_regions_data.py ${{ secrets.BRASIL_IO_API_KEY }}
+        run: python ./covid_br/get_macroregion_data.py 
 
       - name: Commit and Push
         run: |
