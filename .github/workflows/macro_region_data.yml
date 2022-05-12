@@ -1,4 +1,4 @@
-name: CreateCSV macro regions of Ceara and Baiha
+name: Create macroregions CSVs
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     - cron: '15 0 * * *'
 
 jobs:
-  get_bahia_data_and_push:
+  get_macro_region_data_and_push:
     runs-on: ubuntu-latest
 
     steps:
