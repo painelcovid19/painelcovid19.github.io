@@ -726,19 +726,19 @@ def criar_pagina():
                                 with div(cls="card-header"):
                                     p("Ultima Atualização Dos Dados de Acarape")
                                 with div(cls="card-body"):
-                                    div(f"{df_acarape_atualizacao['last_update_date'].loc[0]}")
+                                    div(f"{df_acarape_atualizacao['dates'].loc[0]}")
                         with div(cls="col"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
                                     p("Ultima Atualização Dos Dados de Redenção")
                                 with div(cls="card-body"):
-                                    div(f"{df_redencao_atualizacao['last_update_date'].loc[1]}")
+                                    div(f"{df_redencao_atualizacao['dates'].loc[1]}")
                         with div(cls="col"):
                             with div(cls="card text-primary text-center"):
                                 with div(cls="card-header"):
                                     p("Ultima Atualização Dos Dados de São Francisco do Conde")
                                 with div(cls="card-body"):
-                                    div(f"{df_sfc_atualizacao['last_update_date'].loc[2]}")
+                                    div(f"{df_sfc_atualizacao['dates'].loc[2]}")
 
 
 
