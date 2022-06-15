@@ -42,7 +42,7 @@ else:
     )
 
     df_atualizacao = pd.read_csv(
-        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/new_features/data/last_update_dates.csv"
+        "https://raw.githubusercontent.com/painelcovid19/painelcovid19.github.io/main/data/last_update_dates.csv"
     )
 
 df_cidades_campi["MovingMeanConfirmed"] = df_cidades_campi["new_confirmed"].rolling(14).mean()
