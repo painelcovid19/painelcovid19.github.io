@@ -4,8 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+jinja2 = "*"
+plotly = "*"
+pandas = "*"
+dominate = "*"
+gdal = {path = "./dependencies/cp310-win_amd64/GDAL-3.4.3-cp310-cp310-win_amd64.whl"}
+fiona = {path = "./dependencies/cp310-win_amd64/Fiona-1.8.21-cp310-cp310-win_amd64.whl"}
+pyproj = {path = "./dependencies/cp310-win_amd64/pyproj-3.3.1-cp310-cp310-win_amd64.whl"}
+rtree = {path = "./dependencies/cp310-win_amd64/Rtree-1.0.0-cp310-cp310-win_amd64.whl"}
+shapely = {path = "./dependencies/cp310-win_amd64/Shapely-1.8.2-cp310-cp310-win_amd64.whl"}
+geopandas = "*"
 
 [dev-packages]
-
-[requires]
-python_version = "3.10"
+yapf = "*"
+isort = "*"
