@@ -18,6 +18,7 @@ jobs:
           pip install pandas
           pip install dominate
           pip install geopandas
+          pip install matplotlib
 
       - name: Generate R(t) HTML file
         run: python -O ./scripts/rt_html.py
