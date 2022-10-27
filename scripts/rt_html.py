@@ -22,6 +22,7 @@ from dominate.tags import (
     script,
     span,
     ul,
+    style
 )
 from dominate.util import raw
 from plotly import express as px
@@ -153,7 +154,13 @@ def criar_pagina():
         with div(cls="container-fluid bg-light"):
             with div(cls="row", style="padding: 90px 15px 0;"):
                 with div(cls="col text-primary justify-content-center"):
-                    h4("Indice de Transmisão da covid RT")
+                    with div(cls="col text-dark mx-auto text-justify", style="width: 80%;"):
+                        p("O R(t) é uma estimativa da taxa de transmissão de uma epidemia ao longo do tempo, ou seja, durante o período da pandemia mesmo após já ter sido descoberta uma possível forma de imunização ou de vacinação. Ele não só proporciona outras formas de análise de dados e visualizações da disseminação do vírus, como também se faz um recurso indispensável nas tomadas de decisões e implementações de políticas de enfrentamento de doenças epidemiológicas, no nosso caso a Covid-19")
+                        
+                        p("Os valores desta taxa variam numa escala que podem ser maiores ou menores que 1. Uma vez que o valor do Rt é maior que 1, podemos entender que a pandemia está se expandindo e a infecções estão aumentando. Caso o valor da mesma seja menor que 1, podemos entender que a pandemia está regredindo, ou seja, as infecções não estão aumentando.Para interpretarmos os valores resultantes do cálculo do Rt, podemos nos atentar no seguinte exemplo: se uma pessoa infectada transmite o vírus, em média, para outras duas pessoas, estamos diante de um Rt de 2, caso ela transmita para 3 pessoas, estamos diante de um Rt de valor 3. O cálculo do Rt depende de muitos fatores e o valor do mesmo pode ser impactado também pelo surgimento de diferentes vacinas, formas de prevenção e medidas de proteção (como, por exemplo, o distanciamento entre as pessoas e o uso de máscaras).")
+                        
+                    with div(cls="col text-primary d-flex justify-content-center"):
+                        h4("Indice de Transmisão da covid R(t)")
                     with div(cls="row m-3 justify-content-around"):
                         with div(cls="col d-flex justify-content-center"):
                             raw(figure_acarape.to_html(full_html=False, include_plotlyjs="cdn"))
@@ -174,7 +181,7 @@ def criar_pagina():
                         with div(cls="text-primary"):
                             p("Fontes:")
                             with p("Casos e óbitos: "):
-                                a("Brasil.IO", href="https://brasil.io/")
+                                a("covid19br", href="https://covid19br.wcota.me/")
                             with p("Vacinação: "):
                                 a(
                                     "Ministério da Saúde",
