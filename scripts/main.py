@@ -816,7 +816,7 @@ def criar_pagina():
                         with div(cls="text-primary"):
                             p("Fontes:")
                             with p("Casos e óbitos: "):
-                                a("Brasil.IO", href="https://brasil.io/")
+                                a("covid19br", href="https://covid19br.wcota.me/")
                             with p("Vacinação: "):
                                 a(
                                     "Ministério da Saúde",
