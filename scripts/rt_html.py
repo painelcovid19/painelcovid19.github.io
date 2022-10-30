@@ -123,6 +123,8 @@ def criar_pagina():
                                 a("Equipe", cls="nav-link", href=r"./equipe.html")
                             with li(cls="nav-item active"):
                                 a("Estimativa R(t)", cls="nav-link", href=r"./rt.html")
+                            with li(cls="nav-item active"):
+                                a("vacinas", cls="nav-link", href=r"./vacinas.html")
 
                         with div(cls="ps-3"):
                             with a(target="_blank", href="http://www.unilab.edu.br"):
