@@ -654,6 +654,8 @@ def criar_pagina():
                                 a("Equipe", cls="nav-link", href=r"./equipe.html")
                             with li(cls="nav-item active"):
                                 a("Estimativa R(t)", cls="nav-link", href=r"./rt.html")
+                            with li(cls="nav-item active"):
+                                a("vacinas", cls="nav-link", href=r"./vacinas.html")
 
                         with div(cls="ps-3"):
                             with a(target="_blank", href="http://www.unilab.edu.br"):
@@ -741,23 +743,7 @@ def criar_pagina():
                                     p("Ultima Atualização Dos Dados de São Francisco do Conde")
                                 with div(cls="card-body"):
                                     div(f"{df_sfc_atualizacao['dates'].loc[2]}")
-
-
-
-
-                    with div(cls="row m-3"):
-                        with div(cls="col"):
-                            with div(cls="row"):
-                                with div(cls="col text-primary"):
-                                    h4("APLICAÇÃO DE VACINAS")
-                            with div(cls="container"):
-                                with div(cls="row"):
-                                    with div(cls="col"):
-                                        raw(
-                                            vacinas.to_html(
-                                                full_html=False, include_plotlyjs="cdn"
-                                            )
-                                        )
+                                 
 
                     with div(cls="row"):
                         with div(cls="col"):
@@ -766,7 +752,7 @@ def criar_pagina():
                                     h4("EVOLUÇÃO DE CASOS E ÓBITOS")
                             with div(cls="row justify-content-around"):
                                 with div(cls="col d-flex justify-content-center"):
-                                    raw(trace1.to_html(full_html=False, include_plotlyjs=False))
+                                    raw(trace1.to_html(full_html=False, include_plotlyjs=True))
                                 with div(cls="col d-flex justify-content-center"):
                                     raw(trace3.to_html(full_html=False, include_plotlyjs=False))
                             with div(cls="row m-3 justify-content-around"):
