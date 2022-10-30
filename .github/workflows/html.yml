@@ -24,6 +24,9 @@ jobs:
 
       - name: Generate R(t) HTML file
         run: python -O ./scripts/rt_html.py
+      
+      - name: Generate vaccines HTML file
+        run: python -O ./scripts/vacinas_html.py
 
       - name: Generate HTML file
         run: python -O ./scripts/main.py
@@ -33,5 +36,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit --allow-empty -m ":robot: Generated index HTML file and R(t) HTML file"
+          git commit --allow-empty -m ":robot: Generated index HTML file, R(t) HTML file and vacinas HTML file"
           git push
