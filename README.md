@@ -8,14 +8,14 @@ Este site foi produzido no âmbito do projeto de extensão referente ao Edital P
 
 ## Tecnologias
 
-- [x] python
+- [x] Python
 
-  - [x] plotly
-  - [x] pandas
-  - [x] geopandas
-  - [x] dominate
+  - [x] Plotly
+  - [x] Pandas
+  - [x] Geopandas
+  - [x] Dominate
   
-- [x] html
-- [x] css
-- [x] bootstrap
-- [x] elasticserch
+- [x] HTML
+- [x] CSS
+- [x] Bootstrap
+- [x] Elastic Search
